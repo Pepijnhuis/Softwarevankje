@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">YvonTelefoon1</string>
+    <string name="create_account_3_student">Create Account 3 Student</string>
+    <string name="first_name">First Name</string>
+    <string name="school">School</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="hobby_one">Hobby #1</string>
+    <string name="hobby_two">Hobby #2</string>
+    <string name="hobby_three">Hobby #3</string>
+    <string name="study">Study</string>
+    <string name="about_me_description">Write a short description of yourself here</string>
+    <string name="about_me">About me</string>
+    <string name="day">Day</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="study">Study</string>
+    <string name="school">School</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="date_of_birth">Date of birth</string>
+</resources>
