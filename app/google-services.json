@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "14874424109",
+    "firebase_url": "https://loginscreen-ce86e.firebaseio.com",
+    "project_id": "loginscreen-ce86e",
+    "storage_bucket": "loginscreen-ce86e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14874424109:android:71d5fb11d3d9ca9a",
+        "android_client_info": {
+          "package_name": "com.example.tinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14874424109-4oa10o9f7kg9456qk352qgi2083ttnn1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tinder",
+            "certificate_hash": "6135c5b06c09e2c14eb0ea9361990ff63802a17a"
+          }
+        },
+        {
+          "client_id": "14874424109-anoko808v66vg8q3733k09e7q8832b9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC97zSOOodfLfPZqdj9H75PS7Dripyu5As"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14874424109-anoko808v66vg8q3733k09e7q8832b9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

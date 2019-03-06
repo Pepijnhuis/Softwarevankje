@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.dut.ide.software.yvontelefoon1">
+    package="com.example.tinder">
 
     <application
         android:allowBackup="true"
@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateAccount4Student"></activity>
-        <activity android:name=".CreateAccount2" />
-        <activity android:name=".CreateAccount3Student" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".CreateAccount2"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ChooseLoginRegistrationAcitivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
