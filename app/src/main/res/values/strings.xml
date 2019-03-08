@@ -7,6 +7,11 @@
     <string name="create_password">Create password</string>
     <string name="password">Password</string>
 
+    //info both
+    <string name="looking_for">Looking for</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+
     //info student
     <string name="create_account_3_student">Create Account 3 Student</string>
     <string name="first_name">First Name</string>
@@ -29,6 +34,8 @@
     <string name="hobbies">Hobbies</string>
     <string name="date_of_birth">Date of birth</string>
 
+    <string name="upload_photos_of_you">Upload photos of you</string>
+
     //info house
     <string name="address">Address</string>
     <string name="address_hint">Street, House number</string>
@@ -44,6 +51,15 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="about_us">About us</string>
+    <string name="about_us_description">Write a short description of your house here</string>
+
+    <string name="upload_photos_of_room">Upload photos of room</string>
+    <string name="upload_photos_of_housemates">Upload photos of housemates</string>
+
+    <string name="age">Age</string>
+
+
 
 
 </resources>
