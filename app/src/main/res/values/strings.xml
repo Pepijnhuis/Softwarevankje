@@ -1,6 +1,8 @@
 <resources>
 
     <string name="app_name">YvonTelefoon1</string>
+
+    //info student
     <string name="create_account_3_student">Create Account 3 Student</string>
     <string name="first_name">First Name</string>
     <string name="school">School</string>
@@ -21,4 +23,15 @@
     <string name="month">Month</string>
     <string name="hobbies">Hobbies</string>
     <string name="date_of_birth">Date of birth</string>
+
+    //info house
+    <string name="address">Address</string>
+    <string name="address_hint">Street, House number</string>
+    <string name="name_house">House name</string>
+    <string name="rent_per_month">Rent per month</string>
+    <string name="size_room">Size of room m^2</string>
+    <string name="number_of_housemates">Number of housemates</string>
+    <string name="rent_hint">euros</string>
+    <string name="size_hint">m^2</string>
+
 </resources>
