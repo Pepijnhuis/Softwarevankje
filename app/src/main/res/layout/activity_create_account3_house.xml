@@ -73,7 +73,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="20sp"
-                    tools:context=".CreateAccount3Student">
+                    tools:context=".CreateAccount3Student"/>
 
                 <TextView
                     android:layout_width="wrap_content"

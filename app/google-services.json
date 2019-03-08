@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "14874424109-0r182v1s4ru5jnnvcmlp0o3pdro7f4es.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tinder",
+            "certificate_hash": "db460e9924cdf70be7e39925ea54d7a832b753e1"
+          }
+        },
+        {
           "client_id": "14874424109-anoko808v66vg8q3733k09e7q8832b9i.apps.googleusercontent.com",
           "client_type": 3
         }
