@@ -1,5 +1,6 @@
 package com.example.tinder;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
         //Make the array of cards
         al = new ArrayList<>();
         al.add("php");
@@ -94,5 +96,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void logoutUser(View view) {
+        mAuth.signOut();
+        Intent intent = new Intent(MainActivity.this,  ChooseLoginRegistrationAcitivity.class);
+        startActivity(intent);
+        finish();
+        return;
     }
 }
