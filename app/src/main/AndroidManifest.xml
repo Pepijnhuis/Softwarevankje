@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Slideactivity"></activity>
+        <activity android:name=".CreateAccount3House"></activity>
         <activity android:name=".CreateAccount2" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity" />
