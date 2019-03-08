@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateAccount1"></activity>
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".MessagesActivity" />
+        <activity
+            android:name=".MainNavigation"
+            android:label="@string/title_activity_main_navigation" />
+        <activity android:name=".CreateAccount1" />
         <activity android:name=".CreateAccount5House" />
         <activity android:name=".CreateAccount5Student" />
         <activity android:name=".CreateAccount4House" />
@@ -17,7 +22,7 @@
         <activity android:name=".Slideactivity" />
         <activity android:name=".CreateAccount3House" />
         <activity android:name=".CreateAccount2" />
-        <activity android:name="CreateAccount3Student"/>
+        <activity android:name=".CreateAccount3Student" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

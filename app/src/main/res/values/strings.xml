@@ -40,6 +40,10 @@
     <string name="size_hint">m^2</string>
     <string name="text_house_button">I am looking for a house</string>
     <string name="text_housemate_button">I am looking for a housemate</string>
+    <string name="title_activity_main_navigation">MainNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 
 </resources>
