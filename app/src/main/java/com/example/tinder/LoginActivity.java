@@ -20,16 +20,14 @@ public class LoginActivity extends AppCompatActivity {
     private Button mLogin;
 
     private EditText mEmail,mPassword;
-
+    private Button mRegisterbutton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -44,11 +42,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+        mRegisterbutton = (Button) findViewById(R.id.registeraccount);
+        mRegisterbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, CreateAccount2.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        mLogin = (Button) findViewById(R.id.login);
+        mLogin = (Button) findViewById(R.id.loginaccount);
 
-        mEmail = (EditText) findViewById(R.id.email);
-        mPassword = (EditText) findViewById(R.id.password);
+        mEmail = (EditText) findViewById(R.id.emailbox);
+        mPassword = (EditText) findViewById(R.id.passwordbox);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
-
 
     }
 
