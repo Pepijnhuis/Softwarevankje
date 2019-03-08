@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.tinder"
-        minSdkVersion 21
+        minSdkVersion 26
 
         targetSdkVersion 28
         versionCode 1
@@ -34,4 +34,3 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
-}
