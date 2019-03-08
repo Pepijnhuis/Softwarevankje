@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,15 +22,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Slideactivity extends AppCompatActivity {
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+    private cards card_data[];
+    private arrayAdapter arrayAdapter;
     private int i;
 
 
     private FirebaseAuth mAuth;
+
+    private String currentuserID;
+
+    private  DatabaseReference userDb;
+
+    ListView listView;
+    List<cards> rowItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +50,10 @@ public class Slideactivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //Make the array of cards
-        al = new ArrayList<>();
+        rowItems = new ArrayList<cards>();
 
         //Make the cards object
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.  item, R.id.helloText, al );
+        arrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
         //Something to do with the Swipecards plugin from github:  https://github.com/Diolor/Swipecards
         SwipeFlingAdapterView flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
@@ -56,7 +66,7 @@ public class Slideactivity extends AppCompatActivity {
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
+                rowItems.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -76,8 +86,6 @@ public class Slideactivity extends AppCompatActivity {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
             }
@@ -158,7 +166,8 @@ public class Slideactivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists()){
-                    al.add(dataSnapshot.child("Name").getValue().toString());
+                    cards item = new cards(dataSnapshot.getKey(),dataSnapshot.child("Name").getValue().toString());
+                    rowItems.add(item);
                     arrayAdapter.notifyDataSetChanged();
                 }
             }
