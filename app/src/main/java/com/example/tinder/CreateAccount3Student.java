@@ -1,4 +1,4 @@
-package nl.dut.ide.software.yvontelefoon1;
+package com.example.tinder;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
