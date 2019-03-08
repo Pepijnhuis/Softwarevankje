@@ -5,6 +5,8 @@
     <string name="school">School</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="bachelor">Bachelor</string>
+    <string name="master">Master</string>
     <string name="hobby_one">Hobby #1</string>
     <string name="hobby_two">Hobby #2</string>
     <string name="hobby_three">Hobby #3</string>

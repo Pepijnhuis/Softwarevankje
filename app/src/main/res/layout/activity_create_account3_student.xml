@@ -29,22 +29,26 @@
         android:inputType="textPersonName" />
 
     <RadioGroup
+        android:id="@+id/RadioGroupGender"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:checkedButton="@+id/Male" >
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/Male"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/Male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Male"
             android:text="@string/male" />
 
         <RadioButton
+            android:id="@+id/Female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Female"
             android:text="@string/female" />
-        />
+
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +62,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
         android:layout_weight="0"
         android:orientation="horizontal">
@@ -132,6 +136,28 @@
         android:hint="@string/study"
         android:inputType="text" />
 
+    <RadioGroup
+        android:id="@+id/RadioGroupBscMsc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/Bachelor"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/Bachelor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bachelor" />
+
+        <RadioButton
+            android:id="@+id/Master"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/master" />
+
+    </RadioGroup>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -191,7 +217,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40sp"
+        android:layout_height="wrap_content"
         android:layout_weight="0"
         android:orientation="horizontal">
 
