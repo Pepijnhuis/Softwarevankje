@@ -40,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/loginaccount"
@@ -69,9 +70,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
         android:layout_marginTop="536dp"
-        android:text="Try Create Account"
+        android:text="Create Account"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goToCreateAccount1"/>
 
 
 </android.support.constraint.ConstraintLayout>

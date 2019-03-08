@@ -42,16 +42,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        mRegisterbutton = (Button) findViewById(R.id.registeraccount);
-        mRegisterbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, CreateAccount2.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         mLogin = (Button) findViewById(R.id.loginaccount);
 
         mEmail = (EditText) findViewById(R.id.emailbox);
@@ -85,6 +75,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
+
+    //Create account button
+    public void goToCreateAccount1(View view) {
+        Intent intent = new Intent (LoginActivity.this, CreateAccount1.class);
+        startActivity(intent);
+        return;
     }
 }
 

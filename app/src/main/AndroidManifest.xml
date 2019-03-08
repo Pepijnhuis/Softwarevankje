@@ -17,6 +17,7 @@
         <activity android:name=".Slideactivity" />
         <activity android:name=".CreateAccount3House" />
         <activity android:name=".CreateAccount2" />
+        <activity android:name="CreateAccount3Student"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

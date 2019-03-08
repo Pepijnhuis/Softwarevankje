@@ -2,6 +2,11 @@
 
     <string name="app_name">YvonTelefoon1</string>
 
+    //info account
+    <string name="email">Email</string>
+    <string name="create_password">Create password</string>
+    <string name="password">Password</string>
+
     //info student
     <string name="create_account_3_student">Create Account 3 Student</string>
     <string name="first_name">First Name</string>
@@ -33,9 +38,8 @@
     <string name="number_of_housemates">Number of housemates</string>
     <string name="rent_hint">euros</string>
     <string name="size_hint">m^2</string>
-    <string name="email">E-mail:</string>
-    <string name="password">Password:</string>
     <string name="text_house_button">I am looking for a house</string>
     <string name="text_housemate_button">I am looking for a housemate</string>
+
 
 </resources>
