@@ -35,5 +35,7 @@
     <string name="size_hint">m^2</string>
     <string name="email">E-mail:</string>
     <string name="password">Password:</string>
+    <string name="text_house_button">I am looking for a house</string>
+    <string name="text_housemate_button">I am looking for a housemate</string>
 
 </resources>

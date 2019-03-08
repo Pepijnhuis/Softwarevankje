@@ -21,7 +21,7 @@ public class CreateAccount2 extends AppCompatActivity {
     }
 
     //Looking for house
-    public void goToCreateAccount2Student(View view) {
+    public void goToCreateAccount3Student(View view) {
         Intent intent = new Intent (CreateAccount2.this, CreateAccount3Student.class);
         startActivity(intent);
         return;
@@ -29,7 +29,7 @@ public class CreateAccount2 extends AppCompatActivity {
 
     //Looking for student
     public void goToCreateAccount3House(View view) {
-        Intent intent = new Intent (CreateAccount2.this, CreateAccount3Student.class);
+        Intent intent = new Intent (CreateAccount2.this, CreateAccount3House.class);
         startActivity(intent);
         return;
     }

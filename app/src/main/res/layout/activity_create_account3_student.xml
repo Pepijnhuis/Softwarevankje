@@ -233,7 +233,6 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:background="#E66758"
                 android:onClick="goToCreateAccount2"
