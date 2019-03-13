@@ -49,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onCl
+            ick(View v) {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
