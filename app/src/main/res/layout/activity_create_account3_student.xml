@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/first_name"
                 android:inputType="textPersonName" />
 
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/address_hint"
                 android:inputType="textPersonName" />
 
@@ -62,7 +62,7 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:background="#5EA1A2"
+                    android:background="@color/colorEditText"
                     android:hint="@string/day"
                     android:inputType="number" />
 
@@ -73,7 +73,7 @@
                     android:layout_alignWithParentIfMissing="false"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:background="#5EA1A2"
+                    android:background="@color/colorEditText"
                     android:hint="@string/month"
                     android:inputType="number" />
 
@@ -82,7 +82,7 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:background="#5EA1A2"
+                    android:background="@color/colorEditText"
                     android:hint="@string/year"
                     android:inputType="number" />
 
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/school"
                 android:inputType="text" />
 
@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/study"
                 android:inputType="text" />
 
@@ -130,12 +130,14 @@
                     android:id="@+id/Bachelor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorButton"
                     android:text="@string/bachelor" />
 
                 <RadioButton
                     android:id="@+id/Master"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorButton"
                     android:text="@string/master" />
 
             </RadioGroup>
@@ -151,7 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/hobby_one"
                 android:inputType="text" />
 
@@ -160,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/hobby_two"
                 android:inputType="text" />
 
@@ -169,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/hobby_three"
                 android:inputType="text" />
 
@@ -184,7 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80sp"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/about_me_description"
                 android:gravity="top"
                 android:inputType="text" />
@@ -209,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount2"
                 android:text="@string/back" />
 
@@ -220,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount4Student"
                 android:text="@string/next"
                 android:textStyle="normal" />

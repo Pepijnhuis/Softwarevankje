@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">YvonTelefoon1</string>
+    <string name="app_name">Tinder App</string>
 
     //info account
     <string name="email">Email</string>
@@ -58,8 +58,16 @@
     <string name="upload_photos_of_housemates">Upload photos of housemates</string>
 
     <string name="age">Age</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
-
+    //Main navigation
+    <string name="settings">Settings</string>
+    <string name="slide">Slide</string>
+    <string name="messages">Messages</string>
 
 
 </resources>

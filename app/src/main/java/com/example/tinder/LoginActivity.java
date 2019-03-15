@@ -83,6 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         return;
     }
+
+    //Main navigation test button
+    public void goToMainNavigation(View view) {
+        Intent intent = new Intent (LoginActivity.this, MainNavigation.class);
+        startActivity(intent);
+        return;
+    }
 }
 
 
