@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CA4HouseFragment extends Fragment {
+public class CA3Fragment extends Fragment {
 
     //Creating a tag
-    private static final String TAG = "CA4HouseFragment";
+    private static final String TAG = "CA3Fragment";
 
     //Building the fragment
     @Nullable
@@ -20,7 +20,18 @@ public class CA4HouseFragment extends Fragment {
         //Pass the layout from settings_fragment
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
-        View view = inflater.inflate(R.layout.ca4_house_fragment, container, false);
-        return view;
+
+        if(){
+            //Button Looking for house clicked
+            View view = inflater.inflate(R.layout.ca3_house_fragment, container, false);
+            return view;
+        }
+        else{
+            //Button looking for housemate clicked
+            View view = inflater.inflate(R.layout.ca3_student_fragment, container, false);
+            return view;
+        }
+
+
     }
 }

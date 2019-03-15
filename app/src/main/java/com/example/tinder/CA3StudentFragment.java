@@ -20,6 +20,7 @@ public class CA3StudentFragment extends Fragment {
         //Pass the layout from settings_fragment
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
-        return inflater.inflate(R.layout.ca3_student_fragment,container,false);
+        View view = inflater.inflate(R.layout.ca3_student_fragment, container, false);
+        return view;
     }
 }
