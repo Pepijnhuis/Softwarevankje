@@ -9,11 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".MessagesActivity" />
         <activity
             android:name=".MainNavigation"
-            android:label="@string/title_activity_main_navigation" />
+            android:label="@string/title_activity_main_navigation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".CreateAccount1" />
         <activity android:name=".CreateAccount5House" />
         <activity android:name=".CreateAccount5Student" />
@@ -30,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity" />
     </application>
 
 </manifest>

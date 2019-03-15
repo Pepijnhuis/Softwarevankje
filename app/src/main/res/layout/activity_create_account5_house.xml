@@ -30,6 +30,7 @@
                 android:id="@+id/MaleYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorButton"
                 android:text="Male" />
 
             <RadioButton
@@ -37,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:buttonTint="@color/colorButton"
                 android:text="Female" />
 
         </RelativeLayout>
@@ -53,6 +55,7 @@
                 android:id="@+id/BscYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorButton"
                 android:text="Bsc" />
 
             <RadioButton
@@ -60,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:buttonTint="@color/colorButton"
                 android:text="Msc" />
 
         </RelativeLayout>
@@ -81,7 +85,7 @@
                 android:id="@+id/MinAge"
                 android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/min"
                 android:inputType="number" />
 
@@ -89,7 +93,7 @@
                 android:id="@+id/MaxAge"
                 android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/max"
                 android:layout_alignParentRight="true"
                 android:inputType="number" />
@@ -107,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount4House"
                 android:text="@string/back" />
 
@@ -118,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToSlideActivity"
                 android:text="@string/next"
                 android:textStyle="normal" />

@@ -8,6 +8,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Creating a tag
+    private static final String TAG = "MainActivity";
+
     private Button mRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/name_house"
                 android:inputType="textPersonName" />
 
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/address_hint"
                 android:inputType="textPersonName" />
 
@@ -91,7 +91,7 @@
                     android:id="@+id/Rent"
                     android:layout_width="70sp"
                     android:layout_height="wrap_content"
-                    android:background="#5EA1A2"
+                    android:background="@color/colorEditText"
                     android:hint="@string/rent_hint"
                     android:inputType="number" />
 
@@ -99,7 +99,7 @@
                     android:id="@+id/Size"
                     android:layout_width="70sp"
                     android:layout_height="wrap_content"
-                    android:background="#5EA1A2"
+                    android:background="@color/colorEditText"
                     android:hint="@string/size_hint"
                     android:layout_alignParentRight="true"
                     android:inputType="number" />
@@ -118,7 +118,7 @@
                 android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/number_of_housemates"
                 android:inputType="number" />
 
@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80sp"
                 android:layout_marginBottom="20sp"
-                android:background="#5EA1A2"
+                android:background="@color/colorEditText"
                 android:hint="@string/about_us_description"
                 android:gravity="top"
                 android:inputType="text" />
@@ -158,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount2"
                 android:text="@string/back" />
 
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount4House"
                 android:text="@string/next"
                 android:textStyle="normal" />

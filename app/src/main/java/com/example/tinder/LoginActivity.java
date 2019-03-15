@@ -49,8 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCl
-            ick(View v) {
+            public void onClick(View v) {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -81,6 +80,13 @@ public class LoginActivity extends AppCompatActivity {
     //Create account button
     public void goToCreateAccount1(View view) {
         Intent intent = new Intent (LoginActivity.this, CreateAccount1.class);
+        startActivity(intent);
+        return;
+    }
+
+    //Main navigation test button
+    public void goToMainNavigation(View view) {
+        Intent intent = new Intent (LoginActivity.this, MainNavigation.class);
         startActivity(intent);
         return;
     }

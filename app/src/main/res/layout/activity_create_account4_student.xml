@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount3Student"
                 android:text="@string/back" />
 
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#E66758"
+                android:background="@color/colorButton"
                 android:onClick="goToCreateAccount5Student"
                 android:text="@string/next"
                 android:textStyle="normal" />
