@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CreateAccount"
+            android:label="@string/title_activity_create_account"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".MainNavigation"
             android:label="@string/title_activity_main_navigation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateAccount1" />
         <activity android:name=".CreateAccount5House" />
         <activity android:name=".CreateAccount5Student" />

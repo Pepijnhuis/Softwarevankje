@@ -90,6 +90,13 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         return;
     }
+
+    //Create Account Test button
+    public void goToCreateAccount(View view) {
+        Intent intent = new Intent (LoginActivity.this, CreateAccount.class);
+        startActivity(intent);
+        return;
+    }
 }
 
 
