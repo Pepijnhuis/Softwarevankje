@@ -14,14 +14,16 @@
             android:label="@string/title_activity_main_navigation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".CreateAccount1" />
-        <activity android:name=".CreateAccount5House" />
-        <activity android:name=".CreateAccount5Student" />
+        <activity android:name=".CreateAccount2" />
+        <activity android:name=".CreateAccount3House" />
         <activity android:name=".CreateAccount4House" />
+        <activity android:name=".CreateAccount5House" />
+        <activity android:name=".CreateAccount3Student" />
+        <activity android:name=".CreateAccount4Student" />
+        <activity android:name=".CreateAccount5Student" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Slideactivity" />
-        <activity android:name=".CreateAccount3House" />
-        <activity android:name=".CreateAccount2" />
-        <activity android:name=".CreateAccount3Student" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
