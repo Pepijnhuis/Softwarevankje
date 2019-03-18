@@ -92,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Create Account Test button
-    public void goToCreateAccount(View view) {
-        Intent intent = new Intent (LoginActivity.this, CreateAccount.class);
+    public void goToStudentHouse(View view) {
+        Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
         startActivity(intent);
         return;
     }

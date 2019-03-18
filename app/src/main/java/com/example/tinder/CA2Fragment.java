@@ -25,19 +25,6 @@ public class CA2Fragment extends Fragment {
         //Attach to root is false
         View view = inflater.inflate(R.layout.ca2_fragment, container, false);
 
-        //Looking For House button
-        public void setLookingForHouse(View view) {
-            LookingFor = 0;
-            return;
-        }
-
-        //Looking For House button
-        public void setLookingForStudent(View view) {
-            LookingFor = 1;
-            return;
-        }
-
-
         return view;
     }
 }
