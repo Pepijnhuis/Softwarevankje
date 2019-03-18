@@ -11,6 +11,8 @@
     <string name="looking_for">Looking for</string>
     <string name="min">Min</string>
     <string name="max">Max</string>
+    <string name="house">a house</string>
+    <string name="housemate">a housemate</string>
 
     //info student
     <string name="create_account_3_student">Create Account 3 Student</string>

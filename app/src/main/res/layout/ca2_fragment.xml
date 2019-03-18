@@ -29,6 +29,37 @@
             android:text="@string/text_housemate_button"
             android:layout_marginBottom="20sp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:text="@string/looking_for" />
+
+        <RadioGroup
+            android:id="@+id/RadioLookingFor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@+id/RadioLookingForHouse"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/RadioLookingForHouse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorButton"
+                android:text="@string/house" />
+
+            <RadioButton
+                android:id="@+id/RadioLookingForStudent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorButton"
+                android:text="@string/housemate" />
+
+        </RadioGroup>
+
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

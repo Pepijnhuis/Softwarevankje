@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,13 +20,18 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class CreateAccount extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity implements CA2Fragment.FragmentCA2listener {
 
     //This is a FragmentPageAdapter derivative, which will keep every loaded fragment in memory
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     //ViewPager will host the section contents
     private ViewPager mViewPager;
+
+    private String choice;
+
+    private CA2Fragment ca2Fragment;
+    private CA3Fragment ca3Fragment;
 
     //Showing the right fragment
     @Override
@@ -48,8 +54,18 @@ public class CreateAccount extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        //communication between fragments
+        ca2Fragment = new CA2Fragment();
+        ca3Fragment = new CA3Fragment();
     }
 
+
+    //communication between fragments
+    @Override
+    public void onInputCA2Sent(String input){
+        choice = input;
+        Log.d("debug", choice);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,22 +132,44 @@ public class CreateAccount extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             Fragment fragment = null; //setting the fragment to null initially
-            switch (position){
-                case 0:
-                    fragment = new CA1Fragment();
-                    break; //leave the switch statement
-                case 1:
-                    fragment = new CA2Fragment();
-                    break;
-                case 2:
-                    fragment = new CA3HouseFragment();
-                    break;
-                case 3:
-                    fragment = new CA4HouseFragment();
-                    break;
-                case 4:
-                    fragment = new CA5HouseFragment();
-                    break;
+            if (choice == "House") {
+                switch (position) {
+                    case 0:
+                        fragment = new CA1Fragment();
+                        break; //leave the switch statement
+                    case 1:
+                        fragment = new CA2Fragment();
+                        break;
+                    case 2:
+                        fragment = new CA3StudentFragment();
+                        break;
+                    case 3:
+                        fragment = new CA4StudentFragment();
+                        break;
+                    case 4:
+                        fragment = new CA5StudentFragment();
+                        break;
+                }
+            }
+                else {
+                    switch (position){
+                        case 0:
+                            fragment = new CA1Fragment();
+                            break; //leave the switch statement
+                        case 1:
+                            fragment = new CA2Fragment();
+                            break;
+                        case 2:
+                            fragment = new CA3HouseFragment();
+                            break;
+                        case 3:
+                            fragment = new CA4HouseFragment();
+                            break;
+                        case 4:
+                            fragment = new CA5HouseFragment();
+                            break;
+                }
+
             }
             return fragment;
         }
