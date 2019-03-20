@@ -1,5 +1,6 @@
 package com.example.tinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -132,5 +133,12 @@ public class CreateAccountStudent extends AppCompatActivity {
             // Show 4 total pages.
             return 4;
         }
+    }
+
+    //Main navigation button
+    public void goToMainNavigation(View view) {
+        Intent intent = new Intent (CreateAccountStudent.this, MainNavigation.class);
+        startActivity(intent);
+        return;
     }
 }

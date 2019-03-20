@@ -1,5 +1,6 @@
 package com.example.tinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -110,7 +111,7 @@ public class CreateAccountHouse extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             Fragment fragment = null; //setting the fragment to null initially
-            switch (position){
+            switch (position) {
                 case 0:
                     fragment = new CA1Fragment();
                     break; //leave the switch statement
@@ -132,5 +133,12 @@ public class CreateAccountHouse extends AppCompatActivity {
             // Show 4 total pages.
             return 4;
         }
+    }
+
+    //Main navigation button
+    public void goToMainNavigation(View view) {
+        Intent intent = new Intent(CreateAccountHouse.this, MainNavigation.class);
+        startActivity(intent);
+        return;
     }
 }
