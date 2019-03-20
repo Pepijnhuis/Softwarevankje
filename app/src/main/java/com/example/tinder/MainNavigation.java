@@ -36,8 +36,6 @@ public class MainNavigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_navigation);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMainNavigation);
-        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -51,13 +49,14 @@ public class MainNavigation extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.logOut);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.logOutButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+                    Intent intent = new Intent (MainNavigation.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+
         });
 
     }
@@ -115,5 +114,4 @@ public class MainNavigation extends AppCompatActivity {
             return 3;
         }
     }
-
 }

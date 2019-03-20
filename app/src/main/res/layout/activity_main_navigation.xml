@@ -15,38 +15,30 @@
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbarMainNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        </android.support.v7.widget.Toolbar>
-
         <android.support.design.widget.TabLayout
             android:id="@+id/tabsMainNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
-                android:id="@+id/tabItem"
+                android:id="@+id/tab1Settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:icon="@android:drawable/ic_menu_manage"
                 android:text="@string/settings" />
 
             <android.support.design.widget.TabItem
-                android:id="@+id/tabItem2"
+                android:id="@+id/tab2Slide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:icon="@android:drawable/star_on"
                 android:text="@string/slide" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:icon="@android:drawable/sym_action_chat"
                 android:text="@string/messages" />
 
         </android.support.design.widget.TabLayout>
@@ -59,12 +51,12 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/logOut"
+        android:id="@+id/logOutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_media_rew" />
+        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 
 
