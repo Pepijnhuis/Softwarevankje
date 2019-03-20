@@ -48,18 +48,10 @@ public class MainNavigation extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.logOutButton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Intent intent = new Intent (MainNavigation.this, LoginActivity.class);
-                    startActivity(intent);
-                }
 
-        });
 
-    }
 
 
     @Override
