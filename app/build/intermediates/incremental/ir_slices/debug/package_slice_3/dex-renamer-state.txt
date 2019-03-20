@@ -1,0 +1,4 @@
+#Wed Mar 20 15:07:02 CET 2019
+base.0=C\:\\Users\\Yvon\\Documents\\Softwarevankje\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+path.0=classes.dex
+renamed.0=classes.dex
