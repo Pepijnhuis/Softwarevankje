@@ -57,18 +57,4 @@ public class CreateAccount3Student extends AppCompatActivity {
 
 
     }
-
-    //back button
-    public void goToCreateAccount2(View view) {
-        Intent intent = new Intent (CreateAccount3Student.this, CreateAccount2.class);
-        startActivity(intent);
-        return;
-    }
-
-    //next button
-    public void goToCreateAccount4Student(View view) {
-        Intent intent = new Intent (CreateAccount3Student.this, CreateAccount4Student.class);
-        startActivity(intent);
-        return;
-    }
 }

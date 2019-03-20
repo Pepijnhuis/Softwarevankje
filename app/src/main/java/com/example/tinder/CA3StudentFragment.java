@@ -23,4 +23,6 @@ public class CA3StudentFragment extends Fragment {
         View view = inflater.inflate(R.layout.ca3_student_fragment, container, false);
         return view;
     }
+
+
 }

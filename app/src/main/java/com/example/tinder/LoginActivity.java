@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user !=null){
-                    Intent intent = new Intent(LoginActivity.this, Slideactivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainNavigation.class);
                     startActivity(intent);
                     finish();
                 }
@@ -78,8 +78,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Create account button
-    public void goToCreateAccount1(View view) {
-        Intent intent = new Intent (LoginActivity.this, CreateAccount1.class);
+    public void goToStudentHouse(View view) {
+        Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
         startActivity(intent);
         return;
     }
@@ -91,12 +91,6 @@ public class LoginActivity extends AppCompatActivity {
         return;
     }
 
-    //Create Account Test button
-    public void goToStudentHouse(View view) {
-        Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
-        startActivity(intent);
-        return;
-    }
 }
 
 
