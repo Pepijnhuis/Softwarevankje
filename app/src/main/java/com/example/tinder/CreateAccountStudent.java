@@ -30,10 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.Attributes;
 
 public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener, CA3StudentFragment.FragmentCA3StudentListener {
 
     private CA1Fragment fragmentCA1;
+    private CA3StudentFragment fragmentCA3;
 
 
 
@@ -58,6 +60,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         fragmentCA1 = new CA1Fragment();
+        fragmentCA3 = new CA3StudentFragment();
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.containerCreateAccountStudent);
@@ -150,44 +153,8 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
 
     @Override
-    public void onInputCA3StudentSent() {
-
-        private void getUserInfo() {
-
-            mStudentAccountDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
-                        Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                        if (map.get("Name") != null) {
-                            NameStudent = map.get("Name").toString();
-                            mNameField.setText(NameStudent);
-                        }
-
-                        if (map.get("Adress") != null) {
-                            AdressStudent = map.get("Adress").toString();
-                            mAdressField.setText(AdressStudent);
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        private void saveUserInformation() {
-            NameStudent = mNameField.getText().toString();
-            AdressStudent = mAdressField.getText().toString();
-
-            Map userInfo = new HashMap();
-            userInfo.put("Name", NameStudent);
-            userInfo.put("Adress", AdressStudent);
-            mStudentAccountDatabase.updateChildren(userInfo);
-
-        }
+    public void onInputCA3StudentSent(String NameStudent,String AdressStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe) {
+        Log.d("Debug", NameStudent);
 
 
 
