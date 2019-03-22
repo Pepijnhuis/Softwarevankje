@@ -50,7 +50,7 @@ public class SlideFragment extends Fragment {
 
         //Make the cards object
         //getActivity() because we're working in a Fragment
-        arrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.item, R.id.helloText, al );
+        arrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.item, R.id.cardNameStudent, al );
 
         //Something to do with the Swipecards plugin from github:  https://github.com/Diolor/Swipecards
         //view.findViewById because we're working in a Fragment
