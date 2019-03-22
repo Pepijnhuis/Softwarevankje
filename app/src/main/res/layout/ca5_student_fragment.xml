@@ -123,6 +123,34 @@
             android:onClick="goToMainNavigation"
             android:text="Get Swiping!" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/ButtonBackCA5Student"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@color/colorButton"
+                android:text="@string/back"
+                android:layout_alignParentBottom="true"/>
+
+            <Button
+                android:id="@+id/ButtonNextCA5Student"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@color/colorButton"
+                android:text="@string/next"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

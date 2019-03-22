@@ -17,10 +17,10 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
             android:background="@color/colorButton"
             android:onClick="goLookingForHouse"
-            android:text="@string/text_house_button"
-            android:layout_marginBottom="20sp"/>
+            android:text="@string/text_house_button" />
 
         <Button
             android:id="@+id/ButtonLookingForStudent"
@@ -30,7 +30,7 @@
             android:background="@color/colorButton"
             android:onClick="goLookingForStudent"
             android:text="@string/text_housemate_button"
-            android:layout_marginBottom="20sp"/>
+            android:layout_marginBottom="20sp" />
 
     </LinearLayout>
 
