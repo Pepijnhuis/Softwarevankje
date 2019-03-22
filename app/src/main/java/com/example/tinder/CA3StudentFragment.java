@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
@@ -51,7 +51,6 @@ public class CA3StudentFragment extends Fragment {
         View view = inflater.inflate(R.layout.ca3_student_fragment, container, false);
 
 
-
         mNameField = (EditText) view.findViewById(R.id.NameStudent);
         mAdressField = (EditText) view.findViewById(R.id.AddressHouse);
         mDayField = (EditText) view.findViewById(R.id.BirthdayDay);
@@ -79,8 +78,6 @@ public class CA3StudentFragment extends Fragment {
                 listener.onInputCA3StudentSent(NameStudent,AdressStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
             }
         });
-
-
 
         return view;
     }
