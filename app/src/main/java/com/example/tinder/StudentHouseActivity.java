@@ -18,7 +18,7 @@ public class StudentHouseActivity extends AppCompatActivity {
         //Intent intent = new Intent (StudentHouseActivity.this, CreateAccountStudent.class);
 
         //Temporary
-        Intent intent = new Intent (StudentHouseActivity.this, CreateAccount3Student.class);
+        Intent intent = new Intent (StudentHouseActivity.this, CreateAccountStudent.class);
 
         startActivity(intent);
         return;
