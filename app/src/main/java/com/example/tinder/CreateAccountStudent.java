@@ -24,8 +24,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
-public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener {
+import java.util.HashMap;
+import java.util.Map;
+
+public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener, CA3StudentFragment.FragmentCA3StudentListener {
 
     private CA1Fragment fragmentCA1;
 
@@ -136,12 +142,56 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
                     Toast.makeText(CreateAccountStudent.this, "Signin Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("Debug", "Signup succesfullll!!!!!");
-                    
+
                 }
             }
         });
     }
 
+
+    @Override
+    public void onInputCA3StudentSent() {
+
+        private void getUserInfo() {
+
+            mStudentAccountDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+                        Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+                        if (map.get("Name") != null) {
+                            NameStudent = map.get("Name").toString();
+                            mNameField.setText(NameStudent);
+                        }
+
+                        if (map.get("Adress") != null) {
+                            AdressStudent = map.get("Adress").toString();
+                            mAdressField.setText(AdressStudent);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        private void saveUserInformation() {
+            NameStudent = mNameField.getText().toString();
+            AdressStudent = mAdressField.getText().toString();
+
+            Map userInfo = new HashMap();
+            userInfo.put("Name", NameStudent);
+            userInfo.put("Adress", AdressStudent);
+            mStudentAccountDatabase.updateChildren(userInfo);
+
+        }
+
+
+
+    }
     //Main navigation button
     public void goToMainNavigation(View view) {
         Intent intent = new Intent (CreateAccountStudent.this, MainNavigation.class);
