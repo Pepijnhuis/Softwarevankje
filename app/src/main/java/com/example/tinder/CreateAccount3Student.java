@@ -51,7 +51,7 @@ public class CreateAccount3Student extends AppCompatActivity {
         mAboutMeField = (EditText) findViewById(R.id.AboutMe);
 
         mRadioGroupBscMsc = (RadioGroup) findViewById(R.id.RadioGroupBscMsc);
-        mRadioGroupMaleFemale = (RadioGroup) findViewById(R.id.RadioGroupMaleFemale);
+        //mRadioGroupMaleFemale = (RadioGroup) findViewById(R.id.RadioGroupMaleFemale);
 
         // mBack = (Button) findViewById(R.id.NameStudent);
         mNext = (Button) findViewById(R.id.nextCreateAccount3Student);
