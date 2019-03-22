@@ -166,7 +166,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
                     Toast.makeText(CreateAccountStudent.this, "Signin Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("Debug", "Signup succesfullll!!!!!");
-                    
+
                 }
             }
         });
