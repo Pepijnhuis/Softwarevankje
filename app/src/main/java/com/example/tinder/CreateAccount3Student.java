@@ -58,7 +58,7 @@ public class CreateAccount3Student extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();
-        mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Students").child("UserId");
+        mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child("UserId");
 
         getUserInfo();
 
@@ -85,7 +85,7 @@ public class CreateAccount3Student extends AppCompatActivity {
                         mNameField.setText(NameStudent);
                     }
 
-                    if (map.get("Name") != null) {
+                    if (map.get("Adress") != null) {
                         AdressStudent = map.get("Adress").toString();
                         mAdressField.setText(AdressStudent);
                     }

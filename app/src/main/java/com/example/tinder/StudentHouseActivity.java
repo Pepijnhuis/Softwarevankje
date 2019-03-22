@@ -15,7 +15,11 @@ public class StudentHouseActivity extends AppCompatActivity {
 
     //Looking for house
     public void goLookingForHouse(View view) {
+        //Intent intent = new Intent (StudentHouseActivity.this, CreateAccountStudent.class);
+
+        //Temporary
         Intent intent = new Intent (StudentHouseActivity.this, CreateAccountStudent.class);
+
         startActivity(intent);
         return;
     }
