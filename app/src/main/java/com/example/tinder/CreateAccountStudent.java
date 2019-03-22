@@ -142,32 +142,5 @@ public class CreateAccountStudent extends AppCompatActivity {
         return;
     }
 
-        mRegister.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Log.d("DEBUG", "Knop geklikt");
-            int selectId = mRadiogroup.getCheckedRadioButtonId();
-            final RadioButton radioButton = (RadioButton) findViewById(selectId);
 
-            if(radioButton.getText() == null) {
-                return;
-            }
-            final String name = mName.getText().toString();
-            final String email = mEmail.getText().toString();
-            final String password = mPassword.getText().toString();
-            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (!task.isSuccessful()) {
-                        Toast.makeText(RegistrationActivity.this, "Signup Error", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        String userID = mAuth.getCurrentUser().getUid();
-                        DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(radioButton.getText().toString()).child(userID).child("Name");
-                        currentUserDb.setValue(name);
-                    }
-                }
-            });
-        }
-    });
 }
