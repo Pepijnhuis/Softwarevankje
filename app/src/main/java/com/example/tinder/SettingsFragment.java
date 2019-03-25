@@ -29,7 +29,9 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.settings_fragment, container, false);
         mAuth = FirebaseAuth.getInstance();
 
+
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
+        Button mbutton2 = (Button) view.findViewById(R.id.Slidebutton);
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +40,14 @@ public class SettingsFragment extends Fragment {
                 startActivity(intent);
                 getActivity().finish();
                 return;
+            }
+        });
+
+        mbutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),  Slideactivity.class);
+                startActivity(intent);
             }
         });
         return view;
