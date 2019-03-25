@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CA1Fragment extends Fragment {
+public class CA1StudentFragment extends Fragment {
 
     private FragmentCA1Listener listener;
     private EditText mEmail, mPassword;

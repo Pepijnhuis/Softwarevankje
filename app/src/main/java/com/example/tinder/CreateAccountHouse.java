@@ -113,7 +113,7 @@ public class CreateAccountHouse extends AppCompatActivity {
             Fragment fragment = null; //setting the fragment to null initially
             switch (position) {
                 case 0:
-                    fragment = new CA1Fragment();
+                    fragment = new CA1HouseFragment();
                     break; //leave the switch statement
                 case 1:
                     fragment = new CA3HouseFragment();

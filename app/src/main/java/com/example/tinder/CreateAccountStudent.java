@@ -30,7 +30,6 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
     private CA1Fragment fragmentCA1;
 
 
-
     //This is a FragmentPageAdapter derivative, which will keep every loaded fragment in memory
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -61,29 +60,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-    }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create_account, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -101,7 +78,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
             Fragment fragment = null; //setting the fragment to null initially
             switch (position){
                 case 0:
-                    fragment = new CA1Fragment();
+                    fragment = new CA1StudentFragment();
                     break; //leave the switch statement
                 case 1:
                     fragment = new CA3StudentFragment();
