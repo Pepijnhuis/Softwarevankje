@@ -13,8 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.jar.Attributes;
 
 public class CA3StudentFragment extends Fragment {
@@ -23,12 +29,12 @@ public class CA3StudentFragment extends Fragment {
     private static final String TAG = "CA3StudentFragment";
 
     public interface FragmentCA3StudentListener {
-        void onInputCA3StudentSent(String NameStudent,String AdressStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe);
+        void onInputCA3StudentSent(String NameStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe);
     }
 
 
 
-    private EditText mNameField, mAdressField, mDayField, mMonthField, mYearField, mSchoolField,
+    private EditText mNameField, mDayField, mMonthField, mYearField, mSchoolField,
             mStudyField, mHobby1Field, mHobby2Field, mHobby3Field, mAboutMeField;
 
     private RadioGroup mRadioGroupBscMsc, mRadioGroupMaleFemale;
@@ -37,7 +43,7 @@ public class CA3StudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
-    private String NameStudent, AdressStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe;
+    private String NameStudent, AdressStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId;
     private Integer Day, Month, Year;
 
 
@@ -52,7 +58,6 @@ public class CA3StudentFragment extends Fragment {
 
 
         mNameField = (EditText) view.findViewById(R.id.NameStudent);
-        mAdressField = (EditText) view.findViewById(R.id.AddressHouse);
         mDayField = (EditText) view.findViewById(R.id.BirthdayDay);
         mMonthField = (EditText) view.findViewById(R.id.BirthdayMonth);
         mYearField = (EditText) view.findViewById(R.id.BirthdayYear);
@@ -63,24 +68,74 @@ public class CA3StudentFragment extends Fragment {
         mHobby3Field = (EditText) view.findViewById(R.id.Hobby3);
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
         
-        mNext = (Button) view.findViewById(R.id.ButtonBackC3Student);
+        mNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameStudent = mNameField.getText().toString();
-                AdressStudent = mAdressField.getText().toString();
                 School = mSchoolField.getText().toString();
                 Study = mStudyField.getText().toString();
                 Hobby1 = mHobby1Field.getText().toString();
                 Hobby2 = mHobby2Field.getText().toString();
                 Hobby3 = mHobby3Field.getText().toString();
                 AboutMe = mAboutMeField.getText().toString();
-                listener.onInputCA3StudentSent(NameStudent,AdressStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
-            }
-        });
+                listener.onInputCA3StudentSent(NameStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
 
-        return view;
+                mAuth = FirebaseAuth.getInstance();
+                userId = mAuth.getCurrentUser().getUid();
+                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
+
+                getUserInfo();
+
+                mNext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        saveUserInformation();
+
+                    }
+            });
+        }
+        });
+    return view;
     }
+
+        private void getUserInfo() {
+            mStudentAccountDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
+                        Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+                        if (map.get("Name") != null) {
+                            NameStudent = map.get("Name").toString();
+                            mNameField.setText(NameStudent);
+                        }
+
+                        if (map.get("Adress") != null) {
+                            AdressStudent = map.get("Adress").toString();
+                            mSchoolField.setText(School);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        private void saveUserInformation() {
+            NameStudent = mNameField.getText().toString();
+            School = mSchoolField.getText().toString();
+
+            Map userInfo = new HashMap();
+            userInfo.put("Name", NameStudent);
+            userInfo.put("School", School);
+            mStudentAccountDatabase.updateChildren(userInfo);
+
+        }
+
 
     @Override
     public void onAttach(Context context){
