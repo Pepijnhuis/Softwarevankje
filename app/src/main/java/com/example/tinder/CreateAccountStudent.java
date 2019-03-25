@@ -24,10 +24,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
-public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.jar.Attributes;
+
+public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener, CA3StudentFragment.FragmentCA3StudentListener {
 
     private CA1Fragment fragmentCA1;
+    private CA3StudentFragment fragmentCA3;
 
 
     //This is a FragmentPageAdapter derivative, which will keep every loaded fragment in memory
@@ -51,6 +59,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         fragmentCA1 = new CA1Fragment();
+        fragmentCA3 = new CA3StudentFragment();
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.containerCreateAccountStudent);
@@ -113,12 +122,20 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
                     Toast.makeText(CreateAccountStudent.this, "Signin Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("Debug", "Signup succesfullll!!!!!");
-                    
+
                 }
             }
         });
     }
 
+
+    @Override
+    public void onInputCA3StudentSent(String NameStudent,String AdressStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe) {
+        Log.d("Debug", NameStudent);
+
+
+
+    }
     //Main navigation button
     public void goToMainNavigation(View view) {
         Intent intent = new Intent (CreateAccountStudent.this, MainNavigation.class);
