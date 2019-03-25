@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20sp">
+        android:padding="20sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="557dp">
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/progressStudentAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_above_progress"
+            android:layout_marginBottom="@dimen/margin_bottom_progress"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/colorPrimary"
+            app:spb_currentStateNumber="three"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="@color/colorEditText"
+            app:spb_stateDescriptionColor="@color/colorEditText"
+            app:spb_stateForegroundColor="@color/colorPrimary"
+            app:spb_stateNumberForegroundColor="@color/common_google_signin_btn_text_dark_default"
+            app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,34 +83,36 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/ButtonBackCA4Student"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/colorButton"
-                android:text="@string/back"
-                android:layout_alignParentBottom="true"/>
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/ButtonNextCA4Student"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@color/colorButton"
-                android:text="@string/next"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <Button
+            android:id="@+id/ButtonBackCA4Student"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorButton"
+            android:text="@string/back"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/ButtonNextCA4Student"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorButton"
+            android:text="@string/next"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

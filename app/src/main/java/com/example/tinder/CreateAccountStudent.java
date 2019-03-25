@@ -3,6 +3,7 @@ package com.example.tinder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -36,7 +37,6 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
     private CA1Fragment fragmentCA1;
     private CA3StudentFragment fragmentCA3;
-
 
     //This is a FragmentPageAdapter derivative, which will keep every loaded fragment in memory
     private SectionsPagerAdapter mSectionsPagerAdapter;

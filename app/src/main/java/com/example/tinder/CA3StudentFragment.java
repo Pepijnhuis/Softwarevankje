@@ -63,7 +63,7 @@ public class CA3StudentFragment extends Fragment {
         mHobby3Field = (EditText) view.findViewById(R.id.Hobby3);
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
         
-        mNext = (Button) view.findViewById(R.id.ButtonBackC3Student);
+        mNext = (Button) view.findViewById(R.id.ButtonBackCA3Student);
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,4 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="corner_radius_card">10dp</dimen>
+    <dimen name="margin_bottom_progress">20dp</dimen>
+    <dimen name="margin_above_progress">20dp</dimen>
+    <dimen name="text_size_progress">20dp</dimen>
 </resources>
