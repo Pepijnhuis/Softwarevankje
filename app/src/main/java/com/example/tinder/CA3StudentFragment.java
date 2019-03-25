@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +44,7 @@ public class CA3StudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
-    private String NameStudent, AdressStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId;
+    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, selectId;
     private Integer Day, Month, Year;
 
 
@@ -67,71 +68,54 @@ public class CA3StudentFragment extends Fragment {
         mHobby2Field = (EditText) view.findViewById(R.id.Hobby2);
         mHobby3Field = (EditText) view.findViewById(R.id.Hobby3);
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
+        mRadioGroupMaleFemale = (RadioGroup) view.findViewById(R.id.RadioGroupMaleFemale);
+
+        //int selectId = mRadioGroupMaleFemale.getCheckedRadioButtonId();
+        //final RadioButton radioButton = (RadioButton) view.findViewById(R.id.selectId);
         
         mNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameStudent = mNameField.getText().toString();
+                Day = Integer.parseInt(mDayField.getText().toString());
+                Month = Integer.parseInt(mMonthField.getText().toString());
+                Year = Integer.parseInt(mYearField.getText().toString());
                 School = mSchoolField.getText().toString();
                 Study = mStudyField.getText().toString();
                 Hobby1 = mHobby1Field.getText().toString();
                 Hobby2 = mHobby2Field.getText().toString();
                 Hobby3 = mHobby3Field.getText().toString();
                 AboutMe = mAboutMeField.getText().toString();
+
+                //BscMsc = radioButton.getText().toString();
+
                 listener.onInputCA3StudentSent(NameStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
 
                 mAuth = FirebaseAuth.getInstance();
                 userId = mAuth.getCurrentUser().getUid();
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
 
-                getUserInfo();
+                saveUserInformation();
 
-                mNext.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        saveUserInformation();
-
-                    }
-            });
         }
         });
     return view;
     }
 
-        private void getUserInfo() {
-            mStudentAccountDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
-                        Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-                        if (map.get("Name") != null) {
-                            NameStudent = map.get("Name").toString();
-                            mNameField.setText(NameStudent);
-                        }
-
-                        if (map.get("Adress") != null) {
-                            AdressStudent = map.get("Adress").toString();
-                            mSchoolField.setText(School);
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-
         private void saveUserInformation() {
-            NameStudent = mNameField.getText().toString();
-            School = mSchoolField.getText().toString();
-
             Map userInfo = new HashMap();
             userInfo.put("Name", NameStudent);
+            userInfo.put("Day", Day);
+            userInfo.put("Month", Month);
+            userInfo.put("Year", Year);
             userInfo.put("School", School);
+            userInfo.put("Study", Study);
+            userInfo.put("Hobby1", Hobby1);
+            userInfo.put("Hobby2", Hobby2);
+            userInfo.put("Hobby3", Hobby3);
+            userInfo.put("AboutMe", AboutMe);
             mStudentAccountDatabase.updateChildren(userInfo);
 
         }
