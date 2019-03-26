@@ -33,8 +33,13 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameStudent);
         //ImageView image = (ImageView) convertView.findViewById(R.id.imageincard);
-
+        TextView School = (TextView) convertView.findViewById(R.id.cardUniversity);
+        TextView Hobby1 = (TextView) convertView.findViewById(R.id.cardHobby1);
         name.setText(card_item.getName());
+        School.setText(card_item.getSchool());
+        Hobby1.setText(card_item.getHobby1());
+
+
         //image.setImageResource(R.mipmap.ic_launcher);
 
         return convertView;

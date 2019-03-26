@@ -31,6 +31,7 @@ public class Slideactivity extends AppCompatActivity {
     private Cards cards_data[];
     private arrayAdapter arrayAdapter;
     private int i;
+    private String Key, Naam, School, Hobby1;
 
     ListView listView;
     List<Cards> rowItems;
@@ -206,7 +207,11 @@ public class Slideactivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId)){
-                    Cards Item = new Cards(dataSnapshot.getKey(), dataSnapshot.child("Name").getValue().toString());
+                    Key = dataSnapshot.getKey();
+                    Naam = dataSnapshot.child("Name").getValue().toString();
+                    School = dataSnapshot.child("School").getValue().toString();
+                    Hobby1 = dataSnapshot.child("Hobby1").getValue().toString();
+                    Cards Item = new Cards(Key, Naam, School, Hobby1);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
                 }
