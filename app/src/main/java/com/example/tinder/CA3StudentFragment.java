@@ -71,7 +71,7 @@ public class CA3StudentFragment extends Fragment {
         mRadioGroupMaleFemale = (RadioGroup) view.findViewById(R.id.RadioGroupMaleFemale);
 
         int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
-        final RadioButton mRadioButtonMaleFemale  = (RadioButton) view.findViewById(selectId1);
+        final RadioButton mRadioButtonMaleFemale = (RadioButton) view.findViewById(selectId1);
 
         //int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
         //final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
