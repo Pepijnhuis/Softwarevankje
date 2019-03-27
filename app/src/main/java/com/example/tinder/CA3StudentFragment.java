@@ -11,17 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.jar.Attributes;
 
 public class CA3StudentFragment extends Fragment {
@@ -30,12 +23,12 @@ public class CA3StudentFragment extends Fragment {
     private static final String TAG = "CA3StudentFragment";
 
     public interface FragmentCA3StudentListener {
-        void onInputCA3StudentSent(String NameStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe);
+        void onInputCA3StudentSent(String NameStudent,String AdressStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe);
     }
 
 
 
-    private EditText mNameField, mDayField, mMonthField, mYearField, mSchoolField,
+    private EditText mNameField, mAdressField, mDayField, mMonthField, mYearField, mSchoolField,
             mStudyField, mHobby1Field, mHobby2Field, mHobby3Field, mAboutMeField;
 
     private RadioGroup mRadioGroupBscMsc, mRadioGroupMaleFemale;
@@ -44,8 +37,13 @@ public class CA3StudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
+<<<<<<< HEAD
     private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, RadioGroupBscMsc, RadioGroupMaleFemale;
     private Integer Day, Month, Year, selectId;
+=======
+    private String NameStudent, AdressStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe;
+    private Integer Day, Month, Year;
+>>>>>>> parent of 65ba25a... Merge branch 'master' of https://github.com/Pepijnhuis/Softwarevankje
 
 
     //Building the fragment
@@ -59,6 +57,7 @@ public class CA3StudentFragment extends Fragment {
 
 
         mNameField = (EditText) view.findViewById(R.id.NameStudent);
+        mAdressField = (EditText) view.findViewById(R.id.AddressHouse);
         mDayField = (EditText) view.findViewById(R.id.BirthdayDay);
         mMonthField = (EditText) view.findViewById(R.id.BirthdayMonth);
         mYearField = (EditText) view.findViewById(R.id.BirthdayYear);
@@ -68,6 +67,7 @@ public class CA3StudentFragment extends Fragment {
         mHobby2Field = (EditText) view.findViewById(R.id.Hobby2);
         mHobby3Field = (EditText) view.findViewById(R.id.Hobby3);
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
+<<<<<<< HEAD
         mRadioGroupMaleFemale = (RadioGroup) view.findViewById(R.id.RadioGroupMaleFemale);
 
         //int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
@@ -75,22 +75,22 @@ public class CA3StudentFragment extends Fragment {
 
         //int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
         //final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
+=======
+>>>>>>> parent of 65ba25a... Merge branch 'master' of https://github.com/Pepijnhuis/Softwarevankje
         
-
-        mNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
+        mNext = (Button) view.findViewById(R.id.ButtonBackCA3Student);
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameStudent = mNameField.getText().toString();
-                Day = Integer.parseInt(mDayField.getText().toString());
-                Month = Integer.parseInt(mMonthField.getText().toString());
-                Year = Integer.parseInt(mYearField.getText().toString());
+                AdressStudent = mAdressField.getText().toString();
                 School = mSchoolField.getText().toString();
                 Study = mStudyField.getText().toString();
                 Hobby1 = mHobby1Field.getText().toString();
                 Hobby2 = mHobby2Field.getText().toString();
                 Hobby3 = mHobby3Field.getText().toString();
                 AboutMe = mAboutMeField.getText().toString();
+<<<<<<< HEAD
                 //RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
                 //RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
 
@@ -125,7 +125,14 @@ public class CA3StudentFragment extends Fragment {
             mStudentAccountDatabase.updateChildren(userInfo);
 
         }
+=======
+                listener.onInputCA3StudentSent(NameStudent,AdressStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
+            }
+        });
+>>>>>>> parent of 65ba25a... Merge branch 'master' of https://github.com/Pepijnhuis/Softwarevankje
 
+        return view;
+    }
 
     @Override
     public void onAttach(Context context){

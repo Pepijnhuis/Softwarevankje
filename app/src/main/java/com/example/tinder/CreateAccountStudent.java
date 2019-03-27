@@ -87,7 +87,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
             Fragment fragment = null; //setting the fragment to null initially
             switch (position){
                 case 0:
-                    fragment = new CA1Fragment();
+                    fragment = new CA1StudentFragment();
                     break; //leave the switch statement
                 case 1:
                     fragment = new CA3StudentFragment();
@@ -131,7 +131,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
 
     @Override
-    public void onInputCA3StudentSent(String NameStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe) {
+    public void onInputCA3StudentSent(String NameStudent,String AdressStudent, String School, String Study, String Hobby1, String Hobby2, String Hobby3, String AboutMe) {
         Log.d("Debug", NameStudent);
 
 
