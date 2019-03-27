@@ -40,7 +40,7 @@ public class CA3StudentFragment extends Fragment {
 
     private RadioGroup mRadioGroupBscMsc, mRadioGroupMaleFemale;
 
-    private Button mBack, mNext, mConfirm;
+    private Button mBack, mButtonNext, mConfirm;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
@@ -74,8 +74,8 @@ public class CA3StudentFragment extends Fragment {
         //final RadioButton radioButton = (RadioButton) view.findViewById(R.id.selectId);
         
 
-        mNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
-        mNext.setOnClickListener(new View.OnClickListener() {
+        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameStudent = mNameField.getText().toString();
@@ -98,9 +98,17 @@ public class CA3StudentFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
 
                 saveUserInformation();
-
-
         }
+        });
+
+        //next buttons
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountStudent,new CA4StudentFragment());
+                fr.commit();
+            }
         });
     return view;
     }

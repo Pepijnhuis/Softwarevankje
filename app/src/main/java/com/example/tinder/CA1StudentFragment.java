@@ -1,11 +1,11 @@
 package com.example.tinder;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +25,7 @@ public class CA1StudentFragment extends Fragment {
     }
 
     //Creating a tag
-    private static final String TAG = "CA1Fragment";
+    private static final String TAG = "CA1StudentFragment";
 
     //Building the fragment
     @Nullable
@@ -34,12 +34,12 @@ public class CA1StudentFragment extends Fragment {
         //Pass the layout from settings_fragment
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
-        View view = inflater.inflate(R.layout.ca1_fragment, container, false);
+        View view = inflater.inflate(R.layout.ca1__student_fragment, container, false);
 
         // Find objects in layout
         mEmail = (EditText) view.findViewById(R.id.Email);
         mPassword = (EditText) view.findViewById(R.id.Password);
-        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1);
+        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1Student);
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +51,18 @@ public class CA1StudentFragment extends Fragment {
 
             }
         });
+
+        //next buttons
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
+                fr.commit();
+            }
+        });
+
+
         return view;
     }
 

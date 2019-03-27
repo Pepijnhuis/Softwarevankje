@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class CA3HouseFragment extends Fragment {
     private EditText mNameHouse, mRent, mSize, mNumberHousemates, mAboutMe;
 
 
-    private Button mBack, mNext;
+    private Button mBack, mButtonNext;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
@@ -50,9 +51,9 @@ public class CA3HouseFragment extends Fragment {
         mSize = (EditText) view.findViewById(R.id.Size);
         mNumberHousemates = (EditText) view.findViewById(R.id.NumberHousemates);
         mAboutMe = (EditText) view.findViewById(R.id.AboutMe);
-        mNext = (Button) view.findViewById(R.id.ButtonNextCA3House);
+        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3House);
 
-        mNext.setOnClickListener(new View.OnClickListener() {
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NameHouse = mNameHouse.getText().toString();
@@ -65,6 +66,16 @@ public class CA3HouseFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Huis").child(userId);
                 saveUserinformation();
         }
+        });
+
+        //next button
+        mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountHouse,new CA4HouseFragment());
+                fr.commit();
+            }
         });
         return view;
     }
