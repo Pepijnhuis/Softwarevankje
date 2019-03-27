@@ -220,6 +220,8 @@ public class SlideFragment extends Fragment {
                     Hobby2 = dataSnapshot.child("Hobby2").getValue().toString();
                     Hobby3 = dataSnapshot.child("Hobby3").getValue().toString();
                     Aboutme = dataSnapshot.child("AboutMe").getValue().toString();
+                    Log.d("Debug", Naam);
+                    Log.d("Debug", Aboutme);
                     Cards Item = new Cards(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
