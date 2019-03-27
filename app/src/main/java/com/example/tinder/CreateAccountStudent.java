@@ -65,6 +65,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
                     Toast.makeText(CreateAccountStudent.this, "Signin Error", Toast.LENGTH_SHORT).show();
+                    Log.d("Debug","gefaaaald!");
                 } else {
                     Log.d("Debug", "Signup succesfullll!!!!!");
 

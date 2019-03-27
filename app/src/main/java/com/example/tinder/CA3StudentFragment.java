@@ -44,8 +44,8 @@ public class CA3StudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
-    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, selectId;
-    private Integer Day, Month, Year;
+    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, RadioGroupBscMsc, RadioGroupMaleFemale;
+    private Integer Day, Month, Year, selectId;
 
 
     //Building the fragment
@@ -70,8 +70,11 @@ public class CA3StudentFragment extends Fragment {
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
         mRadioGroupMaleFemale = (RadioGroup) view.findViewById(R.id.RadioGroupMaleFemale);
 
-        //int selectId = mRadioGroupMaleFemale.getCheckedRadioButtonId();
-        //final RadioButton radioButton = (RadioButton) view.findViewById(R.id.selectId);
+        int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
+        final RadioButton mRadioButtonMaleFemale = (RadioButton) view.findViewById(selectId1);
+
+        //int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
+        //final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
         
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
@@ -88,8 +91,8 @@ public class CA3StudentFragment extends Fragment {
                 Hobby2 = mHobby2Field.getText().toString();
                 Hobby3 = mHobby3Field.getText().toString();
                 AboutMe = mAboutMeField.getText().toString();
-
-                //BscMsc = radioButton.getText().toString();
+                RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
+                //RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
 
                 listener.onInputCA3StudentSent(NameStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
 
@@ -125,6 +128,9 @@ public class CA3StudentFragment extends Fragment {
             userInfo.put("Hobby2", Hobby2);
             userInfo.put("Hobby3", Hobby3);
             userInfo.put("AboutMe", AboutMe);
+            userInfo.put("MaleFemale", RadioGroupMaleFemale);
+            //userInfo.put("BscMSc", RadioGroupBscMsc);
+
             mStudentAccountDatabase.updateChildren(userInfo);
 
         }
