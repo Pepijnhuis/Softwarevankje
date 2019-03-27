@@ -31,7 +31,6 @@ public class SettingsFragment extends Fragment {
 
 
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
-        Button mbutton2 = (Button) view.findViewById(R.id.Slidebutton);
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,13 +42,6 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        mbutton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),  Slideactivity.class);
-                startActivity(intent);
-            }
-        });
         return view;
     }
 }
