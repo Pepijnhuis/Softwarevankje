@@ -29,6 +29,7 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.settings_fragment, container, false);
         mAuth = FirebaseAuth.getInstance();
 
+
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,7 @@ public class SettingsFragment extends Fragment {
                 return;
             }
         });
+
         return view;
     }
 }
