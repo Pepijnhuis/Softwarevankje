@@ -99,11 +99,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //fragment test
-    public void TestFragment (View view) {
-        Intent intent = new Intent (LoginActivity.this, TEST.class);
-        startActivity(intent);
-        return;
-    }
+    //public void TestFragment (View view) {
+      //  Intent intent = new Intent (LoginActivity.this, TEST.class);
+        //startActivity(intent);
+        //return;
+    //}
 
 }
 
