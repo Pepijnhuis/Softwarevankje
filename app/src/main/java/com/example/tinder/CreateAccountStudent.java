@@ -36,6 +36,7 @@ import java.util.jar.Attributes;
 public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener {
 
     private CA1Fragment fragmentCA1;
+    private CA3StudentFragment fragmentCA3;
 
     //This is a FragmentPageAdapter derivative, which will keep every loaded fragment in memory
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -58,6 +59,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         fragmentCA1 = new CA1Fragment();
+        fragmentCA3 = new CA3StudentFragment();
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.containerCreateAccountStudent);
@@ -85,7 +87,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
             Fragment fragment = null; //setting the fragment to null initially
             switch (position){
                 case 0:
-                    fragment = new CA1StudentFragment();
+                    fragment = new CA1Fragment();
                     break; //leave the switch statement
                 case 1:
                     fragment = new CA3StudentFragment();
@@ -109,7 +111,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
     @Override
     public void onInputCA1Sent(String Email, String Password) {
-        Log.d("Debug", "on input sent called");
+        Log.d("Debug", "oninput sent called");
         Log.d("Debug",Email);
         Log.d("Debug",Password);
         mAuth= FirebaseAuth.getInstance();
@@ -126,6 +128,8 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
             }
         });
     }
+
+
 
     //Main navigation button
     public void goToMainNavigation(View view) {

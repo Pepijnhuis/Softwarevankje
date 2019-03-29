@@ -127,7 +127,7 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1Fragment
             Fragment fragment = null; //setting the fragment to null initially
             switch (position) {
                 case 0:
-                    fragment = new CA1HouseFragment();
+                    fragment = new CA1Fragment();
                     break; //leave the switch statement
                 case 1:
                     fragment = new CA3HouseFragment();
