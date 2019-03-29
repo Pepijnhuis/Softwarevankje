@@ -26,8 +26,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CreateAccountHouse extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener {
-    private CA1Fragment fragmentCA1;
+public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFragment.FragmentCA1HouseListener {
+    private CA1HouseFragment ca1HouseFragment;
 
     private FirebaseAuth mAuth;
 
@@ -43,11 +43,11 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1Fragment
 
         mAuth = FirebaseAuth.getInstance();
 
-        fragmentCA1 = new CA1Fragment();
+        ca1HouseFragment = new CA1HouseFragment();
     }
 
     @Override
-    public void onInputCA1Sent(String Email, String Password) {
+    public void onInputCA1HouseSent(String Email, String Password) {
         Log.d("Debug", "oninput sent called");
         Log.d("Debug",Email);
         Log.d("Debug",Password);

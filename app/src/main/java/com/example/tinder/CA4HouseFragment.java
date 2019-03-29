@@ -28,6 +28,23 @@ public class CA4HouseFragment extends Fragment {
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4House);
 
+        //mButtonNext.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //public void onClick(View v) {
+                //Edittext to String
+                //Email = mEmail.getText().toString();
+                //Password = mPassword.getText().toString();
+                //listener.onInputCA1StudentSent(Email,Password);
+
+                //next button
+                //if (Email != null && Password !=null){
+                    //FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    //fr.replace(R.id.containerCreateAccountHouse,new CA5HouseFragment());
+                    //fr.commit();
+                //}
+            //}
+        //});
+
         //next button
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override

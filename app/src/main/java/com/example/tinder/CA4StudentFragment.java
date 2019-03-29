@@ -18,10 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-//import com.google.firebase.storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -64,6 +64,23 @@ public class CA4StudentFragment extends Fragment {
 
                 mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4Student);
 
+        //mButtonNext.setOnClickListener(new View.OnClickListener() {
+        //@Override
+        //public void onClick(View v) {
+        //Edittext to String
+        //Email = mEmail.getText().toString();
+        //Password = mPassword.getText().toString();
+        //listener.onInputCA1StudentSent(Email,Password);
+
+        //next button
+        //if (Email != null && Password !=null){
+        //FragmentTransaction fr = getFragmentManager().beginTransaction();
+        //fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
+        //fr.commit();
+        //}
+        //}
+        //});
+
         //next buttons
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +93,10 @@ public class CA4StudentFragment extends Fragment {
         return view;
     }
 
-    private void saveUserImage() {
+    //private void saveUserImage() {
 
-        StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
-        Bitmap bitmap = null;
+        //StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
+        //Bitmap bitmap = null;
 
         try {
             bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplication().getContentResolver(), resultUri);
@@ -111,8 +128,6 @@ public class CA4StudentFragment extends Fragment {
                 return;
             }
         });
-
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

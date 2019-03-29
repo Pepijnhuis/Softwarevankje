@@ -33,10 +33,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.jar.Attributes;
 
-public class CreateAccountStudent extends AppCompatActivity implements CA1Fragment.FragmentCA1Listener, CA3StudentFragment.FragmentCA3StudentListener {
+public class CreateAccountStudent extends AppCompatActivity implements CA1StudentFragment.FragmentCA1StudentListener, CA3StudentFragment.FragmentCA3StudentListener {
 
-    private CA1Fragment fragmentCA1;
-    private CA3StudentFragment fragmentCA3;
+    private CA1StudentFragment ca1StudentFragment;
+    private CA3StudentFragment ca3StudentFragment;
 
     private FirebaseAuth mAuth;
 
@@ -55,7 +55,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Fragme
 
 
     @Override
-    public void onInputCA1Sent(String Email, String Password) {
+    public void onInputCA1StudentSent(String Email, String Password) {
         Log.d("Debug", "oninput sent called");
         Log.d("Debug",Email);
         Log.d("Debug",Password);

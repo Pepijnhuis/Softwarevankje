@@ -65,18 +65,19 @@ public class CA3HouseFragment extends Fragment {
                 userId = mAuth.getCurrentUser().getUid();
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Huis").child(userId);
                 saveUserinformation();
+
+
+
+                //next button
+                if (NameHouse != null && Rent != null && Size != null && NumberHousemates != null
+                && Aboutme != null){
+                    FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.containerCreateAccountHouse,new CA4HouseFragment());
+                    fr.commit();
+                }
         }
         });
 
-        //next button
-        mButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountHouse,new CA4HouseFragment());
-                fr.commit();
-            }
-        });
         return view;
     }
 
