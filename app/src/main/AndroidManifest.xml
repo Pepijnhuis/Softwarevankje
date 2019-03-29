@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TEST"></activity>
         <activity android:name=".StudentHouseActivity" />
         <activity
             android:name=".MainNavigation"

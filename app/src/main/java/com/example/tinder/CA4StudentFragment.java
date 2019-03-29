@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import com.google.firebase.storage;
+//import com.google.firebase.storage;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -32,6 +32,23 @@ public class CA4StudentFragment extends Fragment {
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4Student);
 
+        //mButtonNext.setOnClickListener(new View.OnClickListener() {
+        //@Override
+        //public void onClick(View v) {
+        //Edittext to String
+        //Email = mEmail.getText().toString();
+        //Password = mPassword.getText().toString();
+        //listener.onInputCA1StudentSent(Email,Password);
+
+        //next button
+        //if (Email != null && Password !=null){
+        //FragmentTransaction fr = getFragmentManager().beginTransaction();
+        //fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
+        //fr.commit();
+        //}
+        //}
+        //});
+
         //next buttons
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,13 +61,13 @@ public class CA4StudentFragment extends Fragment {
         return view;
     }
 
-    private void saveUserImage() {
+    //private void saveUserImage() {
 
-        StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
-        Bitmap bitmap = null;
+        //StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
+        //Bitmap bitmap = null;
 
-        bitmap = MediaStore.Images.Media.getBitmap(getA
+        //bitmap = MediaStore.Images.Media.getBitmap(getA
 
-    }
+    //}
 
 }

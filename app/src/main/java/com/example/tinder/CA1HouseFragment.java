@@ -14,14 +14,14 @@ import android.widget.EditText;
 
 public class CA1HouseFragment extends Fragment {
 
-    private FragmentCA1Listener listener;
+    private FragmentCA1HouseListener listener;
     private EditText mEmail, mPassword;
     private Button mButtonNext;
 
     private String Email, Password;
 
-    public interface FragmentCA1Listener {
-        void onInputCA1Sent(String Email, String Password);
+    public interface FragmentCA1HouseListener {
+        void onInputCA1HouseSent(String Email, String Password);
     }
 
     //Creating a tag
@@ -47,18 +47,15 @@ public class CA1HouseFragment extends Fragment {
                 //Edittext to String
                 Email = mEmail.getText().toString();
                 Password = mPassword.getText().toString();
-                listener.onInputCA1Sent(Email,Password);
+                listener.onInputCA1HouseSent(Email,Password);
 
-            }
-        });
+                //next button
+                if (Email != null && Password !=null){
+                    FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
+                    fr.commit();
+                }
 
-        //back and next buttons
-        mButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
-                fr.commit();
             }
         });
 
@@ -69,8 +66,8 @@ public class CA1HouseFragment extends Fragment {
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
-        if(context instanceof FragmentCA1Listener){
-            listener = (FragmentCA1Listener) context;
+        if(context instanceof FragmentCA1HouseListener){
+            listener = (FragmentCA1HouseListener) context;
         }
     }
 

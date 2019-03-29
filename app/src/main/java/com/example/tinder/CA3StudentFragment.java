@@ -40,6 +40,8 @@ public class CA3StudentFragment extends Fragment {
 
     private RadioGroup mRadioGroupBscMsc, mRadioGroupMaleFemale;
 
+    private RadioButton mMaleFemaleOption, mBscMscOption;
+
     private Button mBack, mButtonNext, mConfirm;
 
     private FirebaseAuth mAuth;
@@ -69,12 +71,13 @@ public class CA3StudentFragment extends Fragment {
         mHobby3Field = (EditText) view.findViewById(R.id.Hobby3);
         mAboutMeField = (EditText) view.findViewById(R.id.AboutMe);
         mRadioGroupMaleFemale = (RadioGroup) view.findViewById(R.id.RadioGroupMaleFemale);
+        mRadioGroupBscMsc = (RadioGroup) view.findViewById(R.id.RadioGroupBscMsc);
 
         int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
         final RadioButton mRadioButtonMaleFemale = (RadioButton) view.findViewById(selectId1);
 
-        //int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
-        //final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
+        int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
+        final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
         
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3Student);
@@ -92,7 +95,7 @@ public class CA3StudentFragment extends Fragment {
                 Hobby3 = mHobby3Field.getText().toString();
                 AboutMe = mAboutMeField.getText().toString();
                 RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
-                //RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
+                RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
 
                 listener.onInputCA3StudentSent(NameStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
 
@@ -101,17 +104,16 @@ public class CA3StudentFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
 
                 saveUserInformation();
-        }
-        });
 
-        //next buttons
-        mButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountStudent,new CA4StudentFragment());
-                fr.commit();
-            }
+                //next button
+                if (NameStudent != null && Day !=null && Month != null && Year != null
+                && School != null && Study != null && Hobby1 != null && Hobby2 != null
+                && Hobby3 != null && AboutMe != null){
+                    FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.containerCreateAccountStudent,new CA4StudentFragment());
+                    fr.commit();
+                }
+        }
         });
     return view;
     }
@@ -129,7 +131,7 @@ public class CA3StudentFragment extends Fragment {
             userInfo.put("Hobby3", Hobby3);
             userInfo.put("AboutMe", AboutMe);
             userInfo.put("MaleFemale", RadioGroupMaleFemale);
-            //userInfo.put("BscMSc", RadioGroupBscMsc);
+            userInfo.put("BscMSc", RadioGroupBscMsc);
 
             mStudentAccountDatabase.updateChildren(userInfo);
 
