@@ -6,11 +6,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CA1HouseFragment extends Fragment {
 
@@ -47,15 +49,38 @@ public class CA1HouseFragment extends Fragment {
                 //Edittext to String
                 Email = mEmail.getText().toString();
                 Password = mPassword.getText().toString();
-                listener.onInputCA1HouseSent(Email,Password);
 
-                //next button
-                if (Email != null && Password !=null){
+                //invalid email
+                if (Email.matches("") ) {
+                    // Show Error on edittext
+                    mEmail.setError("Invalid email");
+                    Log.d("Debug", "no email");
+
+                    //invalid email and password
+                    if (Password.matches("")) {
+                        // Show Error on edittext
+                        mPassword.setError("Invalid password");
+                        Log.d("Debug", "no password");}
+                    return;
+                }
+
+                //invalid password
+                if (Password.matches("")) {
+                    // Show Error on edittext
+                    mPassword.setError("Invalid password");
+                    Log.d("Debug", "no password");
+                    return;
+                }
+
+                //valid email and password
+                else{
+                    //send to activity
+                    listener.onInputCA1HouseSent(Email,Password);
+                    //go to next fragment
                     FragmentTransaction fr = getFragmentManager().beginTransaction();
                     fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
                     fr.commit();
                 }
-
             }
         });
 

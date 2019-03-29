@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,26 +49,42 @@ public class CA1StudentFragment extends Fragment {
                 //Edittext to String
                 Email = mEmail.getText().toString();
                 Password = mPassword.getText().toString();
-                listener.onInputCA1StudentSent(Email,Password);
+
+                //invalid email
+                if (Email.matches("") ) {
+                    // Show Error on edittext
+                    mEmail.setError("Invalid email");
+                    Log.d("Debug", "no email");
+
+                    //invalid email and password
+                    if (Password.matches("")) {
+                        // Show Error on edittext
+                        mPassword.setError("Invalid password");
+                        Log.d("Debug", "no password");}
+                    return;
+                }
+
+                //invalid password
+                if (Password.matches("")) {
+                    // Show Error on edittext
+                    mPassword.setError("Invalid password");
+                    Log.d("Debug", "no password");
+                    return;
+                }
+
+                //valid email and password
 
                 //next button
-                if (Email != null && Password !=null){
+                else {
+                    //send to activity
+                    listener.onInputCA1StudentSent(Email,Password);
+                    //go to next fragment
                     FragmentTransaction fr = getFragmentManager().beginTransaction();
                     fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
                     fr.commit();
                 }
             }
         });
-
-        //next buttons
-        //mButtonNext.setOnClickListener(new View.OnClickListener() {
-            //@Override
-            //public void onClick(View v) {
-                //FragmentTransaction fr = getFragmentManager().beginTransaction();
-                //fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
-                //fr.commit();
-          //  }
-        //});
 
 
         return view;

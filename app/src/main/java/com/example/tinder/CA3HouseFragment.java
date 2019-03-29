@@ -66,6 +66,8 @@ public class CA3HouseFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Huis").child(userId);
                 saveUserinformation();
 
+
+
                 //next button
                 if (NameHouse != null && Rent != null && Size != null && NumberHousemates != null
                 && Aboutme != null){

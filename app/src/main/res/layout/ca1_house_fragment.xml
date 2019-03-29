@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
             android:background="@color/colorEditText"
-            android:hint="@string/email"
+            android:hint="@string/emailHint"
             android:inputType="textPersonName" />
 
         <TextView
