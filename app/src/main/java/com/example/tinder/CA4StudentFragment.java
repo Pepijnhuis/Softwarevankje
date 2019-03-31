@@ -62,7 +62,7 @@ public class CA4StudentFragment extends Fragment {
         });
 
 
-                mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4Student);
+        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4Student);
 
         //mButtonNext.setOnClickListener(new View.OnClickListener() {
         //@Override
@@ -88,15 +88,16 @@ public class CA4StudentFragment extends Fragment {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
                 fr.commit();
+                saveUserImage();
             }
         });
         return view;
     }
 
-    //private void saveUserImage() {
+    private void saveUserImage() {
 
-        //StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
-        //Bitmap bitmap = null;
+        StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
+        Bitmap bitmap = null;
 
         try {
             bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplication().getContentResolver(), resultUri);
@@ -128,16 +129,15 @@ public class CA4StudentFragment extends Fragment {
                 return;
             }
         });
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
+        if (requestCode ==1 && requestCode == Activity.RESULT_OK) {
             final Uri imageUri = data.getData();
             resultUri = imageUri;
             mProfileImage1.setImageURI(resultUri);
-
         }
-
     }
 }
