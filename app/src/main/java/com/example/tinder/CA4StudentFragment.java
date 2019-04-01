@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +21,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -40,7 +43,8 @@ public class CA4StudentFragment extends Fragment {
     private Button mButtonNext, mSkip;
     private ImageView mProfileImage1;
     private Uri resultUri;
-    private String Image1;
+    private String Image1, userId; //downloadUrl;
+    private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
 
 
@@ -65,6 +69,8 @@ public class CA4StudentFragment extends Fragment {
             }
         });
 
+        mAuth= FirebaseAuth.getInstance();
+        userId = mAuth.getCurrentUser().getUid();
 
         mProfileImage1 = (ImageView) view.findViewById(R.id.imageStudent1);
 
@@ -110,47 +116,61 @@ public class CA4StudentFragment extends Fragment {
     }
 
     private void saveUserImage() {
+        //mStudentAccountDatabase.updateChildren();
 
-        StorageReference filepath = FirebaseStorage.getInstance().getReference().child("ProfileImage").child(Image1);
-        Bitmap bitmap = null;
+        if(resultUri != null) {
 
-        try {
-            bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplication().getContentResolver(), resultUri);
-        } catch (IOException e) {
-            e.printStackTrace();
+            StorageReference filepath = FirebaseStorage.getInstance().getReference().child("Users").child("Student").child(userId);
+            Bitmap bitmap = null;
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplication().getContentResolver(), resultUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 15, baos);
+            byte[] data = baos.toByteArray();
+            final UploadTask uploadTask = filepath.putBytes(data);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    //Toast.makeText(getActivity(), "Fialure image", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
+            });
+            uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    //taskSnapshot.getDownloadUrl is obsolete
+                    //String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
+                    String downloadUrl = FirebaseStorage.getInstance().getReference().toString(); //gives wrong url
+
+                    //StorageReference downloadUrl = FirebaseStorage.getInstance().getReference(); gives wrong url
+                    //return dateRef.toString();
+
+                    //String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(); //gives wrong url
+
+                    Map userInfo = new HashMap();
+                    userInfo.put("ProfileImageUrl", downloadUrl);
+                    Log.d("Debug", String.valueOf(userInfo));
+                    mStudentAccountDatabase.updateChildren(userInfo);
+
+                    getActivity().finish();
+                    return;
+                }
+            });
         }
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
-        byte[] data = baos.toByteArray();
-        UploadTask uploadTask = filepath.putBytes(data);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), "Fialure image", Toast.LENGTH_SHORT).show();
-                getActivity().finish();
-            }
-        });
-        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //taskSnapshot.getDownloadUrl is obsolete
-                String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-                Map userInfo = new HashMap();
-                userInfo.put("ProfileImageUrl", downloadUrl);
-                mStudentAccountDatabase.updateChildren(userInfo);
-
-                getActivity().finish();
-                return;
-            }
-        });
+        else {getActivity().finish();}
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode ==1 && requestCode == Activity.RESULT_OK) {
-            final Uri imageUri = data.getData();
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            final Uri imageUri  = data.getData();
             resultUri = imageUri;
             mProfileImage1.setImageURI(resultUri);
         }
