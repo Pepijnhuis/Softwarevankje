@@ -103,4 +103,11 @@ public class MainNavigation extends AppCompatActivity {
             return 3;
         }
     }
+
+    //Chat button
+    public void goToChat(View view) {
+        Intent intent = new Intent(MainNavigation.this, Chat.class);
+        startActivity(intent);
+        return;
+    }
 }
