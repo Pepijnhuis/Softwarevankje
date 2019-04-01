@@ -127,7 +127,7 @@ public class CA4StudentFragment extends Fragment {
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), "Fialure image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Failure image", Toast.LENGTH_SHORT).show();
                 getActivity().finish();
             }
         });
@@ -149,7 +149,7 @@ public class CA4StudentFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode ==1 && requestCode == Activity.RESULT_OK) {
+        if (requestCode ==1 && resultCode == Activity.RESULT_OK) {
             final Uri imageUri = data.getData();
             resultUri = imageUri;
             mProfileImage1.setImageURI(resultUri);
