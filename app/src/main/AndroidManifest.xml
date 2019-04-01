@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Chat"></activity>
+        <activity android:name=".SlideFragmentStudent"></activity>
+        <activity
+            android:name=".MainNavigationStudent"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainNavigationHouse"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Chat" />
         <activity android:name=".StudentHouseActivity" />
         <activity
             android:name=".MainNavigation"

@@ -52,7 +52,7 @@
 
 
             <TextView
-                android:id="@+id/cardNameStudent"
+                android:id="@+id/cardNameHouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
@@ -61,7 +61,7 @@
                 android:layout_marginBottom="20sp"/>
 
             <TextView
-                android:id="@+id/cardUniversity"
+                android:id="@+id/cardHouseRent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="5sp"/>
 
             <TextView
-                android:id="@+id/cardBachelorMaster"
+                android:id="@+id/cardHouseSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -86,28 +86,12 @@
                 tools:text="Hobbies" />
 
             <TextView
-                android:id="@+id/cardHobby1"
+                android:id="@+id/cardHOuseNumberHousemates"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 tools:text="(hobby 1)"
                 android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:id="@+id/cardHobby2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="(hobby 2)"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:id="@+id/cardHobby3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="(hobby 3)"
-                android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:id="@+id/AboutMeTitle"
