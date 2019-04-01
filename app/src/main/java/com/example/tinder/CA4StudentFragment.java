@@ -100,10 +100,10 @@ public class CA4StudentFragment extends Fragment {
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveUserImage();
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
                 fr.commit();
-                saveUserImage();
             }
         });
         return view;
@@ -137,7 +137,7 @@ public class CA4StudentFragment extends Fragment {
                 //taskSnapshot.getDownloadUrl is obsolete
                 String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                 Map userInfo = new HashMap();
-                userInfo.put("Name", downloadUrl);
+                userInfo.put("ProfileImageUrl", downloadUrl);
                 mStudentAccountDatabase.updateChildren(userInfo);
 
                 getActivity().finish();
