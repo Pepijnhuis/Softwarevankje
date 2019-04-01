@@ -12,18 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Chat"></activity>
-        <activity android:name=".StudentHouseActivity" />
-        <activity
-            android:name=".MainNavigation"
+        <activity android:name=".CreateAccount.StudentHouseActivity" />
+        <activity android:name=".MainNavigation"
             android:label="@string/title_activity_main_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateAccount3Student" />
-        <activity android:name=".CreateAccountHouse" />
-        <activity android:name=".CreateAccountStudent" />
+        <activity android:name=".CreateAccount.CreateAccountHouse" />
+        <activity android:name=".CreateAccount.CreateAccountStudent" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

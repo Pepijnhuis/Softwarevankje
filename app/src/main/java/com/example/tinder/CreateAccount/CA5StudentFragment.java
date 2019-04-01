@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.CreateAccount;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.tinder.R;
 
 public class CA5StudentFragment extends Fragment {
 

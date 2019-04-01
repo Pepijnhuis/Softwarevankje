@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.CreateAccount;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.Attributes;
 
 public class CA3StudentFragment extends Fragment {
     private CA3StudentFragment.FragmentCA3StudentListener listener;
