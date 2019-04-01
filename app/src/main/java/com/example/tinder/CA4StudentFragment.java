@@ -119,16 +119,16 @@ public class CA4StudentFragment extends Fragment {
         //mStudentAccountDatabase.updateChildren();
 
         if(resultUri != null) {
-
+            
             StorageReference filepath = FirebaseStorage.getInstance().getReference().child("Users").child("Student").child(userId);
             Bitmap bitmap = null;
-
+            
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getActivity().getApplication().getContentResolver(), resultUri);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 15, baos);
             byte[] data = baos.toByteArray();
@@ -140,6 +140,7 @@ public class CA4StudentFragment extends Fragment {
                     getActivity().finish();
                 }
             });
+            
             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

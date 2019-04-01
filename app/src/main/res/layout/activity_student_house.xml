@@ -10,7 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20sp">
+        android:padding="20sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"
+            android:text="Register as:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/ButtonLookingForHouse"
@@ -20,17 +34,21 @@
             android:layout_marginBottom="20sp"
             android:background="@color/colorButton"
             android:onClick="goLookingForHouse"
-            android:text="@string/text_house_button" />
+            android:text="Student" />
 
         <Button
             android:id="@+id/ButtonLookingForStudent"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
             android:background="@color/colorButton"
+            android:elevation="0dp"
             android:onClick="goLookingForStudent"
-            android:text="@string/text_housemate_button"
-            android:layout_marginBottom="20sp" />
+            android:text="House"
+            app:srcCompat="@drawable/ic_home_black_24dp" />
+
+
 
     </LinearLayout>
 

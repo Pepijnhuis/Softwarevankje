@@ -57,8 +57,8 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Studen
     @Override
     public void onInputCA1StudentSent(String Email, String Password) {
         Log.d("Debug", "oninput sent called");
-        Log.d("Debug",Email);
-        Log.d("Debug",Password);
+        Log.d("Debug", Email);
+        Log.d("Debug", Password);
         mAuth= FirebaseAuth.getInstance();
         mAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(CreateAccountStudent.this, new OnCompleteListener<AuthResult>() {
             @Override
