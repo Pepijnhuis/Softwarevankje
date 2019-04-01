@@ -146,12 +146,15 @@ public class CA4StudentFragment extends Fragment {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     //taskSnapshot.getDownloadUrl is obsolete
                     //String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-                    String downloadUrl = FirebaseStorage.getInstance().getReference().toString(); //gives wrong url
+                    //String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString(); //gives wrong url
 
                     //StorageReference downloadUrl = FirebaseStorage.getInstance().getReference(); gives wrong url
                     //return dateRef.toString();
 
                     //String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(); //gives wrong url
+
+                    String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString();
+
 
                     Map userInfo = new HashMap();
                     userInfo.put("ProfileImageUrl", downloadUrl);
