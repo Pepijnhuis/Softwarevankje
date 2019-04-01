@@ -19,7 +19,7 @@ public class CA4StudentFragment extends Fragment {
 
     //Creating a tag
     private static final String TAG = "CA4StudentFragment";
-    private Button mButtonNext;
+    private Button mButtonNext, mSkip;
 
     //Building the fragment
     @Nullable
@@ -29,6 +29,18 @@ public class CA4StudentFragment extends Fragment {
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
         View view = inflater.inflate(R.layout.ca4_student_fragment, container, false);
+
+        mSkip = (Button) view.findViewById(R.id.ButtonBackCA4Student);
+
+        //skip button
+        mSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
+                fr.commit();
+            }
+        });
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA4Student);
 
