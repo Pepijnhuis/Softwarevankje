@@ -26,6 +26,7 @@ public class CA5HouseFragment extends Fragment {
         //Attach to root is false
         View view = inflater.inflate(R.layout.ca5_house_fragment, container, false);
 
+        //next button
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA5House);
 
         //mButtonNext.setOnClickListener(new View.OnClickListener() {

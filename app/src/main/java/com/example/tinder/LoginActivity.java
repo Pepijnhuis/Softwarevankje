@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,13 +55,43 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
+
+                if (email.matches("") ) {
+                    // Show Error on edittext
+                    mEmail.setError("Invalid email");
+                    Log.d("Debug", "no email");
+
+                    //invalid email and password
+                    if (password.matches("")) {
+                        // Show Error on edittext
+                        mPassword.setError("Invalid password");
+                        Log.d("Debug", "no password");}
+                    return;
+                }
+
+                //invalid password
+                if (password.matches("")) {
+                    // Show Error on edittext
+                    mPassword.setError("Invalid password");
+                    Log.d("Debug", "no password");
+                    return;
+                }
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        //when login is successful
                         if (!task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Signin Error", Toast.LENGTH_SHORT).show();
                         }
-                        //else{
+                        //when login is not successful
+                        else{
+                            mEmail.setError("Invalid email");
+                            Log.d("Debug", "no email");
+                            mPassword.setError("Invalid password");
+                            Log.d("Debug", "no password");
+                        }
+
                         //    String userID = mAuth.getCurrentUser().getUid();
                         //    DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("Student");
                         //    currentUserDb.setValue(name);
