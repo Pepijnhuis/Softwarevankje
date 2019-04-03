@@ -46,31 +46,28 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user !=null) {
+                    //student database reference see if changed
                     DatabaseReference Studentdb = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
                     Studentdb.addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            //get current user id
                             UID = user.getUid();
                             Log.d("Debug", UID);
+                            //if current user id occurs in student database
                             if (dataSnapshot.getKey().equals(user.getUid())) {
-                                oppositeuser = "Student";
-                            } else {
                                 oppositeuser = "Huis";
-                            }
-
-                            if (oppositeuser == "Huis") {
                                 Log.d("Debug", "Login als Student");
                                 Intent intent = new Intent(LoginActivity.this, MainNavigationStudent.class);
                                 startActivity(intent);
                                 finish();
                             } else {
+                                oppositeuser = "Student";
                                 Log.d("Debug", "Login als Huis");
                                 Intent intent = new Intent(LoginActivity.this, MainNavigationHouse.class);
                                 startActivity(intent);
                                 finish();
                             }
-
-
                         }
 
                         @Override
