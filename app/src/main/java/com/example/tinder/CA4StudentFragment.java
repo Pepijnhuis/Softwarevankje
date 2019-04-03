@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -153,7 +154,8 @@ public class CA4StudentFragment extends Fragment {
 
                     //String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(); //gives wrong url
 
-                    String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString();
+                    //String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString();
+                    Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
 
                     Map userInfo = new HashMap();

@@ -110,5 +110,11 @@ public class MainNavigationStudent extends AppCompatActivity {
         startActivity(intent);
         return;
     }
+
+    public void goToChangeInformation(View view) {
+        Intent intent = new Intent(MainNavigationStudent.this, ChangeInformation.class);
+        startActivity(intent);
+        return;
+    }
 }
 
