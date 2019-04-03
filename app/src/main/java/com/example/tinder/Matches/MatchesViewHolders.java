@@ -19,8 +19,8 @@ public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.
         itemView.setOnClickListener(this);
 
         mMatchId = (TextView) itemView.findViewById(R.id.MatchId);
-        //mMatchName = (TextView) itemView.findViewById(R.id.MatchName);
-        //mMatchImage = (ImageView) itemView.findViewById(R.id.MatchImage);
+        mMatchName = (TextView) itemView.findViewById(R.id.MatchName);
+        mMatchImage = (ImageView) itemView.findViewById(R.id.MatchImage);
     }
 
     //to chat

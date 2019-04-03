@@ -53,19 +53,19 @@ public class LoginActivity extends AppCompatActivity {
                             UID = user.getUid();
                             Log.d("Debug", UID);
                             if (dataSnapshot.getKey().equals(user.getUid())) {
-                                oppositeuser = "Huis";
-                            } else {
                                 oppositeuser = "Student";
+                            } else {
+                                oppositeuser = "Huis";
                             }
 
                             if (oppositeuser == "Huis") {
-                                Log.d("Debug", "Login als Huis");
-                                Intent intent = new Intent(LoginActivity.this, MainNavigationHouse.class);
+                                Log.d("Debug", "Login als Student");
+                                Intent intent = new Intent(LoginActivity.this, MainNavigationStudent.class);
                                 startActivity(intent);
                                 finish();
                             } else {
-                                Log.d("Debug", "Login als Student");
-                                Intent intent = new Intent(LoginActivity.this, MainNavigationStudent.class);
+                                Log.d("Debug", "Login als Huis");
+                                Intent intent = new Intent(LoginActivity.this, MainNavigationHouse.class);
                                 startActivity(intent);
                                 finish();
                             }
