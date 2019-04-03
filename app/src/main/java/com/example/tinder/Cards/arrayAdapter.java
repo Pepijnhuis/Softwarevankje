@@ -1,14 +1,14 @@
-package com.example.tinder;
+package com.example.tinder.Cards;
 
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tinder.R;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
     }
     public View getView(int position, View convertView, ViewGroup parent){
         Log.d("Debug","Get View Called");
-        com.example.tinder.Cards card_item = getItem(position);
+        Cards card_item = getItem(position);
 
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);

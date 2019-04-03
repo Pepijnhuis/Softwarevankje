@@ -1,9 +1,11 @@
-package com.example.tinder;
+package com.example.tinder.CreateAccount;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.tinder.R;
 
 public class StudentHouseActivity extends AppCompatActivity {
 

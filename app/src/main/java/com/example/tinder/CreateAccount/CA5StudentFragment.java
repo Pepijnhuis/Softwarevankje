@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.CreateAccount;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.example.tinder.R;
 
 public class CA5StudentFragment extends Fragment {
     private CA5StudentFragment.FragmentCA5StudentListener listener;

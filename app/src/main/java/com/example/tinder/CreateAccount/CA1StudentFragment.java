@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.CreateAccount;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,22 +12,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-public class CA1HouseFragment extends Fragment {
+import com.example.tinder.R;
 
-    private FragmentCA1HouseListener listener;
+public class CA1StudentFragment extends Fragment {
+
+    private FragmentCA1StudentListener listener;
     private EditText mEmail, mPassword;
     private Button mButtonNext, mSkip;
 
     private String Email, Password;
 
-    public interface FragmentCA1HouseListener {
-        void onInputCA1HouseSent(String Email, String Password);
+    public interface FragmentCA1StudentListener {
+        void onInputCA1StudentSent(String Email, String Password);
     }
 
     //Creating a tag
-    private static final String TAG = "CA1HouseFragment";
+    private static final String TAG = "CA1StudentFragment";
 
     //Building the fragment
     @Nullable
@@ -36,23 +37,27 @@ public class CA1HouseFragment extends Fragment {
         //Pass the layout from settings_fragment
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
-        View view = inflater.inflate(R.layout.ca1_house_fragment, container, false);
+        View view = inflater.inflate(R.layout.ca1__student_fragment, container, false);
 
         // Find objects in layout
         mEmail = (EditText) view.findViewById(R.id.Email);
         mPassword = (EditText) view.findViewById(R.id.Password);
-        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1House);
-        mSkip = (Button) view.findViewById(R.id.ButtonBackCA1House);
+        mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1Student);
 
+        mSkip = (Button) view.findViewById(R.id.ButtonBackCA1Student);
+
+        //skip button
         mSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
+                fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
                 fr.commit();
             }
         });
 
+
+        //next button
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,12 +88,14 @@ public class CA1HouseFragment extends Fragment {
                 }
 
                 //valid email and password
-                else{
+
+                //next button
+                else {
                     //send to activity
-                    listener.onInputCA1HouseSent(Email,Password);
+                    listener.onInputCA1StudentSent(Email,Password);
                     //go to next fragment
                     FragmentTransaction fr = getFragmentManager().beginTransaction();
-                    fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
+                    fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
                     fr.commit();
                 }
             }
@@ -101,8 +108,8 @@ public class CA1HouseFragment extends Fragment {
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
-        if(context instanceof FragmentCA1HouseListener){
-            listener = (FragmentCA1HouseListener) context;
+        if(context instanceof FragmentCA1StudentListener){
+            listener = (FragmentCA1StudentListener) context;
         }
     }
 
