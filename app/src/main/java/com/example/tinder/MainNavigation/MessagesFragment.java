@@ -117,6 +117,7 @@ public class MessagesFragment extends Fragment {
                     //check if name is provided
                     if (dataSnapshot.child("Name").getValue()!=null){
                         Name = dataSnapshot.child("Name").getValue().toString();
+                        Log.d("Debug name user", Name);
                     }
 
                     //check if profile image is provided
