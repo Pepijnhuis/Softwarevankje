@@ -80,7 +80,7 @@ public class MainNavigationHouse extends AppCompatActivity {
                     fragment = new SettingsFragment();
                     break; //leave the switch statement
                 case 1:
-                    fragment = new SlideFragment();
+                    fragment = new SlideFragmentHouse();
                     break;
                 case 2:
                     fragment = new MessagesFragment();

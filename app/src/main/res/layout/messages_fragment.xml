@@ -18,9 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/recyclerView"
-                android:scrollbars="vertical"
-                >
-
+                android:scrollbars="vertical">
 
             </android.support.v7.widget.RecyclerView>
         </android.support.v4.widget.NestedScrollView>
@@ -31,13 +29,6 @@
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/sym_def_app_icon"
             android:onClick="goToChat"/>
-
-
-
-
-
-
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

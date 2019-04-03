@@ -24,7 +24,6 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
         this.context = context;
     }
 
-    @NonNull
     @Override
     public MatchesViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
         //this part controls the layout
@@ -42,12 +41,19 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
         //populating the layout passed in MatchesViewHolders
 
         //holder contains layout item matches
-        //position is at which position the holder is within the recyclerview
+        //position is at which position sthe holder is within the recyclerview
         holder.mMatchId.setText(matchesList.get(position).getUserId());
+        holder.mMatchName.setText(matchesList.get(position).getName());
+
+        //check if image is equal to default
+        //if (!matchesList.get(position).getProfileImageUrl().eguals("default")){
+            //Glide.with(context).load(matchesList.get(position).getProfileImageUrl()).into(holder.mMatchImage);
+        //}
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return this.matchesList.size();
     }
 }
