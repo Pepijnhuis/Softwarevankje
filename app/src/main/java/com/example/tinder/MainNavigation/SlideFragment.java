@@ -1,22 +1,19 @@
-package com.example.tinder;
+package com.example.tinder.MainNavigation;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.tinder.Cards.Cards;
+import com.example.tinder.Cards.arrayAdapter;
+import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -34,7 +31,7 @@ import java.util.List;
 public class SlideFragment extends Fragment {
     private ArrayList<String> al;
     private Cards cards_data[];
-    private arrayAdapter arrayAdapter;
+    private com.example.tinder.Cards.arrayAdapter arrayAdapter;
     private int i;
     private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme;
 
@@ -56,7 +53,6 @@ public class SlideFragment extends Fragment {
 
         usersDB = FirebaseDatabase.getInstance().getReference().child("Users");
         currentUId = mAuth.getCurrentUser().getUid();
-
 
         checkUserSex();
 
@@ -187,7 +183,7 @@ public class SlideFragment extends Fragment {
                 if (dataSnapshot.getKey().equals(user.getUid())){
                     usersex = "Huis";
                     oppositeUserSex = "Student";
-                    Log.d("Debug",oppositeUserSex);
+                    Log.d("Debug user sex",oppositeUserSex);
                     getOppositeSexUsers();
                 }
             }

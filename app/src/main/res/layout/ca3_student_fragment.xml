@@ -105,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:checkedButton="@+id/Male"
                     android:gravity="center_horizontal"
+                    android:checkedButton="@+id/Male"
                     android:orientation="horizontal">
 
                     <RadioButton

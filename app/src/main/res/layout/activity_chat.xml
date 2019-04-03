@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20sp"
-    tools:context="com.example.tinder.Chat"
+    tools:context="com.example.tinder.MainNavigation.Chat"
     android:orientation="vertical">
 
     <LinearLayout
