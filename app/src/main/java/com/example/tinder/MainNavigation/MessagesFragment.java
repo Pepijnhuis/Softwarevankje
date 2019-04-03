@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.MainNavigation;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.tinder.Matches.MatchesAdapter;
 import com.example.tinder.Matches.MatchesObject;
 import com.example.tinder.Matches.MatchesViewHolders;
+import com.example.tinder.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

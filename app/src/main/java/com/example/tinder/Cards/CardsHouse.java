@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.Cards;
 
 import android.content.RestrictionEntry;
 import android.util.Log;

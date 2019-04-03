@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.MainNavigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.tinder.LoginActivity;
+import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsFragment extends Fragment {

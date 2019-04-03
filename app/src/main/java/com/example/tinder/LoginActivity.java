@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.tinder.CreateAccount.StudentHouseActivity;
+import com.example.tinder.MainNavigation.MainNavigationHouse;
+import com.example.tinder.MainNavigation.MainNavigationStudent;
+import com.example.tinder.Trash.MainNavigation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

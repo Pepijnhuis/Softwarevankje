@@ -1,4 +1,4 @@
-package com.example.tinder;
+package com.example.tinder.MainNavigation;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.tinder.Cards.Cards;
 import com.example.tinder.Cards.arrayAdapter;
+import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;

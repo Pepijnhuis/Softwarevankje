@@ -1,5 +1,5 @@
 
-package com.example.tinder;
+package com.example.tinder.MainNavigation;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

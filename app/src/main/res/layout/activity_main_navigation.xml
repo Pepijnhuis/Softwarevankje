@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainNavigation">
+    tools:context=".Trash.MainNavigation">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarMainNavigation"
@@ -44,7 +44,7 @@
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <com.example.tinder.NonSwipeableViewPager
+    <com.example.tinder.MainNavigation.NonSwipeableViewPager
         android:id="@+id/containerMainNavigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

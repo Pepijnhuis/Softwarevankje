@@ -1,16 +1,16 @@
 package com.example.tinder.Matches;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tinder.Chat;
+import com.example.tinder.MainNavigation.Chat;
 import com.example.tinder.R;
 
+//will call every id we have into item_matches
 public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView mMatchId, mMatchName;
     public ImageView mMatchImage;
