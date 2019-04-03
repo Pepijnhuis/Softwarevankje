@@ -24,108 +24,6 @@ import java.util.Map;
 
 public class ChangeInformation extends AppCompatActivity {
 
-    /*private EditText mNameField, mDayField, mMonthField, mYearField, mSchoolField,
-            mStudyField, mHobby1Field, mHobby2Field, mHobby3Field, mAboutMeField;
-
-    private RadioGroup mRadioGroupBscMsc, mRadioGroupMaleFemale;
-
-    private RadioButton mMaleFemaleOption, mBscMscOption;
-
-    private Button mSkip, mButtonNext;
-
-    private FirebaseAuth mAuth;
-    private DatabaseReference mStudentAccountDatabase;
-    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, RadioGroupBscMsc, RadioGroupMaleFemale;
-    private Integer Day, Month, Year, selectId;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_information);
-
-        mNameField = (EditText) findViewById(R.id.NameStudent);
-        mDayField = (EditText) findViewById(R.id.BirthdayDay);
-        mMonthField = (EditText) findViewById(R.id.BirthdayMonth);
-        mYearField = (EditText) findViewById(R.id.BirthdayYear);
-        mSchoolField = (EditText) findViewById(R.id.SchoolStudent);
-        mStudyField = (EditText) findViewById(R.id.StudyStudent);
-        mHobby1Field = (EditText) findViewById(R.id.Hobby1);
-        mHobby2Field = (EditText) findViewById(R.id.Hobby2);
-        mHobby3Field = (EditText) findViewById(R.id.Hobby3);
-        mAboutMeField = (EditText) findViewById(R.id.AboutMe);
-        mRadioGroupMaleFemale = (RadioGroup) findViewById(R.id.RadioGroupMaleFemale);
-        mRadioGroupBscMsc = (RadioGroup) findViewById(R.id.RadioGroupBscMsc);
-
-        mAuth = FirebaseAuth.getInstance();
-        userId = mAuth.getCurrentUser().getUid();
-        mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
-
-        getUserInfo();
-
-        mButtonNext = (Button) findViewById(R.id.ButtonNextCA3Student);
-        mButtonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
-                final RadioButton mRadioButtonMaleFemale = (RadioButton) findViewById(selectId1);
-
-                int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
-                final RadioButton mRadioButtonBscMsc  = (RadioButton) findViewById(selectId2);
-
-                NameStudent = mNameField.getText().toString();
-                Day = Integer.parseInt(mDayField.getText().toString());
-                Month = Integer.parseInt(mMonthField.getText().toString());
-                Year = Integer.parseInt(mYearField.getText().toString());
-                School = mSchoolField.getText().toString();
-                Study = mStudyField.getText().toString();
-                Hobby1 = mHobby1Field.getText().toString();
-                Hobby2 = mHobby2Field.getText().toString();
-                Hobby3 = mHobby3Field.getText().toString();
-                AboutMe = mAboutMeField.getText().toString();
-                RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
-                RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
-
-                //listener.onInputCA3StudentSent(NameStudent,School, Study, Hobby1, Hobby2, Hobby3, AboutMe);
-
-
-                saveUserInformation();
-            }
-        });
-        return;
-    }
-
-
-    private void saveUserInformation() {
-        Map userInfo = new HashMap();
-        userInfo.put("Name", NameStudent);
-        userInfo.put("Day", Day);
-        userInfo.put("Month", Month);
-        userInfo.put("Year", Year);
-        userInfo.put("School", School);
-        userInfo.put("Study", Study);
-        userInfo.put("Hobby1", Hobby1);
-        userInfo.put("Hobby2", Hobby2);
-        userInfo.put("Hobby3", Hobby3);
-        userInfo.put("AboutMe", AboutMe);
-        userInfo.put("MaleFemale", RadioGroupMaleFemale);
-        userInfo.put("BscMSc", RadioGroupBscMsc);
-
-        mStudentAccountDatabase.updateChildren(userInfo);
-
-    }
-
-    //Safe button
-    public void goToChat(View view) {
-        if (NameStudent != null && Day !=null && Month != null && Year != null
-                && School != null && Study != null && Hobby1 != null && Hobby2 != null
-                && Hobby3 != null && AboutMe != null){
-            Intent intent = new Intent(ChangeInformation.this, MainNavigationStudent.class);
-            startActivity(intent);
-        }
-        return;
-    }*/
-
     private EditText mNameField, mDayField, mMonthField, mYearField, mSchoolField,
             mStudyField, mHobby1Field, mHobby2Field, mHobby3Field, mAboutMeField;
 
@@ -205,6 +103,12 @@ public class ChangeInformation extends AppCompatActivity {
                         AboutMe = map.get("AboutMe").toString();
                         mAboutMeField.setText(AboutMe);
                     }
+                    /*if(map.get("AboutMe")!=null){
+                        ((RadioButton)radioGroup.getChildAt(index)).setChecked(true)
+                        radioGroup.getChildAt(mRadioGroupMaleFemale)).setChecked(true);
+                        RadioGroupMaleFemale = map.get("AboutMe").toString();
+                        mRadioGroupMaleFemale.setSelected();
+                    }*/
                 }
             }
 
@@ -217,25 +121,24 @@ public class ChangeInformation extends AppCompatActivity {
     }
 
     private void saveUserInformation() {
+        int selectId1 = mRadioGroupMaleFemale.getCheckedRadioButtonId();
+        final RadioButton mRadioButtonMaleFemale = (RadioButton) findViewById(selectId1);
+
+        int selectId2 = mRadioGroupBscMsc.getCheckedRadioButtonId();
+        final RadioButton mRadioButtonBscMsc  = (RadioButton) findViewById(selectId2);
+
         NameStudent = mNameField.getText().toString();
-        Day = mDayField.getText().toString();
-        //Day = Integer.parseInt(mDayField.getText().toString());
-        //Month = Integer.parseInt(mMonthField.getText().toString());
-        //Year = Integer.parseInt(mYearField.getText().toString());
         School = mSchoolField.getText().toString();
         Study = mStudyField.getText().toString();
         Hobby1 = mHobby1Field.getText().toString();
         Hobby2 = mHobby2Field.getText().toString();
         Hobby3 = mHobby3Field.getText().toString();
         AboutMe = mAboutMeField.getText().toString();
-        //RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
-        //RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
+        RadioGroupMaleFemale = mRadioButtonMaleFemale.getText().toString();
+        RadioGroupBscMsc = mRadioButtonBscMsc.getText().toString();
 
         Map userInfo = new HashMap();
         userInfo.put("Name", NameStudent);
-        userInfo.put("Day", Day);
-        userInfo.put("Month", Month);
-        userInfo.put("Year", Year);
         userInfo.put("School", School);
         userInfo.put("Study", Study);
         userInfo.put("Hobby1", Hobby1);
