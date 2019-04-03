@@ -24,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,68 +34,19 @@ public class LoginActivity extends AppCompatActivity {
     private Button mRegisterbutton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
-    private String UID, oppositeuser;
+    private String userId, oppositeuserid, userRegistration, oppositeUserRegistration;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        checkUserRegistration();
 
-        mAuth = FirebaseAuth.getInstance();
-        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user !=null) {
-                    //student database reference see if changed
-                    DatabaseReference Studentdb = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
-                    Studentdb.addChildEventListener(new ChildEventListener() {
-                        @Override
-                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                            //get current user id
-                            UID = user.getUid();
-                            Log.d("Debug", UID);
-                            //if current user id occurs in student database
-                            if (dataSnapshot.getKey().equals(user.getUid())) {
-                                oppositeuser = "Huis";
-                                Log.d("Debug", "Login als Student");
-                                Intent intent = new Intent(LoginActivity.this, MainNavigationStudent.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                oppositeuser = "Student";
-                                Log.d("Debug", "Login als Huis");
-                                Intent intent = new Intent(LoginActivity.this, MainNavigationHouse.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }
-
-                        @Override
-                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                        }
-
-                        @Override
-                        public void onChildRemoved(DataSnapshot dataSnapshot) {
-                        }
-
-                        @Override
-                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-
-                    });
-                }
-                }
-            };
-
-            mLogin = (Button) findViewById(R.id.loginaccount);
-
-            mEmail = (EditText) findViewById(R.id.emailbox);
-            mPassword = (EditText) findViewById(R.id.passwordbox);
+        mLogin = (Button) findViewById(R.id.loginaccount);
+        mEmail = (EditText) findViewById(R.id.emailbox);
+        mPassword = (EditText) findViewById(R.id.passwordbox);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -102,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                     final String email = mEmail.getText().toString();
                     final String password = mPassword.getText().toString();
 
+                    /*
                     if (email.matches("") ) {
                         // Show Error on edittext
                         mEmail.setError("Invalid email");
@@ -122,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("Debug", "no password");
                         return;
                     }
+                    */
+
                     mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -149,7 +104,43 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
-        @Override
+    public void checkUserRegistration(){
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userDb = FirebaseDatabase.getInstance().getReference().child("Users");
+        userDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    if (dataSnapshot.child("Registration").getValue() != null){
+                        userRegistration = dataSnapshot.child("Registration").getValue().toString();
+                        switch (userRegistration){
+                            case "House":
+                                oppositeUserRegistration = "Student";
+                                Log.d("Debug Registration", userRegistration);
+                                Intent intent1 = new Intent (LoginActivity.this, MainNavigationHouse.class);
+                                startActivity(intent1);
+                                finish();
+                                break;
+                            case "Student":
+                                oppositeUserRegistration = "House";
+                                Log.d("Debug Registration", userRegistration);
+                                Intent intent2 = new Intent (LoginActivity.this, MainNavigationStudent.class);
+                                startActivity(intent2);
+                                finish();
+                                break;
+                        }
+                        //getOppositeUserRegistration();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+        /*@Override
         protected void onStart() {
             super.onStart();
             mAuth.addAuthStateListener(firebaseAuthStateListener);
@@ -160,6 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onStop();
             mAuth.removeAuthStateListener(firebaseAuthStateListener);
         }
+        */
 
         //Create account button
         public void goToStudentHouse(View view) {
