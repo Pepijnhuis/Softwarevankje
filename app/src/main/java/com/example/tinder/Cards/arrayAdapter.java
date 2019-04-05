@@ -32,7 +32,6 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameStudent);
-        ImageView image = (ImageView) convertView.findViewById(R.id.profilePicture);
         TextView School = (TextView) convertView.findViewById(R.id.cardUniversity);
         TextView Hobby1 = (TextView) convertView.findViewById(R.id.cardHobby1);
         TextView Hobby2 = (TextView) convertView.findViewById(R.id.cardHobby2);
@@ -40,6 +39,7 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         TextView AboutMe = (TextView) convertView.findViewById(R.id.cardAboutMe);
         TextView Hobbiestitle = (TextView) convertView.findViewById(R.id.Hobbiestitle);
         TextView Aboutmetitle = (TextView) convertView.findViewById(R.id.AboutMeTitle);
+        ImageView image = (ImageView)  convertView.findViewById(R.id.profilePicture);
         Aboutmetitle.setText("About me");
         Hobbiestitle.setText("Hobbies");
         name.setText(card_item.getName());
@@ -48,6 +48,7 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         Hobby2.setText(card_item.getHobby2());
         Hobby3.setText(card_item.getHobby3());
         AboutMe.setText(card_item.getAboutme());
+        Glide.with
 
 
 

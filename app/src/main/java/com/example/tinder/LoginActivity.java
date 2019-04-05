@@ -2,6 +2,7 @@ package com.example.tinder;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,12 +30,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button mLogin;
 
-    private EditText mEmail,mPassword;
+    private EditText mEmail, mPassword;
     private Button mRegisterbutton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
 
-    private String CurrentUserID, oppositeuser, userRegistration, oppositeUserRegistration;
+    private String CurrentUserID, userRegistration, oppositeUserRegistration;
 
     private DatabaseReference usersDb;
 
@@ -47,6 +49,46 @@ public class LoginActivity extends AppCompatActivity {
         usersDb = FirebaseDatabase.getInstance().getReference().child("Users");
 
         mAuth = FirebaseAuth.getInstance();
+
+
+        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d("Debug", "Hoi");
+                    Log.d("Debug", "Checkusersex called");
+                    Log.d("Debug", user.getUid());
+                    FirebaseDatabase.getInstance();
+                    DatabaseReference UserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());
+                    UserDB.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            userRegistration = dataSnapshot.child("Register").getValue().toString();
+                            Log.d("Debug", userRegistration);
+                            switch (userRegistration) {
+                                case "Student":
+                                    Intent intent = new Intent(LoginActivity.this, MainNavigationStudent.class);
+                                    startActivity(intent);
+                                    break;
+                                case "House":
+                                    Intent intent2 = new Intent(LoginActivity.this, MainNavigationHouse.class);
+                                    startActivity(intent2);
+                                    break;
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
+
+            }
+        };
+        /*
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             //when logged in successful
@@ -92,55 +134,55 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
-
+        */
         mLogin = (Button) findViewById(R.id.loginaccount);
         mEmail = (EditText) findViewById(R.id.emailbox);
         mPassword = (EditText) findViewById(R.id.passwordbox);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final String email = mEmail.getText().toString();
-                    final String password = mPassword.getText().toString();
-                    Log.d("Debug, email edittext", email);
-                    Log.d("Debug, password edittext", password);
+            @Override
+            public void onClick(View v) {
+                final String email = mEmail.getText().toString();
+                final String password = mPassword.getText().toString();
+                Log.d("Debug, email edittext", email);
+                Log.d("Debug, password edittext", password);
 
 
-                    if (email.matches("")) {
+                if (email.matches("")) {
+                    // Show Error on edittext
+                    mEmail.setError("Invalid email");
+                    Log.d("Debug", "empty email");
+
+                    //invalid email and password
+                    if (password.matches("")) {
                         // Show Error on edittext
-                        mEmail.setError("Invalid email");
-                        Log.d("Debug", "empty email");
-
-                        //invalid email and password
-                        if (password.matches("")) {
-                            // Show Error on edittext
-                            mPassword.setError("Invalid password");
-                            Log.d("Debug", "empty password");}
-                        return;
+                        mPassword.setError("Invalid password");
+                        Log.d("Debug", "empty password");
                     }
+                    return;
+                }
 
 
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            //when login is not successful
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "Signin Error", Toast.LENGTH_SHORT).show();
-                                mEmail.setError("Invalid email");
-                                Log.d("Debug", "invalid email");
-                                mPassword.setError("Invalid password");
-                                Log.d("Debug", "invalid password");
-                            }
-
-                            else{
-                                Log.d("Debug", "successful login");
-                            }
+                        //when login is not successful
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Signin Error", Toast.LENGTH_SHORT).show();
+                            mEmail.setError("Invalid email");
+                            Log.d("Debug", "invalid email");
+                            mPassword.setError("Invalid password");
+                            Log.d("Debug", "invalid password");
+                        } else {
+                            Log.d("Debug", "successful login");
                         }
-                    });
                     }
                 });
+            }
+        });
     }
+
 
     @Override
     protected void onStart() {
@@ -154,18 +196,12 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 
-    //Create account button
-    public void goToStudentHouse(View view) {
-        Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
-        startActivity(intent);
-        return;
-    }
 
-    //Main navigation test button
-    public void goToMainNavigation(View view) {
-        Intent intent = new Intent (LoginActivity.this, MainNavigationHouse.class);
-        startActivity(intent);
-        return;
+    public void goToStudentHouse(View v){
+    Intent intent = new Intent(LoginActivity.this, StudentHouseActivity.class);
+    startActivity(intent);
     }
 
 }
+    //Create account button
+

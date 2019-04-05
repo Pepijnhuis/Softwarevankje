@@ -80,11 +80,9 @@ public class CA5StudentFragment extends Fragment {
                 MinHouseMates = mMinHouseMates.getText().toString();
                 MaxHouseMates = mMaxHouseMates.getText().toString();
 
-                listener.onInputCA5StudentSent(MinRent,MaxRent, MinSize, MaxSize, MinHouseMates, MaxHouseMates);
-
                 mAuth = FirebaseAuth.getInstance();
                 userId = mAuth.getCurrentUser().getUid();
-                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
+                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
                 saveUserInformation();
             }
@@ -104,21 +102,6 @@ public class CA5StudentFragment extends Fragment {
 
         mStudentAccountDatabase.updateChildren(userInfo);
 
-    }
-
-
-    @Override
-    public void onAttach(Context context){
-        super.onAttach(context);
-        if(context instanceof CA5StudentFragment.FragmentCA5StudentListener){
-            listener = (CA5StudentFragment.FragmentCA5StudentListener) context;
-        }
-    }
-
-    @Override
-    public void onDetach(){
-        super.onDetach();
-        listener = null;
     }
 
 }
