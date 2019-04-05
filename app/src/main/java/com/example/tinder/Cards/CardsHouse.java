@@ -16,7 +16,7 @@ public class CardsHouse {
     private String AboutMe;
     private String Picture;
     public CardsHouse (String userId, String name, String Rent,String Size, String NumberHousenates,String AboutMe, String Picture){
-        Log.d("Debug","Cards Class Called");
+        Log.d("Debug","CardsStudent Class Called");
         this.userId = userId;
         this.Name = Name;
         this.Rent = Rent;

@@ -10,16 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20sp"
+        android:padding="40sp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        android:gravity="center">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:text="Register as:"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -28,24 +27,19 @@
 
         <Button
             android:id="@+id/ButtonLookingForHouse"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:onClick="goLookingForHouse"
-            android:text="Student" />
+            android:layout_width="match_parent"
+            android:text="Student"
+            android:layout_marginBottom="20dp"/>
 
         <Button
             android:id="@+id/ButtonLookingForStudent"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorButton"
-            android:elevation="0dp"
+            style="@style/ButtonStyle"
             android:onClick="goLookingForStudent"
+            android:layout_width="match_parent"
             android:text="House"
+            android:layout_marginBottom="20dp"
             app:srcCompat="@drawable/ic_home_black_24dp" />
 
 

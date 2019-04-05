@@ -2,7 +2,7 @@ package com.example.tinder.Cards;
 
 import android.util.Log;
 
-public class Cards {
+public class CardsStudent {
     private String userId;
     private String name;
     private String School;
@@ -11,8 +11,8 @@ public class Cards {
     private String Hobby3;
     private String AboutMe;
     private String ProfileImageUrl;
-    public Cards (String userId, String name, String School,String Hobby1, String Hobby2, String Hobby3,String AboutMe, String ProfileImageUrl){
-        Log.d("Debug","Cards Class Called");
+    public CardsStudent(String userId, String name, String School, String Hobby1, String Hobby2, String Hobby3, String AboutMe, String ProfileImageUrl){
+        Log.d("Debug","CardsStudent Class Called");
         this.userId = userId;
         this.name = name;
         this.School = School;

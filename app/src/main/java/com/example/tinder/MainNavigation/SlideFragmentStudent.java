@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.tinder.Cards.Cards;
+import com.example.tinder.Cards.CardsStudent;
 import com.example.tinder.Cards.CardsHouse;
 import com.example.tinder.Cards.arrayAdapterHouse;
 import com.example.tinder.R;
@@ -31,7 +31,7 @@ import java.util.List;
 
 public class SlideFragmentStudent extends Fragment {
     private ArrayList<String> al;
-    private Cards cards_data[];
+    private CardsStudent cards_data[];
     private arrayAdapterHouse arrayAdapter;
     private int i;
     private String Key, Name, Size, Rent, NumberHouseMates, AboutMe, Picture ;
@@ -63,7 +63,7 @@ public class SlideFragmentStudent extends Fragment {
 
         rowItems = new ArrayList<CardsHouse>();
         //Make the array of cards
-        arrayAdapter = new arrayAdapterHouse(getContext(), R.layout.item, rowItems );
+        arrayAdapter = new arrayAdapterHouse(getContext(), R.layout.item_student, rowItems );
         //al = new ArrayList<>();
         //al.add("php");
 

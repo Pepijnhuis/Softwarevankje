@@ -12,10 +12,7 @@
 
         <com.kofigyan.stateprogressbar.StateProgressBar
             android:id="@+id/progressStudentAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_above_progress"
-            android:layout_marginBottom="@dimen/margin_bottom_progress"
+            style="@style/ProgressBarStyle"
             app:spb_animateToCurrentProgressState="true"
             app:spb_checkStateCompleted="true"
             app:spb_currentStateDescriptionColor="@color/colorPrimary"
@@ -28,15 +25,13 @@
             app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/looking_for" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/rent_per_month" />
 
         <RelativeLayout
@@ -48,17 +43,15 @@
 
             <EditText
                 android:id="@+id/MinRent"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/min"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/MaxRent"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/max"
                 android:layout_alignParentRight="true"
                 android:inputType="number" />
@@ -66,9 +59,7 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/size_room" />
 
         <RelativeLayout
@@ -80,17 +71,15 @@
 
             <EditText
                 android:id="@+id/MinSize"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/min"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/MaxSize"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/max"
                 android:layout_alignParentRight="true"
                 android:inputType="number" />
@@ -98,9 +87,7 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/number_of_housemates" />
 
         <RelativeLayout
@@ -112,17 +99,15 @@
 
             <EditText
                 android:id="@+id/MinHousemates"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/min"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/MaxHousemates"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
                 android:hint="@string/max"
                 android:layout_alignParentRight="true"
                 android:inputType="number" />
@@ -142,20 +127,14 @@
 
         <Button
             android:id="@+id/ButtonBackCA5Student"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/back"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/space_between_buttons"/>
 
         <Button
             android:id="@+id/ButtonNextCA5Student"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/next"
             android:layout_weight="1"
             android:onClick="goToMainNavigation"/>

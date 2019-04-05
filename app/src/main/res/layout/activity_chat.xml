@@ -27,9 +27,7 @@
             android:onClick="goToMainNavigation"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:layout_gravity="center_horizontal"
             android:textSize="30dp"
             android:text="Thomas Muiden"
@@ -69,7 +67,7 @@
         <Button
             android:layout_weight="0.2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/ButtonStyle"
             android:text="Send"
             android:id="@+id/send"/>
     </LinearLayout>

@@ -1,6 +1,5 @@
 package com.example.tinder.MainNavigation;
 
-import android.graphics.Picture;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.tinder.Cards.Cards;
-import com.example.tinder.Cards.arrayAdapter;
+import com.example.tinder.Cards.CardsStudent;
+import com.example.tinder.Cards.arrayAdapterStudent;
 import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,13 +30,13 @@ import java.util.List;
 
 public class SlideFragmentHouse extends Fragment {
     private ArrayList<String> al;
-    private Cards cards_data[];
-    private com.example.tinder.Cards.arrayAdapter arrayAdapter;
+    private CardsStudent cards_data[];
+    private arrayAdapterStudent arrayAdapter;
     private int i;
     private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture;
 
     ListView listView;
-    List<Cards> rowItems;
+    List<CardsStudent> rowItems;
 
     private DatabaseReference usersDB;
 
@@ -59,9 +58,9 @@ public class SlideFragmentHouse extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-        rowItems = new ArrayList<Cards>();
+        rowItems = new ArrayList<CardsStudent>();
         //Make the array of cards
-        arrayAdapter = new arrayAdapter(getContext(), R.layout.item, rowItems );
+        arrayAdapter = new arrayAdapterStudent(getContext(), R.layout.item_house, rowItems );
         //al = new ArrayList<>();
         //al.add("php");
 
@@ -86,7 +85,7 @@ public class SlideFragmentHouse extends Fragment {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
 
-                Cards obj = (Cards) dataObject;
+                CardsStudent obj = (CardsStudent) dataObject;
                 String userId = obj.getUserId();
                 usersDB.child(oppositeUserSex).child(userId).child("connections").child("nope").child(currentUId).setValue(true);
 
@@ -95,7 +94,7 @@ public class SlideFragmentHouse extends Fragment {
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Cards obj =(Cards) dataObject;
+                CardsStudent obj =(CardsStudent) dataObject;
                 String userId = obj.getUserId();
                 usersDB.child(oppositeUserSex).child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
@@ -227,9 +226,9 @@ public class SlideFragmentHouse extends Fragment {
                     Log.d("Debug", Naam);
                     Log.d("Debug", Aboutme);
                     Log.d("Debug",Key+Naam+School+Hobby1+Hobby2+Hobby3+Aboutme);
-                    Cards Item = new Cards(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
+                    CardsStudent Item = new CardsStudent(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
                     rowItems.add(Item);
-                    arrayAdapter.notifyDataSetChanged();
+                    arrayAdapterStudent.notifyDataSetChanged();
                     */
                 }
             }

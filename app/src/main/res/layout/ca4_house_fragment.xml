@@ -14,10 +14,7 @@
 
         <com.kofigyan.stateprogressbar.StateProgressBar
             android:id="@+id/progressStudentAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_above_progress"
-            android:layout_marginBottom="@dimen/margin_bottom_progress"
+            style="@style/ProgressBarStyle"
             app:spb_animateToCurrentProgressState="true"
             app:spb_checkStateCompleted="true"
             app:spb_currentStateDescriptionColor="@color/colorPrimary"
@@ -30,9 +27,7 @@
             app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/upload_photos_of_room" />
 
         <RelativeLayout
@@ -59,9 +54,7 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/upload_photos_of_housemates" />
 
         <RelativeLayout
@@ -100,20 +93,14 @@
 
         <Button
             android:id="@+id/ButtonBackCA4House"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/back"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/space_between_buttons"/>
 
         <Button
             android:id="@+id/ButtonNextCA4House"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/next"
             android:layout_weight="1"/>
     </LinearLayout>
