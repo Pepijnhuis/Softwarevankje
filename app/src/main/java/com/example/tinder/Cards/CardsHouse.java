@@ -52,5 +52,5 @@ public class CardsHouse {
     public String getNumberHousemates(){return this.NumberHousemates;}
 
     public String getAboutme(){return this.AboutMe;}
-    public String getPicture(){return this.Picture;}
+    public String getProfileImageUrl(){return this.Picture;}
 }

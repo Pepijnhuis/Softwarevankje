@@ -166,9 +166,11 @@ public class SlideFragmentStudent extends Fragment {
                     Rent = getChildvalue(dataSnapshot,"Rent");
                     Size = getChildvalue(dataSnapshot,"Size");
                     AboutMe = getChildvalue(dataSnapshot, "AboutUs");
+
                     Picture = getChildvalue(dataSnapshot, "ProfielImageUrl");
                     Log.d("Debug",Key+Name+Address+AboutMe+Size+Rent+NumberHouseMates+Picture);
                     CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size,NumberHouseMates, AboutMe, Picture);
+
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
                 }

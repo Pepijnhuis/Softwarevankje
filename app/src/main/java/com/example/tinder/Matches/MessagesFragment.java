@@ -121,9 +121,9 @@ public class MessagesFragment extends Fragment {
                     }
 
                     //check if profile image is provided
-                    //if (dataSnapshot.child("ProfileImageUrl").getValue()!=null){
-                        //ProfileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
-                    //}
+                    /*if (dataSnapshot.child("ProfileImageUrl").getValue()!=null){
+                        ProfileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+                    }*/
 
                     //pass data inside the ChatObject so it can go in ChatAdapter and populate the
 

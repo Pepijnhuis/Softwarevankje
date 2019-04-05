@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.tinder.R;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
         Hobby3.setText(card_item.getHobby3());
         AboutMe.setText(card_item.getAboutme());
 
+        Glide.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
 
 
 

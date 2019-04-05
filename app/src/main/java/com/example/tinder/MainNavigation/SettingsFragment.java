@@ -5,20 +5,32 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.tinder.LoginActivity;
 import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.tinder.MainNavigation.SlideFragmentStudent.getChildvalue;
 
 public class SettingsFragment extends Fragment {
 
     //Creating a tag
+    private String UID,FotoUrl1;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference Foto;
     private static final String TAG = "SettingsFragment";
 
     //Building the fragment
@@ -28,10 +40,59 @@ public class SettingsFragment extends Fragment {
         //Pass the layout from settings_fragment
         //Container = viewgroup that contains the fragment layout
         //Attach to root is false
-        View view = inflater.inflate(R.layout.settings_fragment, container, false);
+        final View view = inflater.inflate(R.layout.settings_fragment, container, false);
         mAuth = FirebaseAuth.getInstance();
 
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
+
+        UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Log.d("Debug Settings", UID);
+
+       Foto = FirebaseDatabase.getInstance().getReference().child("Users");
+       Foto.addChildEventListener(new ChildEventListener() {
+           @Override
+           public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+               if (dataSnapshot.exists()) {
+
+                   Log.d("Debug settngs", dataSnapshot.getKey());
+                   if(dataSnapshot.getKey()== UID){
+                   Log.d("Debug Settings", "Hoi");
+                   Log.d("Debug Settings", dataSnapshot.getKey());
+                   ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
+                   String FotoUrl1 = getChildvalue(dataSnapshot, "ProfileImageUrl");
+                   Log.d("DebugSettings", FotoUrl1);
+                   Glide.with(getContext()).load(FotoUrl1).into(image);}
+
+               } else {
+                   Log.d("DebugSettings", "NOOOO Child");
+               }
+           }
+           @Override
+           public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+           }
+
+           @Override
+           public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+           }
+
+           @Override
+           public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+           }
+
+           @Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+
+           }
+       });
+
+
+
+
+
+
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,5 +104,15 @@ public class SettingsFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public static String getChildvalue (DataSnapshot dataSnapshot, String key){
+        try{
+            String Res = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+            return Res;
+        }
+        catch (NullPointerException e){
+            return "";
+        }
     }
 }
