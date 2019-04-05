@@ -188,7 +188,8 @@ public class CA4StudentFragment extends Fragment {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                    String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString();
+                    //String downloadUrl = FirebaseStorage.getInstance().getReference().getDownloadUrl().toString();
+                    Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
 
                     Map userInfo = new HashMap();

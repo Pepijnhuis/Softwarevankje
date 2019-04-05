@@ -17,7 +17,7 @@ import com.example.tinder.MainNavigation.Chat;
 import com.example.tinder.MainNavigation.MessagesFragment;
 import com.example.tinder.R;
 import com.example.tinder.MainNavigation.SettingsFragment;
-import com.example.tinder.MainNavigation.SlideFragment;
+import com.example.tinder.MainNavigation.SlideFragmentHouse;
 
 public class MainNavigation extends AppCompatActivity {
 
@@ -84,7 +84,7 @@ public class MainNavigation extends AppCompatActivity {
                     fragment = new SettingsFragment();
                     break; //leave the switch statement
                 case 1:
-                    fragment = new SlideFragment();
+                    fragment = new SlideFragmentHouse();
                     break;
                 case 2:
                     fragment = new MessagesFragment();

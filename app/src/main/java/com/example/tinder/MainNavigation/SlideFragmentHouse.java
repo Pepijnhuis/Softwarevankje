@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SlideFragment extends Fragment {
+public class SlideFragmentHouse extends Fragment {
     private ArrayList<String> al;
     private Cards cards_data[];
     private com.example.tinder.Cards.arrayAdapter arrayAdapter;
@@ -153,11 +153,11 @@ public class SlideFragment extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String UID = user.getUid();
-                Log.d("Debug", UID);
+                Log.d("Debug, user Id", UID);
                 if (dataSnapshot.getKey().equals(user.getUid())){
                     oppositeUserSex = "Huis";
                     usersex = "Student";
-                    Log.d("Debug",oppositeUserSex);
+                    Log.d("Debug, opposite Sex",oppositeUserSex);
                     getOppositeSexUsers();
                 }
             }
@@ -183,7 +183,7 @@ public class SlideFragment extends Fragment {
                 if (dataSnapshot.getKey().equals(user.getUid())){
                     usersex = "Huis";
                     oppositeUserSex = "Student";
-                    Log.d("Debug user sex",oppositeUserSex);
+                    Log.d("Debug opposite sex",oppositeUserSex);
                     getOppositeSexUsers();
                 }
             }

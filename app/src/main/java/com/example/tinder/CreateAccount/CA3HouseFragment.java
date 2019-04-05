@@ -97,6 +97,7 @@ public class CA3HouseFragment extends Fragment {
         userInfo.put("Size",Size);
         userInfo.put("NumeberHousemates", NumberHousemates);
         userInfo.put("AboutUs", Aboutme);
+        userInfo.put("Register", "House");
         mStudentAccountDatabase.updateChildren(userInfo);
 
     }

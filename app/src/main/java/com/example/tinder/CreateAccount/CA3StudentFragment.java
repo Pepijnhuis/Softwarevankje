@@ -143,6 +143,7 @@ public class CA3StudentFragment extends Fragment {
             userInfo.put("AboutMe", AboutMe);
             userInfo.put("MaleFemale", RadioGroupMaleFemale);
             userInfo.put("BscMSc", RadioGroupBscMsc);
+            userInfo.put("Register", "Student");
 
             mStudentAccountDatabase.updateChildren(userInfo);
 

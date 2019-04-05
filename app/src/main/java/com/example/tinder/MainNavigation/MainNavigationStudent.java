@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.tinder.ChangeInformation;
 import com.example.tinder.R;
 
 public class MainNavigationStudent extends AppCompatActivity {
@@ -99,6 +100,12 @@ public class MainNavigationStudent extends AppCompatActivity {
     //Chat button
     public void goToChat(View view) {
         Intent intent = new Intent(MainNavigationStudent.this, Chat.class);
+        startActivity(intent);
+        return;
+    }
+
+    public void goToChangeInformation(View view) {
+        Intent intent = new Intent(MainNavigationStudent.this, ChangeInformation.class);
         startActivity(intent);
         return;
     }

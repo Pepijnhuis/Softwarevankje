@@ -36,6 +36,7 @@ public class SlideFragmentStudent extends Fragment {
     private int i;
     private String Key, Naam, Size, Rent, NumberHouseMates, AboutMe, Picture ;
 
+
     ListView listView;
     List<CardsHouse> rowItems;
 
@@ -87,7 +88,7 @@ public class SlideFragmentStudent extends Fragment {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
 
-                Cards obj = (Cards) dataObject;
+                CardsHouse obj = (CardsHouse) dataObject;
                 String userId = obj.getUserId();
                 usersDB.child(oppositeUserSex).child(userId).child("connections").child("nope").child(currentUId).setValue(true);
 
@@ -96,7 +97,7 @@ public class SlideFragmentStudent extends Fragment {
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                Cards obj =(Cards) dataObject;
+                CardsHouse obj =(CardsHouse) dataObject;
                 String userId = obj.getUserId();
                 usersDB.child(oppositeUserSex).child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
@@ -155,11 +156,11 @@ public class SlideFragmentStudent extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String UID = user.getUid();
-                Log.d("Debug", UID);
+                Log.d("Debug, UID", UID);
                 if (dataSnapshot.getKey().equals(user.getUid())){
                     oppositeUserSex = "Huis";
                     usersex = "Student";
-                    Log.d("Debug",oppositeUserSex);
+                    Log.d("Debug, opposite sex",oppositeUserSex);
                     getOppositeSexUsers();
                 }
             }
@@ -185,7 +186,7 @@ public class SlideFragmentStudent extends Fragment {
                 if (dataSnapshot.getKey().equals(user.getUid())){
                     usersex = "Huis";
                     oppositeUserSex = "Student";
-                    Log.d("Debug",oppositeUserSex);
+                    Log.d("Debug, opposite sex",oppositeUserSex);
                     getOppositeSexUsers();
                 }
             }
@@ -212,7 +213,7 @@ public class SlideFragmentStudent extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId)){
                     Key = dataSnapshot.getKey();
-                    Naam = dataSnapshot.child("Name").getValue().toString();
+                    Name = dataSnapshot.child("Name").getValue().toString();
                     NumberHouseMates = dataSnapshot.child("NumeberHousemates").getValue().toString();
                     Rent = dataSnapshot.child("Rent").getValue().toString();
                     Size = dataSnapshot.child("Size").getValue().toString();
