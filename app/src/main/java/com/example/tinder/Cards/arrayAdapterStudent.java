@@ -13,22 +13,22 @@ import com.example.tinder.R;
 
 import java.util.List;
 
-public class arrayAdapter extends ArrayAdapter<Cards>{
+public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
     Context context;
 
-    public arrayAdapter(Context context, int recourcceId, List<Cards> items){
+    public arrayAdapterStudent(Context context, int recourcceId, List<CardsStudent> items){
         super(context, recourcceId, items);
-        Log.d("Debug" ,"arrayAdapter Called");
+        Log.d("Debug" ,"arrayAdapterStudent Called");
         Log.d("Debug" , context.toString());
 
 
     }
     public View getView(int position, View convertView, ViewGroup parent){
         Log.d("Debug","Get View Called");
-        Cards card_item = getItem(position);
+        CardsStudent card_item = getItem(position);
 
         if(convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_student, parent, false);
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameStudent);
@@ -48,7 +48,6 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         Hobby2.setText(card_item.getHobby2());
         Hobby3.setText(card_item.getHobby3());
         AboutMe.setText(card_item.getAboutme());
-        //Glide.with
 
 
 

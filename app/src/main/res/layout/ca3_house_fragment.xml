@@ -12,10 +12,7 @@
 
         <com.kofigyan.stateprogressbar.StateProgressBar
             android:id="@+id/progressStudentAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_above_progress"
-            android:layout_marginBottom="@dimen/margin_bottom_progress"
+            style="@style/ProgressBarStyle"
             app:spb_animateToCurrentProgressState="true"
             app:spb_checkStateCompleted="true"
             app:spb_currentStateDescriptionColor="@color/colorPrimary"
@@ -28,59 +25,38 @@
             app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:text="@string/name_house"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/BasicTextStyle"
+            android:text="@string/name_house" />
 
         <EditText
             android:id="@+id/NameHouse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
+            style="@style/EditTextStyle"
             android:hint="@string/name_house"
             android:inputType="textPersonName" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:text="@string/address"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/BasicTextStyle"
+            android:text="@string/address" />
 
         <EditText
             android:id="@+id/NameHouse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
             android:hint="@string/address_hint"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            style="@style/EditTextStyle"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BasicTextStyle"
                 android:text="@string/rent_per_month"
                 android:layout_alignParentLeft="true" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BasicTextStyle"
                 android:text="@string/size_room"
                 android:layout_alignParentRight="true" />
 
@@ -89,23 +65,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
             android:layout_weight="0"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/Rent"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="150dp"
+                style="@style/EditTextStyle"
                 android:hint="@string/rent_hint"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/Size"
-                android:layout_width="70sp"
-                android:layout_height="wrap_content"
-                android:background="@color/colorEditText"
+                android:layout_width="150dp"
+                style="@style/EditTextStyle"
                 android:hint="@string/size_hint"
                 android:layout_alignParentRight="true"
                 android:inputType="number" />
@@ -113,18 +86,14 @@
         </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
+            style="@style/BasicTextStyle"
             android:text="@string/number_of_housemates"
             android:layout_alignParentLeft="true" />
 
         <EditText
             android:id="@+id/NumberHousemates"
-            android:layout_width="70sp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
+            android:layout_width="150dp"
+            style="@style/EditTextStyle"
             android:hint="@string/number_of_housemates"
             android:inputType="number" />
 
@@ -136,10 +105,8 @@
 
         <EditText
             android:id="@+id/AboutMe"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
+            android:layout_height="120dp"
+            style="@style/EditTextStyle"
             android:hint="@string/about_us_description"
             android:gravity="top"
             android:inputType="text" />
@@ -157,20 +124,14 @@
 
         <Button
             android:id="@+id/ButtonBackCA3House"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/back"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/space_between_buttons"/>
 
         <Button
             android:id="@+id/ButtonNextCA3House"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/next"
             android:layout_weight="1"/>
     </LinearLayout>

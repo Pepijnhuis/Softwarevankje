@@ -4,97 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity"
+    android:background="@drawable/gradient">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20sp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:text="@string/email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:padding="30sp"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/emailbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
-            android:hint="example@example.com"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:text="@string/password" />
+            style="@style/EditTextStyle"
+            android:hint="@string/email" />
 
         <EditText
             android:id="@+id/passwordbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@color/colorEditText"
-            android:hint="Password"
-            android:inputType="textPassword"/>
+            style="@style/EditTextStyle"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
 
         <Button
+            android:layout_marginTop="20dp"
             android:id="@+id/loginaccount"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="86dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButton"
-            android:text="Login" />
+            style="@style/ButtonStyle"
+            android:text="Log in" />
 
         <TextView
-            android:layout_width="34dp"
-            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            style="@style/BasicTextStyle"
             android:text="Or"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <Button
             android:id="@+id/registeraccount"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButton"
+            style="@style/ButtonStyle"
             android:onClick="goToStudentHouse"
-            android:text="Create Account"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/mainNavigationButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButton"
-            android:onClick="goToMainNavigation"
-            android:text="Main navigation Test"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/TestFragment"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorButton"
-            android:onClick="TestFragment"
-            android:text="Test Fragment"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Sign up"
+            android:shadowColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
