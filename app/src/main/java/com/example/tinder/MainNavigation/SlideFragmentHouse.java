@@ -1,5 +1,6 @@
 package com.example.tinder.MainNavigation;
 
+import android.graphics.Picture;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,7 +34,7 @@ public class SlideFragmentHouse extends Fragment {
     private Cards cards_data[];
     private com.example.tinder.Cards.arrayAdapter arrayAdapter;
     private int i;
-    private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme;
+    private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture;
 
     ListView listView;
     List<Cards> rowItems;
@@ -104,7 +105,6 @@ public class SlideFragmentHouse extends Fragment {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                Log.d("Debug", "Leeg");
             }
 
             @Override
@@ -209,19 +209,28 @@ public class SlideFragmentHouse extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId)){
-                    Key = dataSnapshot.getKey();
+                    /*Key = dataSnapshot.getKey();
                     Naam = dataSnapshot.child("Name").getValue().toString();
                     School = dataSnapshot.child("School").getValue().toString();
                     Hobby1 = dataSnapshot.child("Hobby1").getValue().toString();
                     Hobby2 = dataSnapshot.child("Hobby2").getValue().toString();
                     Hobby3 = dataSnapshot.child("Hobby3").getValue().toString();
                     Aboutme = dataSnapshot.child("AboutMe").getValue().toString();
+
+                    if(dataSnapshot.child("ProfileImageUrl") != null){
+                        //Picture = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+                    }
+                    else{
+                        Picture = "";
+                    }
+
                     Log.d("Debug", Naam);
                     Log.d("Debug", Aboutme);
                     Log.d("Debug",Key+Naam+School+Hobby1+Hobby2+Hobby3+Aboutme);
-                    Cards Item = new Cards(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme);
+                    Cards Item = new Cards(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
+                    */
                 }
             }
             @Override

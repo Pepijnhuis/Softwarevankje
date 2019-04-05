@@ -14,7 +14,8 @@ public class CardsHouse {
     private String Size;
     private String Rent;
     private String AboutMe;
-    public CardsHouse (String userId, String name, String Rent,String Size, String NumberHousenates,String AboutMe){
+    private String Picture;
+    public CardsHouse (String userId, String name, String Rent,String Size, String NumberHousenates,String AboutMe, String Picture){
         Log.d("Debug","Cards Class Called");
         this.userId = userId;
         this.Name = Name;
@@ -22,6 +23,7 @@ public class CardsHouse {
         this.Size = Size;
         this.NumberHousemates = NumberHousenates;
         this.AboutMe = AboutMe;
+        this.Picture = Picture;
     }
     public String getUserId(){
         return userId;
@@ -47,4 +49,5 @@ public class CardsHouse {
     public String getNumberHousemates(){return this.NumberHousemates;}
 
     public String getAboutme(){return this.AboutMe;}
+    public String getPicture(){return this.Picture;}
 }

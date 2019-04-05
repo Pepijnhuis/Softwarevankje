@@ -142,6 +142,7 @@ public class CA4StudentFragment extends Fragment {
                     Log.d("Debug", downloadUrl.toString());
 
                     userId = mAuth.getCurrentUser().getUid();
+                    Log.d("Debug", userId);
                     mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
 
                     Map userInfo = new HashMap();
