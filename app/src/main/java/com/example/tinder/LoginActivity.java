@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("Debug","onAuthStateChanged" );
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 CurrentUserID = FirebaseAuth.getInstance().getUid();
-                Log.d("Debug, CurrentUserID",CurrentUserID );
+                //Log.d("Debug, CurrentUserID",CurrentUserID );
 
                 if (user !=null) {
                     DatabaseReference userDb = usersDb.child(user.getUid());

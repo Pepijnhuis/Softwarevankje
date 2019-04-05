@@ -24,17 +24,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
+                    style="@style/BasicTextStyle"
                     android:text="@string/first_name" />
 
                 <EditText
                     android:id="@+id/NameStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/first_name"
                     android:inputType="textPersonName" />
 
@@ -42,7 +37,6 @@
                     android:id="@+id/RadioGroupMaleFemale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checkedButton="@+id/Male"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
@@ -63,32 +57,22 @@
                 </RadioGroup>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
+                    style="@style/BasicTextStyle"
                     android:text="@string/school" />
 
                 <EditText
                     android:id="@+id/SchoolStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/school"
                     android:inputType="text" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
+                    style="@style/BasicTextStyle"
                     android:text="@string/study" />
 
                 <EditText
                     android:id="@+id/StudyStudent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/study"
                     android:inputType="text" />
 
@@ -96,7 +80,6 @@
                     android:id="@+id/RadioGroupBscMsc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checkedButton="@+id/Bachelor"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
@@ -118,50 +101,34 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
+                    style="@style/BasicTextStyle"
                     android:text="@string/hobbies" />
 
                 <EditText
                     android:id="@+id/Hobby1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/hobby_one"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/Hobby2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/hobby_two"
                     android:inputType="text" />
 
                 <EditText
                     android:id="@+id/Hobby3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/hobby_three"
                     android:inputType="text" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20sp"
+                    style="@style/BasicTextStyle"
                     android:text="@string/about_me" />
 
                 <EditText
                     android:id="@+id/AboutMe"
-                    android:layout_width="match_parent"
-                    android:layout_height="80sp"
-                    android:layout_marginBottom="20sp"
-                    android:background="@color/colorEditText"
+                    style="@style/EditTextStyle"
                     android:hint="@string/about_me_description"
                     android:gravity="top"
                     android:inputType="text" />
@@ -184,10 +151,7 @@
 
         <Button
             android:id="@+id/ButtonBackChangeInformation"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/back"
             android:layout_weight="1"
             android:layout_marginRight="@dimen/space_between_buttons"
@@ -196,10 +160,7 @@
 
         <Button
             android:id="@+id/ButtonSafeInformation"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="@string/save"
             android:layout_weight="1"
             android:onClick="goToMainNavigationStudentWithSave"
