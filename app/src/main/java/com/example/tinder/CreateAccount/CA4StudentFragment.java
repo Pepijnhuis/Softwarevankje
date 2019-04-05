@@ -143,7 +143,7 @@ public class CA4StudentFragment extends Fragment {
 
                     userId = mAuth.getCurrentUser().getUid();
                     Log.d("Debug", userId);
-                    mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Student").child(userId);
+                    mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
                     Map userInfo = new HashMap();
                     userInfo.put("ProfileImageUrl", downloadUrl.toString());

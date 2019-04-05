@@ -1,4 +1,4 @@
-package com.example.tinder.MainNavigation;
+package com.example.tinder.Matches;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -125,7 +125,7 @@ public class MessagesFragment extends Fragment {
                         //ProfileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
                     //}
 
-                    //pass data inside the MatchesObject so it can go in MatchesAdapter and populate the
+                    //pass data inside the ChatObject so it can go in ChatAdapter and populate the
 
                     //adding items to recyclerview
                     MatchesObject objectName = new MatchesObject(userId, Name);//add ProfileImageUrl
