@@ -159,7 +159,7 @@ public class SlideFragmentHouse extends Fragment {
                     Aboutme = getChildvalue(dataSnapshot,"AboutMe");
                     Picture = getChildvalue(dataSnapshot,"ProfileImageUrl");
                     Log.d("Debug",Key+Naam+School+Hobby1+Hobby2+Hobby3+Aboutme+Picture);
-                    Cards Item = new Cards(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
+                    CardsStudent Item = new CardsStudent(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
 

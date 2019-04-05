@@ -30,7 +30,9 @@
         <activity android:name=".Trash.CreateAccount3Student" />
         <activity android:name=".CreateAccount.CreateAccountHouse" />
         <activity android:name=".CreateAccount.CreateAccountStudent" />
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
