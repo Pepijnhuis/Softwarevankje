@@ -1,5 +1,6 @@
 package com.example.tinder.MainNavigation;
 
+import android.icu.util.LocaleData;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -57,7 +58,7 @@ public class SlideFragmentStudent extends Fragment {
         currentUId = mAuth.getCurrentUser().getUid();
 
 
-        checkUserSex();
+        getOppositeSexUsers();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -90,7 +91,7 @@ public class SlideFragmentStudent extends Fragment {
 
                 CardsHouse obj = (CardsHouse) dataObject;
                 String userId = obj.getUserId();
-                usersDB.child(oppositeUserSex).child(userId).child("connections").child("nope").child(currentUId).setValue(true);
+                usersDB.child(userId).child("connections").child("nope").child(currentUId).setValue(true);
 
                 Toast.makeText(getActivity(), "Left", Toast.LENGTH_SHORT).show();
             }
@@ -99,15 +100,14 @@ public class SlideFragmentStudent extends Fragment {
             public void onRightCardExit(Object dataObject) {
                 CardsHouse obj =(CardsHouse) dataObject;
                 String userId = obj.getUserId();
-                usersDB.child(oppositeUserSex).child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
+                Log.d("Debug", userId);
+                usersDB.child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
                 Toast.makeText(getActivity(), "Right", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Ask for more data here
-                Log.d("Debug", "Leeg");
             }
 
             @Override
@@ -130,7 +130,7 @@ public class SlideFragmentStudent extends Fragment {
     }
 
     private void isConnectionMatch(String userId) {
-        DatabaseReference currentUserConnectionsDb = usersDB.child(usersex).child(currentUId).child("connections").child("yeps").child(userId);
+        DatabaseReference currentUserConnectionsDb = usersDB.child(currentUId).child("connections").child("yeps").child(userId);
         currentUserConnectionsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -140,8 +140,8 @@ public class SlideFragmentStudent extends Fragment {
                     String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
 
                     //create chat id
-                    usersDB.child(oppositeUserSex).child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).child("ChatId").setValue(key);
-                    usersDB.child(usersex).child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).child("ChatId").setValue(key);
+                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).child("ChatId").setValue(key);
+                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).child("ChatId").setValue(key);
                 }
             }
 
@@ -151,86 +151,22 @@ public class SlideFragmentStudent extends Fragment {
         });
     }
 
-    private String oppositeUserSex;
-    public void checkUserSex(){
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Log.d("Debug", "Checkusersex called");
-        DatabaseReference Studentdb = FirebaseDatabase.getInstance().getReference().child("Users").child("Student");
-        Studentdb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String UID = user.getUid();
-                Log.d("Debug, UID", UID);
-                if (dataSnapshot.getKey().equals(user.getUid())){
-                    oppositeUserSex = "Huis";
-                    usersex = "Student";
-                    Log.d("Debug, opposite sex",oppositeUserSex);
-                    getOppositeSexUsers();
-                }
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        DatabaseReference HouseDb = FirebaseDatabase.getInstance().getReference().child("Users").child("Huis");
-        HouseDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if (dataSnapshot.getKey().equals(user.getUid())){
-                    usersex = "Huis";
-                    oppositeUserSex = "Student";
-                    Log.d("Debug, opposite sex",oppositeUserSex);
-                    getOppositeSexUsers();
-                }
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+    private String oppositeUserSex = "House";
 
     public void getOppositeSexUsers(){
-        DatabaseReference oppositeSexDb = FirebaseDatabase.getInstance().getReference().child("Users").child(oppositeUserSex);
+        DatabaseReference oppositeSexDb = FirebaseDatabase.getInstance().getReference().child("Users");
         oppositeSexDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId)){
+                if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
                     Key = dataSnapshot.getKey();
-                    Name = dataSnapshot.child("Name").getValue().toString();
-                    NumberHouseMates = dataSnapshot.child("NumeberHousemates").getValue().toString();
-                    Rent = dataSnapshot.child("Rent").getValue().toString();
-                    Size = dataSnapshot.child("Size").getValue().toString();
-                    AboutMe = dataSnapshot.child("AboutUs").getValue().toString();
-                    if(dataSnapshot.child("ProfileImageUrl") != null){
-                        Picture = dataSnapshot.child("ProfileImageUrl").getValue().toString();
-                    }
-                    else{
-                        Picture = "";
-                    }
-                    Log.d("Debug", Name);
-                    Log.d("Debug", AboutMe);
-                    Log.d("Debug",Key+Name+AboutMe);
+                    Name = getChildvalue(dataSnapshot,"Name");
+                    NumberHouseMates = getChildvalue(dataSnapshot,"NumeberHousemates");
+                    Rent = getChildvalue(dataSnapshot,"Rent");
+                    Size = getChildvalue(dataSnapshot,"Size");
+                    AboutMe = getChildvalue(dataSnapshot, "AboutUs");
+                    Picture = getChildvalue(dataSnapshot, "ProfielImageUrl");
+                    Log.d("Debug",Key+Name+AboutMe+Size+Rent+NumberHouseMates+Picture);
                     CardsHouse Item = new CardsHouse(Key, Name, Rent, Size,NumberHouseMates, AboutMe, Picture);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
@@ -251,5 +187,15 @@ public class SlideFragmentStudent extends Fragment {
             }
         });
 
+    }
+
+    public static String getChildvalue (DataSnapshot dataSnapshot, String key){
+        try{
+            String Res = dataSnapshot.child(key).getValue().toString();
+            return Res;
+        }
+        catch (NullPointerException e){
+            return "";
+        }
     }
 }

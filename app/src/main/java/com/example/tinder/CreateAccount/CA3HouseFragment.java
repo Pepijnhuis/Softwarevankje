@@ -71,7 +71,7 @@ public class CA3HouseFragment extends Fragment {
                 Aboutme = mAboutMe.getText().toString();
                 mAuth = FirebaseAuth.getInstance();
                 userId = mAuth.getCurrentUser().getUid();
-                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Huis").child(userId);
+                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
                 saveUserinformation();
 
 
