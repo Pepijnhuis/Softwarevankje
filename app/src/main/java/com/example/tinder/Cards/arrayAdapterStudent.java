@@ -41,8 +41,12 @@ public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
         TextView Hobbiestitle = (TextView) convertView.findViewById(R.id.Hobbiestitle);
         TextView Aboutmetitle = (TextView) convertView.findViewById(R.id.AboutMeTitle);
         ImageView image = (ImageView)  convertView.findViewById(R.id.profilePicture);
+
+        //titles
         Aboutmetitle.setText("About me");
         Hobbiestitle.setText("Hobbies");
+
+        //get information
         name.setText(card_item.getName());
         School.setText(card_item.getSchool());
         Hobby1.setText(card_item.getHobby1());
