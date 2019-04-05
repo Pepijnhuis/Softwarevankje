@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.tinder.Cards.CardsHouse;
 import com.example.tinder.R;
 
@@ -47,7 +48,7 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         Rent.setText(card_item.getRent());
         NumberHouseMates.setText(card_item.getNumberHousemates());
         AboutMe.setText(card_item.getAboutme());
-        //image.setImageResource(card_item.getPicture());
+        Glide.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
 
         return convertView;
     }
