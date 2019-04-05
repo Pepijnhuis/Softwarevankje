@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tinder.Cards.CardsHouse;
@@ -32,7 +33,7 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameHouse);
-        //ImageView image = (ImageView) convertView.findViewById(R.id.imageincard);
+        ImageView image = (ImageView) convertView.findViewById(R.id.profilePicture);
         TextView Size = (TextView) convertView.findViewById(R.id.cardHouseSize);
         TextView Rent = (TextView) convertView.findViewById(R.id.cardHouseRent);
         TextView NumberHouseMates = (TextView) convertView.findViewById(R.id.cardHOuseNumberHousemates);
@@ -46,11 +47,7 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         Rent.setText(card_item.getRent());
         NumberHouseMates.setText(card_item.getNumberHousemates());
         AboutMe.setText(card_item.getAboutme());
-
-
-
-
-        //image.setImageResource(R.mipmap.ic_launcher);
+        //image.setImageResource(card_item.getPicture());
 
         return convertView;
     }

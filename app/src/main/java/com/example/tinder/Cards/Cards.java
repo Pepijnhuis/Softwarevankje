@@ -10,7 +10,8 @@ public class Cards {
     private String Hobby2;
     private String Hobby3;
     private String AboutMe;
-    public Cards (String userId, String name, String School,String Hobby1, String Hobby2, String Hobby3,String AboutMe){
+    private String ProfileImageUrl;
+    public Cards (String userId, String name, String School,String Hobby1, String Hobby2, String Hobby3,String AboutMe, String ProfileImageUrl){
         Log.d("Debug","Cards Class Called");
         this.userId = userId;
         this.name = name;
@@ -19,6 +20,7 @@ public class Cards {
         this.Hobby2 = Hobby2;
         this.Hobby3 = Hobby3;
         this.AboutMe = AboutMe;
+        this.ProfileImageUrl = ProfileImageUrl;
     }
     public String getUserId(){
         return userId;
@@ -46,4 +48,5 @@ public class Cards {
 
     public String getHobby3(){return this.Hobby3;}
     public String getAboutme(){return this.AboutMe;}
+    public String getProfileImageUrl(){return this.ProfileImageUrl;}
 }

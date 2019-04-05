@@ -12,16 +12,11 @@ import android.widget.Toast;
 
 import com.example.tinder.CreateAccount.StudentHouseActivity;
 import com.example.tinder.MainNavigation.MainNavigationHouse;
-import com.example.tinder.MainNavigation.MainNavigationStudent;
-import com.example.tinder.Trash.MainNavigation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -34,9 +29,12 @@ public class LoginActivity extends AppCompatActivity {
     private Button mRegisterbutton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
+
     private String CurrentUserID, oppositeuser, userRegistration, oppositeUserRegistration;
 
     private DatabaseReference usersDb;
+
+    private DatabaseReference Studentdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             //when logged in successful
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
                 Log.d("Debug","onAuthStateChanged" );
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 CurrentUserID = FirebaseAuth.getInstance().getUid();
@@ -86,9 +85,10 @@ public class LoginActivity extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
                     });
+
                 }
-                }
-            };
+            }
+        };
 
         mLogin = (Button) findViewById(R.id.loginaccount);
         mEmail = (EditText) findViewById(R.id.emailbox);
@@ -116,14 +116,6 @@ public class LoginActivity extends AppCompatActivity {
                         return;
                     }
 
-                    //invalid password
-                    if (password.matches("")) {
-                        // Show Error on edittext
-                        mPassword.setError("Invalid password");
-                        Log.d("Debug", "empty password");
-                        return;
-                    }
-
 
                     mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -143,37 +135,39 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
-            });
 
-        }
 
-        @Override
-        protected void onStart() {
-            super.onStart();
-            mAuth.addAuthStateListener(firebaseAuthStateListener);
-        }
+                    }
+                });
+            }
+        });
 
-        @Override
-        protected void onStop() {
-            super.onStop();
-            mAuth.removeAuthStateListener(firebaseAuthStateListener);
-        }
-
-        //Create account button
-        public void goToStudentHouse(View view) {
-            Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
-            startActivity(intent);
-            return;
-        }
-
-        //Main navigation test button
-        public void goToMainNavigation(View view) {
-            Intent intent = new Intent (LoginActivity.this, MainNavigation.class);
-            startActivity(intent);
-            return;
-        }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
 
+    //Create account button
+    public void goToStudentHouse(View view) {
+        Intent intent = new Intent (LoginActivity.this, StudentHouseActivity.class);
+        startActivity(intent);
+        return;
+    }
+
+    //Main navigation test button
+    public void goToMainNavigation(View view) {
+        Intent intent = new Intent (LoginActivity.this, MainNavigationHouse.class);
+        startActivity(intent);
+        return;
+    }
+
+}
