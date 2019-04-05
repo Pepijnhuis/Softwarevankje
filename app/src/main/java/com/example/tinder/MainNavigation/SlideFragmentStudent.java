@@ -35,7 +35,7 @@ public class SlideFragmentStudent extends Fragment {
     private CardsStudent cards_data[];
     private arrayAdapterHouse arrayAdapter;
     private int i;
-    private String Key, Name, Size, Rent, NumberHouseMates, AboutMe, Picture ;
+    private String Key, Name, Address, Size, Rent, NumberHouseMates, AboutMe, Picture ;
 
 
     ListView listView;
@@ -161,13 +161,14 @@ public class SlideFragmentStudent extends Fragment {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
                     Key = dataSnapshot.getKey();
                     Name = getChildvalue(dataSnapshot,"Name");
+                    Address = getChildvalue(dataSnapshot,"Address");
                     NumberHouseMates = getChildvalue(dataSnapshot,"NumeberHousemates");
                     Rent = getChildvalue(dataSnapshot,"Rent");
                     Size = getChildvalue(dataSnapshot,"Size");
                     AboutMe = getChildvalue(dataSnapshot, "AboutUs");
                     Picture = getChildvalue(dataSnapshot, "ProfielImageUrl");
-                    Log.d("Debug",Key+Name+AboutMe+Size+Rent+NumberHouseMates+Picture);
-                    CardsHouse Item = new CardsHouse(Key, Name, Rent, Size,NumberHouseMates, AboutMe, Picture);
+                    Log.d("Debug",Key+Name+Address+AboutMe+Size+Rent+NumberHouseMates+Picture);
+                    CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size,NumberHouseMates, AboutMe, Picture);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
                 }

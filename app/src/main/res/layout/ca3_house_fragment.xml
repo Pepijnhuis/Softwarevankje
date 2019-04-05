@@ -39,7 +39,7 @@
             android:text="@string/address" />
 
         <EditText
-            android:id="@+id/NameHouse"
+            android:id="@+id/Address"
             android:hint="@string/address_hint"
             android:inputType="textPersonName"
             style="@style/EditTextStyle"/>

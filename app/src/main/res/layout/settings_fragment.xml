@@ -9,28 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20sp">
+        android:padding="20sp"
+        android:gravity="center_horizontal">
 
         <Button
             android:onClick="goToChangeInformation"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
+            style="@style/ButtonStyle"
             android:text="Change informatioin"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="20dp"/>
 
         <Button
             android:id="@+id/logoutuser"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorButton"
-            android:text="logout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            style="@style/ButtonStyle"
+            android:text="log out" />
 
     </LinearLayout>
 

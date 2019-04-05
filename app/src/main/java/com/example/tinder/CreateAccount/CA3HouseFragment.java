@@ -22,14 +22,14 @@ import java.util.Map;
 public class CA3HouseFragment extends Fragment {
 
 
-    private EditText mNameHouse, mRent, mSize, mNumberHousemates, mAboutMe;
+    private EditText mNameHouse, mRent, mSize, mNumberHousemates, mAboutMe, mAddress;
 
 
     private Button mButtonNext,mSkip;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
-    private String NameHouse, Rent, Size, NumberHousemates,Aboutme, userId;
+    private String NameHouse, Rent, Size, NumberHousemates,Aboutme, userId, Address;
 
     //Creating a tag
     private static final String TAG = "CA3HouseFragment";
@@ -44,12 +44,14 @@ public class CA3HouseFragment extends Fragment {
         View view = inflater.inflate(R.layout.ca3_house_fragment, container, false);
 
         mNameHouse = (EditText) view.findViewById(R.id.NameHouse);
+        mAddress = (EditText) view.findViewById(R.id.Address);
         mRent = (EditText) view.findViewById(R.id.Rent);
         mSize = (EditText) view.findViewById(R.id.Size);
         mNumberHousemates = (EditText) view.findViewById(R.id.NumberHousemates);
         mAboutMe = (EditText) view.findViewById(R.id.AboutMe);
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3House);
         mSkip = (Button) view.findViewById(R.id.ButtonBackCA3House);
+
 
         //skip button
         mSkip.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,7 @@ public class CA3HouseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NameHouse = mNameHouse.getText().toString();
+                Address = mAddress.getText().toString();
                 Rent = mRent.getText().toString();
                 Size = mSize.getText().toString();
                 NumberHousemates = mNumberHousemates.getText().toString();
@@ -77,7 +80,7 @@ public class CA3HouseFragment extends Fragment {
 
 
                 //next button
-                if (NameHouse != null && Rent != null && Size != null && NumberHousemates != null
+                if (NameHouse != null && Address != null && Rent != null && Size != null && NumberHousemates != null
                 && Aboutme != null){
                     FragmentTransaction fr = getFragmentManager().beginTransaction();
                     fr.replace(R.id.containerCreateAccountHouse,new CA4HouseFragment());
@@ -93,6 +96,7 @@ public class CA3HouseFragment extends Fragment {
     private void saveUserinformation() {
         Map userInfo = new HashMap();
         userInfo.put("Name", NameHouse);
+        userInfo.put("Address", Address);
         userInfo.put("Rent", Rent);
         userInfo.put("Size",Size);
         userInfo.put("NumeberHousemates", NumberHousemates);

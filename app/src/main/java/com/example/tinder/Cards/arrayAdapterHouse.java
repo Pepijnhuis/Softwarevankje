@@ -32,6 +32,7 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_house, parent, false);
         }
 
+        //reference to xml
         TextView name = (TextView) convertView.findViewById(R.id.cardNameHouse);
         ImageView image = (ImageView) convertView.findViewById(R.id.profilePicture);
         TextView Size = (TextView) convertView.findViewById(R.id.cardHouseSize);
@@ -42,11 +43,19 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         TextView AboutmeTitle = (TextView) convertView.findViewById(R.id.AboutMeTitle);
         TextView RentTitle = (TextView) convertView.findViewById(R.id.RentTitle);
         TextView NumberOfHousematesTitle = (TextView) convertView.findViewById(R.id.NumberOfHousematesTitle);
+        TextView AddressTitle = (TextView) convertView.findViewById(R.id.AddressTitle);
+        TextView Address = (TextView) convertView.findViewById(R.id.cardHouseAddress);
+
+        //titles cards
         SizeTitle.setText("Size");
         RentTitle.setText("Rent");
         AboutmeTitle.setText("About us");
         NumberOfHousematesTitle.setText("Number of housemates");
+        AddressTitle.setText("Address");
+
+        //get text
         name.setText(card_item.getName());
+        Address.setText(card_item.getAddress());
         Size.setText(card_item.getSize());
         Rent.setText(card_item.getRent());
         NumberHouseMates.setText(card_item.getNumberHousemates());

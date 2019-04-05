@@ -33,23 +33,14 @@
 
                 <ImageView
                     android:id="@+id/profilePicture"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    tools:srcCompat="@mipmap/ic_launcher" />
-
-                <ImageView
-                    android:id="@+id/profilePicture2"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
                     tools:srcCompat="@mipmap/ic_launcher"
-                    android:layout_weight="1"/>
-                ">
+                    android:scaleType = "center"/>
 
             </LinearLayout>
-
-
 
             <TextView
                 android:id="@+id/cardNameHouse"
@@ -58,73 +49,66 @@
                 android:textSize="25sp"
                 tools:text="(name)"
                 android:gravity="center"
-                android:layout_marginBottom="20sp"/>
+                android:layout_marginBottom="10sp"/>
+
+            <TextView
+                android:id="@+id/AddressTitle"
+                style="@style/BasicTextStyle"
+                android:fontFamily="sans-serif-black"
+                tools:text="Address"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/cardHouseAddress"
+                style="@style/BasicTextStyle"
+                tools:text="(address)" />
 
             <TextView
                 android:id="@+id/SizeTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
+                style="@style/BasicTextStyle"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
-                tools:text="Size" />
+                tools:text="Size"
+                android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardHouseSize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="(size)"
-                android:layout_marginBottom="5sp"/>
+                style="@style/BasicTextStyle"
+                tools:text="(size)" />
 
             <TextView
                 android:id="@+id/RentTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
+                style="@style/BasicTextStyle"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
-                tools:text="Rent" />
+                tools:text="Rent"
+                android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardHouseRent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="(rent)"
-                android:layout_marginBottom="20sp"/>
+                style="@style/BasicTextStyle"
+                tools:text="(rent)" />
 
             <TextView
                 android:id="@+id/NumberOfHousematesTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
+                style="@style/BasicTextStyle"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
-                tools:text="Number of housemates" />
+                tools:text="Number of housemates"
+                android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardHOuseNumberHousemates"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="(number housemates)"
-                android:layout_marginBottom="20sp"/>
+                style="@style/BasicTextStyle"
+                tools:text="(number housemates)" />
 
             <TextView
                 android:id="@+id/AboutMeTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
+                style="@style/BasicTextStyle"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
-                tools:text="About me" />
+                tools:text="About me"
+                android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardAboutMe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(about me)"
                 android:layout_marginBottom="20sp"/>
 
