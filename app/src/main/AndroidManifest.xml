@@ -20,9 +20,9 @@
         <activity
             android:name=".MainNavigation.MainNavigationHouse"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainNavigation.Chat" />
+        <activity android:name=".Chat.ChatActivity" />
         <activity android:name=".StudentHouseActivity" />
-        <activity android:name=".MainNavigation.Chat"></activity>
+        <activity android:name=".Chat.ChatActivity"></activity>
         <activity android:name=".CreateAccount.StudentHouseActivity" />
         <activity android:name=".Trash.MainNavigation"
             android:label="@string/title_activity_main_navigation"

@@ -14,11 +14,11 @@ import java.util.List;
 //populating all matches items
 public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
 
-    //contains information passed through MatchesObject
+    //contains information passed through ChatObject
     private List<MatchesObject> matchesList;
     private Context context;
 
-    //passes information from MessagesFragment to MatchesAdapter
+    //passes information from MessagesFragment to ChatAdapter
     public MatchesAdapter(List<MatchesObject> matchesList, Context context){
         this.matchesList = matchesList;
         this.context = context;
@@ -38,7 +38,7 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
 
     @Override
     public void onBindViewHolder(MatchesViewHolders holder, int position) {
-        //populating the layout passed in MatchesViewHolders
+        //populating the layout passed in ChatViewHolders
 
         //holder contains layout item matches
         //position is at which position sthe holder is within the recyclerview

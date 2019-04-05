@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20sp"
-    tools:context="com.example.tinder.MainNavigation.Chat"
+    tools:context="com.example.tinder.Chat.ChatActivity"
     android:orientation="vertical">
 
 
@@ -32,7 +32,7 @@
             android:layout_marginBottom="20sp"
             android:layout_gravity="center_horizontal"
             android:textSize="30dp"
-            android:text="Thomas Muiden"
+            android:text="Thomas van Muiden"
             android:id="@+id/nameChat"
             />
 

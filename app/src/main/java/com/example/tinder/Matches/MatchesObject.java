@@ -9,7 +9,7 @@ public class MatchesObject {
     private String ProfileImageUrl;
 
     public MatchesObject (String userId, String Name){ //add , String ProfileImageUrl
-        Log.d("Debug","MatchesObject Class Called");
+        Log.d("Debug","ChatObject Class Called");
         this.userId = userId;
         this.Name = Name;
         //this.ProfileImageUrl = ProfileImageUrl;

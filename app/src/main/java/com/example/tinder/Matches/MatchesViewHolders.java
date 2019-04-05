@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tinder.MainNavigation.Chat;
+import com.example.tinder.Chat.ChatActivity;
 import com.example.tinder.R;
 
 //will call every id we have into item_matches
@@ -26,7 +26,7 @@ public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.
     //to chat
     @Override
     public void onClick (View view){
-        Intent intent = new Intent(view.getContext(), Chat.class);
+        Intent intent = new Intent(view.getContext(), ChatActivity.class);
         //moving the information we need
         Bundle b = new Bundle();
         b.putString("matchId",mMatchId.getText().toString());

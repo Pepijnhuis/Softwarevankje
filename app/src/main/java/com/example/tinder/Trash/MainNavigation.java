@@ -13,8 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.tinder.MainNavigation.Chat;
-import com.example.tinder.MainNavigation.MessagesFragment;
+import com.example.tinder.Chat.ChatActivity;
+import com.example.tinder.Matches.MessagesFragment;
 import com.example.tinder.R;
 import com.example.tinder.MainNavigation.SettingsFragment;
 import com.example.tinder.MainNavigation.SlideFragmentHouse;
@@ -100,9 +100,9 @@ public class MainNavigation extends AppCompatActivity {
         }
     }
 
-    //Chat button
+    //ChatActivity button
     public void goToChat(View view) {
-        Intent intent = new Intent(MainNavigation.this, Chat.class);
+        Intent intent = new Intent(MainNavigation.this, ChatActivity.class);
         startActivity(intent);
         return;
     }
