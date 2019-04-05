@@ -34,7 +34,7 @@ public class SlideFragmentStudent extends Fragment {
     private Cards cards_data[];
     private arrayAdapterHouse arrayAdapter;
     private int i;
-    private String Key, Naam, Size, Rent, NumberHouseMates, AboutMe ;
+    private String Key, Naam, Size, Rent, NumberHouseMates, AboutMe, Picture ;
 
     ListView listView;
     List<CardsHouse> rowItems;
@@ -217,10 +217,16 @@ public class SlideFragmentStudent extends Fragment {
                     Rent = dataSnapshot.child("Rent").getValue().toString();
                     Size = dataSnapshot.child("Size").getValue().toString();
                     AboutMe = dataSnapshot.child("AboutUs").getValue().toString();
+                    if(dataSnapshot.child("ProfileImageUrl") != null){
+                        Picture = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+                    }
+                    else{
+                        Picture = "";
+                    }
                     Log.d("Debug", Naam);
                     Log.d("Debug", AboutMe);
                     Log.d("Debug",Key+Naam+AboutMe);
-                    CardsHouse Item = new CardsHouse(Key, Naam, Rent, Size,NumberHouseMates, AboutMe);
+                    CardsHouse Item = new CardsHouse(Key, Naam, Rent, Size,NumberHouseMates, AboutMe, Picture);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
                 }

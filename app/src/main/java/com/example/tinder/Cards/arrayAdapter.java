@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tinder.R;
@@ -31,7 +32,7 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameStudent);
-        //ImageView image = (ImageView) convertView.findViewById(R.id.imageincard);
+        ImageView image = (ImageView) convertView.findViewById(R.id.profilePicture);
         TextView School = (TextView) convertView.findViewById(R.id.cardUniversity);
         TextView Hobby1 = (TextView) convertView.findViewById(R.id.cardHobby1);
         TextView Hobby2 = (TextView) convertView.findViewById(R.id.cardHobby2);
