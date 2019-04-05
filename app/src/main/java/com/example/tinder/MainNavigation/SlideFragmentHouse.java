@@ -152,7 +152,7 @@ public class SlideFragmentHouse extends Fragment {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
                     Key = dataSnapshot.getKey();
                     Naam = getChildvalue(dataSnapshot,"Name");
-                    School = getChildvalue(dataSnapshot,"Name");
+                    School = getChildvalue(dataSnapshot,"School");
                     Hobby1 = getChildvalue(dataSnapshot,"Hobby1");
                     Hobby2 = getChildvalue(dataSnapshot,"Hobby2");
                     Hobby3 = getChildvalue(dataSnapshot,"Hobby3");

@@ -15,7 +15,7 @@ public class CardsHouse {
     private String Rent;
     private String AboutMe;
     private String Picture;
-    public CardsHouse (String userId, String Address, String name, String Rent,String Size, String NumberHousenates,String AboutMe, String Picture){
+    public CardsHouse (String userId, String Address, String Name, String Rent,String Size, String NumberHousenates,String AboutMe, String Picture){
         Log.d("Debug","CardsStudent Class Called");
         this.userId = userId;
         this.Address = Address;

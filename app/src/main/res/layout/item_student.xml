@@ -55,67 +55,50 @@
 
             <TextView
                 android:id="@+id/cardUniversity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(university)"
                 android:layout_marginBottom="5sp"/>
 
             <TextView
                 android:id="@+id/cardBachelorMaster"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(bachelor/master)"
                 android:layout_marginBottom="20sp"/>
 
             <TextView
                 android:id="@+id/Hobbiestitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5sp"
+                style="@style/BasicTextStyle"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
                 tools:text="Hobbies" />
 
             <TextView
                 android:id="@+id/cardHobby1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(hobby 1)"
                 android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardHobby2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(hobby 2)"
                 android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:id="@+id/cardHobby3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(hobby 3)"
                 android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:id="@+id/AboutMeTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/BasicTextStyle"
                 android:layout_marginBottom="5sp"
                 android:fontFamily="sans-serif-black"
-                android:textSize="16sp"
                 tools:text="About me" />
 
             <TextView
                 android:id="@+id/cardAboutMe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
+                style="@style/BasicTextStyle"
                 tools:text="(about me story)"
                 android:layout_marginBottom="5dp"/>
 

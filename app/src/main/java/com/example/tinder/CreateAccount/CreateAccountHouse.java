@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.tinder.MainNavigation.MainNavigationHouse;
 import com.example.tinder.Trash.MainNavigation;
 import com.example.tinder.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,7 +57,7 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFra
     }
     //Main navigation button
     public void goToMainNavigation(View view) {
-        Intent intent = new Intent(CreateAccountHouse.this, MainNavigation.class);
+        Intent intent = new Intent(CreateAccountHouse.this, MainNavigationHouse.class);
         startActivity(intent);
         return;
     }
