@@ -48,7 +48,7 @@ public class arrayAdapter extends ArrayAdapter<Cards>{
         Hobby2.setText(card_item.getHobby2());
         Hobby3.setText(card_item.getHobby3());
         AboutMe.setText(card_item.getAboutme());
-        Glide.with
+        //Glide.with
 
 
 
