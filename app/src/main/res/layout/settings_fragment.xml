@@ -14,9 +14,9 @@
 
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
+            style="@style/CardImageStyle"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/Profielfotoacount"/>
 
@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             style="@style/BasicTextStyle"
             android:id="@+id/Naamgebruiker"
-            android:textSize="25dp"/>
+            android:textSize="25dp"
+            android:layout_marginBottom="40dp"/>
 
         <Button
             android:onClick="goToChangeInformation"

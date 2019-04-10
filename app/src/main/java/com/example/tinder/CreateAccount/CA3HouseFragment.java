@@ -25,7 +25,7 @@ public class CA3HouseFragment extends Fragment {
     private EditText mNameHouse, mRent, mSize, mNumberHousemates, mAboutMe, mAddress;
 
 
-    private Button mButtonNext,mSkip;
+    private Button mButtonNext;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
@@ -50,18 +50,6 @@ public class CA3HouseFragment extends Fragment {
         mNumberHousemates = (EditText) view.findViewById(R.id.NumberHousemates);
         mAboutMe = (EditText) view.findViewById(R.id.AboutMe);
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA3House);
-        mSkip = (Button) view.findViewById(R.id.ButtonBackCA3House);
-
-
-        //skip button
-        mSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountHouse,new CA4HouseFragment());
-                fr.commit();
-            }
-        });
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override

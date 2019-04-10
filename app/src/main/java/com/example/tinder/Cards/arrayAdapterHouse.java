@@ -62,6 +62,7 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         Rent.setText(card_item.getRent());
         NumberHouseMates.setText(card_item.getNumberHousemates());
         AboutMe.setText(card_item.getAboutme());
+
         Glide.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
 
         return convertView;

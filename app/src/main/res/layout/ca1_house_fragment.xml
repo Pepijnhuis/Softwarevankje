@@ -56,17 +56,11 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/ButtonBackCA1House"
-            style="@style/ButtonStyle"
-            android:text="@string/back"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/space_between_buttons"/>
-
-        <Button
             android:id="@+id/ButtonNextCA1House"
             style="@style/ButtonStyle"
             android:text="@string/next"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:layout_marginLeft="200dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -91,7 +91,7 @@ public class SlideFragmentHouse extends Fragment {
                 String userId = obj.getUserId();
                 usersDB.child(userId).child("connections").child("nope").child(currentUId).setValue(true);
 
-                Toast.makeText(getActivity(), "Left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "No", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -100,7 +100,7 @@ public class SlideFragmentHouse extends Fragment {
                 String userId = obj.getUserId();
                 usersDB.child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
-                Toast.makeText(getActivity(), "Right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Yes", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -114,15 +114,6 @@ public class SlideFragmentHouse extends Fragment {
             }
         });
 
-
-        // Optionally add an OnItemClickListener
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         return view;
 
     }
@@ -133,9 +124,13 @@ public class SlideFragmentHouse extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    Toast.makeText(getActivity(), "new Connection", Toast.LENGTH_LONG).show();
-                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).setValue(true);
-                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).setValue(true);
+                    Toast.makeText(getActivity(), "new Match", Toast.LENGTH_LONG).show();
+
+                    String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
+
+                    //create chat id
+                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).setValue(key);
+                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).setValue(key);
                 }
             }
 

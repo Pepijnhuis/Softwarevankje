@@ -126,18 +126,12 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/ButtonBackCA5Student"
-            style="@style/ButtonStyle"
-            android:text="@string/back"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/space_between_buttons"/>
-
-        <Button
             android:id="@+id/ButtonNextCA5Student"
             style="@style/ButtonStyle"
             android:text="@string/next"
             android:layout_weight="1"
-            android:onClick="goToMainNavigation"/>
+            android:onClick="goToMainNavigation"
+            android:layout_marginLeft="200dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

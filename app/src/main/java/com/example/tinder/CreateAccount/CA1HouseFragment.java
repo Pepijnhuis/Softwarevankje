@@ -19,7 +19,7 @@ public class CA1HouseFragment extends Fragment {
 
     private FragmentCA1HouseListener listener;
     private EditText mEmail, mPassword;
-    private Button mButtonNext, mSkip;
+    private Button mButtonNext;
 
     private String Email, Password;
 
@@ -43,16 +43,6 @@ public class CA1HouseFragment extends Fragment {
         mEmail = (EditText) view.findViewById(R.id.Email);
         mPassword = (EditText) view.findViewById(R.id.Password);
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1House);
-        mSkip = (Button) view.findViewById(R.id.ButtonBackCA1House);
-
-        mSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountHouse,new CA3HouseFragment());
-                fr.commit();
-            }
-        });
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override

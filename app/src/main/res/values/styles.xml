@@ -51,17 +51,20 @@
     </style>
 
     <style name="MatchImageStyle">
-        <item name="android:background">@drawable/matchimageshape</item>
         <item name="android:layout_width">75dp</item>
         <item name="android:layout_height">75dp</item>
         <item name="android:elevation">5dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:windowClipToOutline">true</item>
     </style>
 
-    <style name="MatchBoxStyle">
-        <item name="android:background">@drawable/matchshape</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:elevation">5dp</item>
+    <style name="CardImageStyle">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:backgroundTint">#ffffff</item>
     </style>
 
 

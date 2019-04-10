@@ -46,7 +46,7 @@ public class CA4StudentFragment extends Fragment {
     //Creating a tag
     private static final String TAG = "CA4StudentFragment";
 
-    private Button mButtonNext, mSkip;
+    private Button mButtonNext;
     private ImageView mProfileImage1;
     private Uri resultUri;
     private String Image1, userId; //downloadUrl;
@@ -68,18 +68,6 @@ public class CA4StudentFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         View view = inflater.inflate(R.layout.ca4_student_fragment, container, false);
-
-        mSkip = (Button) view.findViewById(R.id.ButtonBackCA4Student);
-
-        //skip button
-        mSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountStudent,new CA5StudentFragment());
-                fr.commit();
-            }
-        });
 
         mAuth= FirebaseAuth.getInstance();
         userId = mAuth.getCurrentUser().getUid();

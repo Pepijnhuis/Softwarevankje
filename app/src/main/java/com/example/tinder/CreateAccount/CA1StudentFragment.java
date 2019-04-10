@@ -19,7 +19,7 @@ public class CA1StudentFragment extends Fragment {
 
     private FragmentCA1StudentListener listener;
     private EditText mEmail, mPassword;
-    private Button mButtonNext, mSkip;
+    private Button mButtonNext;
 
     private String Email, Password;
 
@@ -43,19 +43,6 @@ public class CA1StudentFragment extends Fragment {
         mEmail = (EditText) view.findViewById(R.id.Email);
         mPassword = (EditText) view.findViewById(R.id.Password);
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA1Student);
-
-        mSkip = (Button) view.findViewById(R.id.ButtonBackCA1Student);
-
-        //skip button
-        mSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
-                fr.commit();
-            }
-        });
-
 
         //next button
         mButtonNext.setOnClickListener(new View.OnClickListener() {

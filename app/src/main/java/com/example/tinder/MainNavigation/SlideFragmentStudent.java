@@ -98,7 +98,7 @@ public class SlideFragmentStudent extends Fragment {
                 String userId = obj.getUserId();
                 usersDB.child(userId).child("connections").child("nope").child(currentUId).setValue(true);
 
-                Toast.makeText(getActivity(), "Left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "No", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -108,7 +108,7 @@ public class SlideFragmentStudent extends Fragment {
                 Log.d("Debug", userId);
                 usersDB.child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
-                Toast.makeText(getActivity(), "Right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Yes", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -118,15 +118,6 @@ public class SlideFragmentStudent extends Fragment {
             @Override
             public void onScroll(float scrollProgressPercent) {
 
-            }
-        });
-
-
-        // Optionally add an OnItemClickListener
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -140,7 +131,7 @@ public class SlideFragmentStudent extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    Toast.makeText(getActivity(), "new Connection", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "new Match", Toast.LENGTH_LONG).show();
 
                     String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
 
