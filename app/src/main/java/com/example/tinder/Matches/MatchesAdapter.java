@@ -43,7 +43,7 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
 
         //holder contains layout item matches
         //position is at which position sthe holder is within the recyclerview
-        //holder.mMatchId.setText(matchesList.get(position).getUserId());
+        holder.mMatchId.setText(matchesList.get(position).getUserId());
         holder.mMatchName.setText(matchesList.get(position).getName());
 
         //check if image is equal to default

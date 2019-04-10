@@ -47,7 +47,7 @@ public class SettingsFragment extends Fragment {
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
 
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Log.d("Debug Settings", UID);
+        Log.d("Debug Settings hoi", UID);
 
        Foto = FirebaseDatabase.getInstance().getReference().child("Users");
        Foto.addChildEventListener(new ChildEventListener() {

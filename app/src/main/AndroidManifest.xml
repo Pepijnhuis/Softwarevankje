@@ -11,20 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        
-        <activity android:name=".ChangeInformation"></activity>
-        <activity android:name=".MainNavigation.SlideFragmentStudent"></activity>
+        <activity android:name=".First_acitivity"></activity>
+        <activity android:name=".ChangeInformation" />
+        <activity android:name=".MainNavigation.SlideFragmentStudent" />
         <activity
             android:name=".MainNavigation.MainNavigationStudent"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainNavigation.MainNavigationHouse"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Chat.ChatActivity" />
-        <activity android:name=".StudentHouseActivity" />
-        <activity android:name=".Chat.ChatActivity"></activity>
+        <activity
+            android:name=".Chat.ChatActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateAccount.StudentHouseActivity" />
-        <activity android:name=".Trash.MainNavigation"
+        <activity
+            android:name=".Trash.MainNavigation"
             android:label="@string/title_activity_main_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Trash.CreateAccount3Student" />
@@ -35,6 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
