@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Month;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +45,7 @@ public class CA3StudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mStudentAccountDatabase;
-    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, RadioGroupBscMsc, RadioGroupMaleFemale;
-    private Integer Day, Month, Year, selectId;
+    private String NameStudent, School, Study, Hobby1, Hobby2, Hobby3, AboutMe, userId, RadioGroupBscMsc, RadioGroupMaleFemale, Day, Month, Year;
 
 
     //Building the fragment
@@ -96,9 +96,9 @@ public class CA3StudentFragment extends Fragment {
                 final RadioButton mRadioButtonBscMsc  = (RadioButton) view.findViewById(selectId2);
 
                 NameStudent = mNameField.getText().toString();
-                Day = Integer.parseInt(mDayField.getText().toString());
-                Month = Integer.parseInt(mMonthField.getText().toString());
-                Year = Integer.parseInt(mYearField.getText().toString());
+                Day = mDayField.getText().toString();
+                Month = mMonthField.getText().toString();
+                Year = mYearField.getText().toString();
                 School = mSchoolField.getText().toString();
                 Study = mStudyField.getText().toString();
                 Hobby1 = mHobby1Field.getText().toString();

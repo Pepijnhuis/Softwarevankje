@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.tinder.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
@@ -34,6 +36,7 @@ public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
 
         TextView name = (TextView) convertView.findViewById(R.id.cardNameStudent);
         TextView School = (TextView) convertView.findViewById(R.id.cardUniversity);
+        TextView Bachelormaster = (TextView) convertView.findViewById(R.id.cardBachelorMaster);
         TextView Hobby1 = (TextView) convertView.findViewById(R.id.cardHobby1);
         TextView Hobby2 = (TextView) convertView.findViewById(R.id.cardHobby2);
         TextView Hobby3 = (TextView) convertView.findViewById(R.id.cardHobby3);
@@ -47,8 +50,9 @@ public class arrayAdapterStudent extends ArrayAdapter<CardsStudent>{
         Hobbiestitle.setText("Hobbies");
 
         //get information
-        name.setText(card_item.getName());
+        name.setText(card_item.getName()+ ", " + card_item.getLeeftijd());
         School.setText(card_item.getSchool());
+        Bachelormaster.setText(card_item.getBachelormaster());
         Hobby1.setText(card_item.getHobby1());
         Hobby2.setText(card_item.getHobby2());
         Hobby3.setText(card_item.getHobby3());

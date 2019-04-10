@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.tinder.LoginActivity;
@@ -59,8 +60,11 @@ public class SettingsFragment extends Fragment {
                    Log.d("Debug Settings", "Hoi");
                    Log.d("Debug Settings", dataSnapshot.getKey());
                    ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
+                   TextView Naambox = (TextView)  view.findViewById(R.id.Naamgebruiker);
+                   String Naam = getChildvalue(dataSnapshot, "Name");
                    String FotoUrl1 = getChildvalue(dataSnapshot, "ProfileImageUrl");
-                   Log.d("DebugSettings", FotoUrl1);
+                   Log.d("DebugSettings", Naam+FotoUrl1);
+                   Naambox.setText(Naam);
                    Glide.with(getContext()).load(FotoUrl1).into(image);}
 
                } else {
@@ -108,7 +112,7 @@ public class SettingsFragment extends Fragment {
 
     public static String getChildvalue (DataSnapshot dataSnapshot, String key){
         try{
-            String Res = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+            String Res = dataSnapshot.child(key).getValue().toString();
             return Res;
         }
         catch (NullPointerException e){
