@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class SlideFragmentHouse extends Fragment {
     private CardsStudent cards_data[];
     private arrayAdapterStudent arrayAdapter;
     private int i;
-    private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture;
+    private String Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture,Year,Maand,Dag,Leeftijds,BscMsc;
 
     ListView listView;
     List<CardsStudent> rowItems;
@@ -158,8 +160,18 @@ public class SlideFragmentHouse extends Fragment {
                     Hobby3 = getChildvalue(dataSnapshot,"Hobby3");
                     Aboutme = getChildvalue(dataSnapshot,"AboutMe");
                     Picture = getChildvalue(dataSnapshot,"ProfileImageUrl");
-                    Log.d("Debug",Key+Naam+School+Hobby1+Hobby2+Hobby3+Aboutme+Picture);
-                    CardsStudent Item = new CardsStudent(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture);
+                    BscMsc = getChildvalue(dataSnapshot, "BscMSc");
+                    Year = getChildvalue(dataSnapshot, "Year");
+                    Maand = getChildvalue(dataSnapshot,"Month");
+                    Dag = getChildvalue(dataSnapshot, "Day");
+                    int Yearint = Integer.parseInt(Year);
+                    int Monthint = Integer.parseInt(Maand);
+                    int Dayint = Integer.parseInt(Dag);
+                    int Leeftijd = calCAge(Yearint,Monthint,Dayint);
+                    Leeftijds = Integer.toString(Leeftijd);
+                    Log.d("Debug", Integer.toString(Leeftijd));
+                    Log.d("Debug",Key+Naam+School+Hobby1+Hobby2+Hobby3+Aboutme+Picture+Year+Maand+Dag+BscMsc);
+                    CardsStudent Item = new CardsStudent(Key, Naam, School, Hobby1, Hobby2, Hobby3, Aboutme, Picture,Leeftijds, BscMsc);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
 
@@ -190,5 +202,8 @@ public class SlideFragmentHouse extends Fragment {
         catch (NullPointerException e){
             return "";
         }
+    }
+    public int calCAge(int year, int month,int days){
+        return LocalDate.now().minus(Period.of(year, month, days)).getYear();
     }
 }

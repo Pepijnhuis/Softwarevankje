@@ -26,7 +26,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -34,8 +40,7 @@ public class SlideFragmentStudent extends Fragment {
     private ArrayList<String> al;
     private CardsStudent cards_data[];
     private arrayAdapterHouse arrayAdapter;
-    private int i;
-    private String Key, Name, Address, Size, Rent, NumberHouseMates, AboutMe, Picture ;
+    private String Key, Name, Address, Size, Rent, NumberHouseMates, AboutMe, Picture, Year,Maand,Dag;
 
 
     ListView listView;
@@ -201,4 +206,7 @@ public class SlideFragmentStudent extends Fragment {
             return "";
         }
     }
+
+
+
 }

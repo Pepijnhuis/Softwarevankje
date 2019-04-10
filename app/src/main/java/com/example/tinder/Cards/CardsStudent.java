@@ -11,7 +11,9 @@ public class CardsStudent {
     private String Hobby3;
     private String AboutMe;
     private String ProfileImageUrl;
-    public CardsStudent(String userId, String name, String School, String Hobby1, String Hobby2, String Hobby3, String AboutMe, String ProfileImageUrl){
+    private String Leeftijd;
+    private String Bachelormaster;
+    public CardsStudent(String userId, String name, String School, String Hobby1, String Hobby2, String Hobby3, String AboutMe, String ProfileImageUrl, String Leeftijd, String Bachelormaster){
         Log.d("Debug","CardsStudent Class Called");
         this.userId = userId;
         this.name = name;
@@ -21,6 +23,8 @@ public class CardsStudent {
         this.Hobby3 = Hobby3;
         this.AboutMe = AboutMe;
         this.ProfileImageUrl = ProfileImageUrl;
+        this.Leeftijd = Leeftijd;
+        this.Bachelormaster = Bachelormaster;
     }
     public String getUserId(){
         return userId;
@@ -49,4 +53,6 @@ public class CardsStudent {
     public String getHobby3(){return this.Hobby3;}
     public String getAboutme(){return this.AboutMe;}
     public String getProfileImageUrl(){return this.ProfileImageUrl;}
+    public String getLeeftijd(){return this.Leeftijd;}
+    public String getBachelormaster(){return this.Bachelormaster;};
 }
