@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.tinder.R;
 
 import java.util.List;
@@ -42,13 +43,13 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesViewHolders> {
 
         //holder contains layout item matches
         //position is at which position sthe holder is within the recyclerview
-        holder.mMatchId.setText(matchesList.get(position).getUserId());
+        //holder.mMatchId.setText(matchesList.get(position).getUserId());
         holder.mMatchName.setText(matchesList.get(position).getName());
 
         //check if image is equal to default
-        //if (!matchesList.get(position).getProfileImageUrl().eguals("default")){
-            //Glide.with(context).load(matchesList.get(position).getProfileImageUrl()).into(holder.mMatchImage);
-        //}
+        if (!matchesList.get(position).getProfileImageUrl().equals("default")){
+            Glide.with(context).load(matchesList.get(position).getProfileImageUrl()).into(holder.mMatchImage);
+        }
 
     }
 

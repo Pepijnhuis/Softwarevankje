@@ -8,11 +8,11 @@ public class MatchesObject {
     private String Name;
     private String ProfileImageUrl;
 
-    public MatchesObject (String userId, String Name){ //add , String ProfileImageUrl
+    public MatchesObject (String userId, String Name, String ProfileImageUrl){ //add ,
         Log.d("Debug","ChatObject Class Called");
         this.userId = userId;
         this.Name = Name;
-        //this.ProfileImageUrl = ProfileImageUrl;
+        this.ProfileImageUrl = ProfileImageUrl;
         Log.d("Debug, match userId",userId);
         Log.d("Debug, match name",Name);
     }
@@ -30,10 +30,10 @@ public class MatchesObject {
         this.Name = Name;
     }
 
-    //public String getProfileImageUrl(){
-        //return ProfileImageUrl;
-    //}
-    //public void setProfileImageUrl(String ProfileImageUrl){
-        //this.ProfileImageUrl = ProfileImageUrl;
-    //}
+    public String getProfileImageUrl(){
+        return ProfileImageUrl;
+    }
+    public void setProfileImageUrl(String ProfileImageUrl){
+        this.ProfileImageUrl = ProfileImageUrl;
+    }
 }

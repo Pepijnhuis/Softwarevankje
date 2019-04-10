@@ -112,7 +112,7 @@ public class MessagesFragment extends Fragment {
                     //get user id, name and profile picture
                     String userId = dataSnapshot.getKey();
                     String Name = "";
-                    //String ProfileImageUrl = "";
+                    String ProfileImageUrl = "";
 
                     //check if name is provided
                     if (dataSnapshot.child("Name").getValue()!=null){
@@ -121,14 +121,14 @@ public class MessagesFragment extends Fragment {
                     }
 
                     //check if profile image is provided
-                    /*if (dataSnapshot.child("ProfileImageUrl").getValue()!=null){
+                    if (dataSnapshot.child("ProfileImageUrl").getValue()!=null){
                         ProfileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
-                    }*/
+                    }
 
                     //pass data inside the ChatObject so it can go in ChatAdapter and populate the
 
                     //adding items to recyclerview
-                    MatchesObject objectName = new MatchesObject(userId, Name);//add ProfileImageUrl
+                    MatchesObject objectName = new MatchesObject(userId, Name, ProfileImageUrl);//add
                     resultsMatches.add(objectName);
                     mMatchesAdapter.notifyDataSetChanged();//so recyclerview can start again and look for things that have changed
                 }
