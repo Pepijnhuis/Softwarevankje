@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.tinder.Matches.MatchesAdapter;
 import com.example.tinder.Matches.MatchesObject;
@@ -48,16 +49,20 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        TextView Naam = (TextView) findViewById(R.id.nameChat);
+        Naam.setText(getIntent().getExtras().getString("Naam"));
+
         matchId = getIntent().getExtras().getString("matchId");
+
 
 
         //current user
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Log.d("Debug, Current User", currentUserId+"  "+matchId);
+        Log.d("Debug, Current User", currentUserId+"  "+ matchId);
 
 
         //probleem inloggen vanwege house/student in verschillend sub mappen in database??
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("connections").child("matches").child(matchId).child("chatOId");
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("connections").child("matches").child(matchId).child("ChatId");
 
         mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
 
@@ -119,6 +124,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     chatId = dataSnapshot.getValue().toString();
+                    Log.d("Debug messages", chatId);
                     mDatabaseChat = mDatabaseChat.child(chatId);
                     getChatMessages();
                 }

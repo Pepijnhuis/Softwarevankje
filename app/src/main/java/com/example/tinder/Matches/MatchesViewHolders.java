@@ -30,6 +30,7 @@ public class MatchesViewHolders extends RecyclerView.ViewHolder implements View.
         //moving the information we need
         Bundle b = new Bundle();
         b.putString("matchId",mMatchId.getText().toString());
+        b.putString("Naam",mMatchName.getText().toString());
         intent.putExtras(b);
         view.getContext().startActivity(intent);
     }
