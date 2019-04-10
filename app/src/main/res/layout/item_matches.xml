@@ -13,18 +13,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:padding="10dp">
+        android:layout_gravity="center_vertical"
+        android:padding="20dp">
 
         <TextView
             android:id="@+id/MatchName"
             android:text="Match's name"
-            android:layout_gravity="center"
-            style="@style/BasicTextStyle" />
+            android:layout_gravity="center_vertical"
+            style="@style/BasicTextStyle"
+            android:layout_weight="1"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:id="@+id/MatchId"/>
 
     </LinearLayout>
