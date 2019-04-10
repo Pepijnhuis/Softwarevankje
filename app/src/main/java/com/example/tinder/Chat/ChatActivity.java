@@ -50,9 +50,10 @@ public class ChatActivity extends AppCompatActivity {
 
         matchId = getIntent().getExtras().getString("matchId");
 
+
         //current user
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Log.d("Debug, Current User", currentUserId);
+        Log.d("Debug, Current User", currentUserId+"  "+matchId);
 
 
         //probleem inloggen vanwege house/student in verschillend sub mappen in database??
@@ -92,6 +93,8 @@ public class ChatActivity extends AppCompatActivity {
 
         if (!sendMessageText.isEmpty()) { //make sure no empty messages can be send
             DatabaseReference newMessageDb = mDatabaseChat.push();
+
+            Log.d("Debug", sendMessageText);
 
             Map newMessage = new HashMap();
             newMessage.put("createdByUser", currentUserId);

@@ -87,7 +87,7 @@ public class MessagesFragment extends Fragment {
                     //pass first match to this variable
                     for (DataSnapshot match : dataSnapshot.getChildren()){
                         FetchMatchInformation(match.getKey());
-                        Log.d("Debug", "match found");
+                        Log.d("Debug", "match found. MatchID = "+match.getKey());
                     }
                 }
             }
