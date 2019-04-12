@@ -2,7 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_mainactivity">
 
 
     <LinearLayout
@@ -21,7 +22,7 @@
             app:spb_maxStateNumber="four"
             app:spb_stateBackgroundColor="@color/colorEditText"
             app:spb_stateDescriptionColor="@color/colorEditText"
-            app:spb_stateForegroundColor="@color/colorPrimary"
+            app:spb_stateForegroundColor="@color/color3"
             app:spb_stateNumberForegroundColor="@color/common_google_signin_btn_text_dark_default"
             app:spb_stateTextSize="@dimen/text_size_progress" />
 

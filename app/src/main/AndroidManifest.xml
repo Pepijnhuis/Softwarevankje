@@ -19,7 +19,8 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".ChangeInformation" />
+        <activity android:name=".ChangeInformation"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainNavigation.SlideFragmentStudent" />
         <activity
             android:name=".MainNavigation.MainNavigationStudent"
@@ -30,14 +31,17 @@
         <activity
             android:name=".Chat.ChatActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CreateAccount.StudentHouseActivity" />
+        <activity android:name=".CreateAccount.StudentHouseActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Trash.MainNavigation"
             android:label="@string/title_activity_main_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Trash.CreateAccount3Student" />
-        <activity android:name=".CreateAccount.CreateAccountHouse" />
-        <activity android:name=".CreateAccount.CreateAccountStudent" />
+        <activity android:name=".CreateAccount.CreateAccountHouse"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".CreateAccount.CreateAccountStudent"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
