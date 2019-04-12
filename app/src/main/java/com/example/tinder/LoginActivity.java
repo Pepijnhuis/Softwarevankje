@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Log.d("Debug", "Hoi");
-                    Log.d("Debug", "Checkusersex called");
                     Log.d("Debug", user.getUid());
                     FirebaseDatabase.getInstance();
                     DatabaseReference UserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid());

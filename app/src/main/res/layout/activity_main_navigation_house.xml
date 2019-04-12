@@ -24,22 +24,19 @@
                 android:id="@+id/tab1Settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@android:drawable/ic_menu_manage"
-                android:text="@string/settings" />
+                android:icon="@drawable/ic_logotabs_settings"/>
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tab2Slide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@android:drawable/star_on"
-                android:text="@string/slide" />
+                android:icon="@drawable/ic_logotabs_home" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@android:drawable/sym_action_chat"
-                android:text="@string/messages" />
+                android:icon="@drawable/ic_logotabs_messages" />
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>

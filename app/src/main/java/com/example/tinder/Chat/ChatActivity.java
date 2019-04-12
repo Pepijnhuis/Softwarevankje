@@ -13,11 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.tinder.LoginActivity;
+import com.example.tinder.MainNavigation.MainNavigationHouse;
+import com.example.tinder.MainNavigation.MainNavigationStudent;
 import com.example.tinder.Matches.MatchesAdapter;
 import com.example.tinder.Matches.MatchesObject;
 import com.example.tinder.R;
 import com.example.tinder.Trash.MainNavigation;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,7 +43,7 @@ public class ChatActivity extends AppCompatActivity {
     private EditText mSendEditText;
     private Button mSendButton;
 
-    private String currentUserId, matchId, chatId;
+    private String currentUserId, matchId, chatId, userRegistration;
 
     DatabaseReference mDatabaseUser, mDatabaseChat;
 
@@ -113,9 +117,33 @@ public class ChatActivity extends AppCompatActivity {
 
     //Main navigation button
     public void goToMainNavigation(View view) {
-        Intent intent = new Intent(ChatActivity.this, MainNavigation.class);
-        startActivity(intent);
-        return;
+        currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if (currentUserId != null) {
+            Log.d("Debug", currentUserId);
+            FirebaseDatabase.getInstance();
+            DatabaseReference UserDB = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId);
+            UserDB.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    userRegistration = dataSnapshot.child("Register").getValue().toString();
+                    Log.d("Debug", userRegistration);
+                    switch (userRegistration) {
+                        case "Student":
+                            Intent intent = new Intent(ChatActivity.this, MainNavigationStudent.class);
+                            startActivity(intent);
+                            break;
+                        case "House":
+                            Intent intent2 = new Intent(ChatActivity.this, MainNavigationHouse.class);
+                            startActivity(intent2);
+                            break;
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     private void getChatId(){

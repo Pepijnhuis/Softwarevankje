@@ -12,7 +12,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorBackgroundFloating">@color/colorPrimaryDark</item>
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
@@ -66,6 +68,7 @@
         <item name="android:layout_marginBottom">20dp</item>
         <item name="android:backgroundTint">#ffffff</item>
     </style>
+
 
 
 </resources>
