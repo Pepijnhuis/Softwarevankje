@@ -38,14 +38,15 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal">
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/MaleYes"
                 android:layout_width="wrap_content"
+                android:onClick="CheckboxMale"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorButton"
                 android:text="Male" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/FemaleYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,14 +64,14 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal">
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/BscYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorButton"
                 android:text="Bsc" />
 
-            <RadioButton
+            <CheckBox
                 android:id="@+id/MscYes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
