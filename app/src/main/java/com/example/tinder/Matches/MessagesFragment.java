@@ -59,6 +59,7 @@ public class MessagesFragment extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false); //allows us to scroll freely through the recyclerView
         mRecyclerView.setHasFixedSize(true);
 
+
         //setting a layoutmanager
         mMatchesLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());//getActivity().getApplicationContext() since fragment
 
