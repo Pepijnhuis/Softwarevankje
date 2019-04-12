@@ -1,5 +1,6 @@
 package com.example.tinder.MainNavigation;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.tinder.Cards.CardsStudent;
 import com.example.tinder.Cards.arrayAdapterStudent;
+import com.example.tinder.Chat.ChatActivity;
+import com.example.tinder.NewMatch;
 import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -118,19 +121,21 @@ public class SlideFragmentHouse extends Fragment {
 
     }
 
-    private void isConnectionMatch(String userId) {
+    private void isConnectionMatch(final String userId) {
         DatabaseReference currentUserConnectionsDb = usersDB.child(currentUId).child("connections").child("yeps").child(userId);
         currentUserConnectionsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    Toast.makeText(getActivity(), "new Match", Toast.LENGTH_LONG).show();
-
                     String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
-
                     //create chat id
-                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).setValue(key);
-                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).setValue(key);
+                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).child("ChatId").setValue(key);
+                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).child("ChatId").setValue(key);
+
+                    gotonewmatch(currentUId,userId);
+
+
+
                 }
             }
 
@@ -200,5 +205,15 @@ public class SlideFragmentHouse extends Fragment {
     }
     public int calCAge(int year, int month,int days){
         return LocalDate.now().minus(Period.of(year, month, days)).getYear();
+    }
+    public void gotonewmatch(String ownid, String otherid){
+        Intent intent = new Intent(getActivity(), NewMatch.class);
+        //moving the information we need
+        Log.d("Debug Fragmenthouse", "Klaarmee!");
+        Bundle b = new Bundle();
+        b.putString("ownid",ownid);
+        b.putString("otherid",otherid);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 }

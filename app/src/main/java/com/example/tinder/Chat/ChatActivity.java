@@ -189,6 +189,10 @@ public class ChatActivity extends AppCompatActivity {
                         resultsChat.add(newMessage);
                         mChatAdapter.notifyDataSetChanged();
                     }
+                    int groote = resultsChat.size();
+                    String grootestring = Integer.toString(groote);
+                    Log.d("Debug ChatActivity", grootestring);
+                    mRecyclerView.scrollToPosition(groote);
                 }
             }
 
