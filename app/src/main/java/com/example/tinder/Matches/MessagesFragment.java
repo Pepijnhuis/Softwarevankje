@@ -75,6 +75,8 @@ public class MessagesFragment extends Fragment {
 
     //look through the matches of the current user, and passing on the IDs
     private void getUserMatchId() {
+        Log.d("Debug MessagesFragment", "getUsermatchID called");
+        resultsMatches.clear();
         //match database
         final DatabaseReference matchDb = FirebaseDatabase.getInstance().getReference().child("Users").child(CurrentUserId).child("connections").child("matches");
         //read data matches and listen for changes, only triggers once
@@ -83,6 +85,7 @@ public class MessagesFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //check if something is in there
+
                 if (dataSnapshot.exists()){
                     //pass first match to this variable
                     for (DataSnapshot match : dataSnapshot.getChildren()){
@@ -117,7 +120,6 @@ public class MessagesFragment extends Fragment {
                     //check if name is provided
                     if (dataSnapshot.child("Name").getValue()!=null){
                         Name = dataSnapshot.child("Name").getValue().toString();
-                        Log.d("Debug name user", Name);
                     }
 
                     //check if profile image is provided

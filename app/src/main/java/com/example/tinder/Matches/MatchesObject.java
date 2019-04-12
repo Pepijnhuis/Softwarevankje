@@ -9,12 +9,10 @@ public class MatchesObject {
     private String ProfileImageUrl;
 
     public MatchesObject (String userId, String Name, String ProfileImageUrl){ //add ,
-        Log.d("Debug","ChatObject Class Called");
         this.userId = userId;
         this.Name = Name;
         this.ProfileImageUrl = ProfileImageUrl;
-        Log.d("Debug, match userId",userId);
-        Log.d("Debug, match name",Name);
+        Log.d("Debug MatchesObject",Name);
     }
     public String getUserId(){
         return userId;
