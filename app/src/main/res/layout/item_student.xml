@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:id="@+id/cardview"
-        android:backgroundTint="@color/colorButton"
+        android:backgroundTint="@color/colorSlideCard"
         app:cardCornerRadius="@dimen/corner_radius_card"
         android:elevation="5dp">
 
