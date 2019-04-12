@@ -28,7 +28,7 @@ import static com.example.tinder.MainNavigation.SlideFragmentStudent.getChildval
 public class SettingsFragment extends Fragment {
 
     //Creating a tag
-    private String UID,FotoUrl1;
+    private String UID;
 
     private FirebaseAuth mAuth;
     private DatabaseReference Foto;
@@ -54,11 +54,9 @@ public class SettingsFragment extends Fragment {
            @Override
            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                if (dataSnapshot.exists()) {
-
-                   Log.d("Debug settngs", dataSnapshot.getKey());
-                   if(dataSnapshot.getKey()== UID){
-                   Log.d("Debug Settings", "Hoi");
-                   Log.d("Debug Settings", dataSnapshot.getKey());
+                   UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                   if(dataSnapshot.getKey().contentEquals(UID)){
+                   Log.d("Debug Settings", "Foto geladen");
                    ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
                    TextView Naambox = (TextView)  view.findViewById(R.id.Naamgebruiker);
                    String Naam = getChildvalue(dataSnapshot, "Name");
