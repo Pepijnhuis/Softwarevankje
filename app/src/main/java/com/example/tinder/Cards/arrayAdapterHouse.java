@@ -41,18 +41,12 @@ public class arrayAdapterHouse extends ArrayAdapter<CardsHouse>{
         TextView Rent = (TextView) convertView.findViewById(R.id.cardHouseRent);
         TextView NumberHouseMates = (TextView) convertView.findViewById(R.id.cardHOuseNumberHousemates);
         TextView AboutMe = (TextView) convertView.findViewById(R.id.cardAboutMe);
-        TextView SizeTitle = (TextView) convertView.findViewById(R.id.SizeTitle);
         TextView AboutmeTitle = (TextView) convertView.findViewById(R.id.AboutMeTitle);
-        TextView RentTitle = (TextView) convertView.findViewById(R.id.RentTitle);
-        TextView NumberOfHousematesTitle = (TextView) convertView.findViewById(R.id.NumberOfHousematesTitle);
         TextView AddressTitle = (TextView) convertView.findViewById(R.id.AddressTitle);
 
 
         //titles cards
-        SizeTitle.setText("Size");
-        RentTitle.setText("Rent");
         AboutmeTitle.setText("About us");
-        NumberOfHousematesTitle.setText("Number of housemates");
         AddressTitle.setText("Address");
 
         //get text

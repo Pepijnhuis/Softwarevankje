@@ -112,6 +112,8 @@ public class SlideFragmentHouse extends Fragment {
             public void onScroll(float scrollProgressPercent) {
 
             }
+
+
         });
 
         return view;
