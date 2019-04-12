@@ -5,10 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainNavigation.SlideFragmentHouse"
-    android:background="@color/color5">
-
-
+    tools:context=".MainNavigation.SlideFragmentHouse">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,11 +18,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Sorry, no more activities :("
+            style="@style/BasicTextStyleWhite"
             android:layout_weight="2"/>
-
     </LinearLayout>
-
-
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -34,7 +29,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginBottom="100dp">
 
         <com.lorentzos.flingswipe.SwipeFlingAdapterView
             android:id="@+id/frameSlide"
@@ -44,8 +40,6 @@
             tools:context=".MyActivity"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="19dp" />
-
-
 
     </LinearLayout>
 

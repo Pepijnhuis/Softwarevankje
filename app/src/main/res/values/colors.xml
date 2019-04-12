@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2e6a7c</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#4B5169</color>
     <color name="colorEditText">#88E9E7E0</color>
     <color name="colorButton">#E6695B</color>
-    <color name="colorTabUnselected">#808080</color>
+    <color name="colorTabUnselected">#999999</color>
     <color name="colorTabSelected">#ffffff</color>
     <color name="colorGradientSlideLight">#c3d2d9</color>
     <color name="colorGradientSlideDark">#6598a8</color>
