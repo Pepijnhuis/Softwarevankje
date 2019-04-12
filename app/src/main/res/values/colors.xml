@@ -11,4 +11,5 @@
     <color name="colorSlideCard">#ffeeed</color>
     <color name="colorGradientMessagesLight">#eaced2</color>
     <color name="colorGradientMessagesDark">#a06e77</color>
+    <color name="colortext">#666666</color>
 </resources>
