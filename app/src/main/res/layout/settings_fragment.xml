@@ -10,8 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20sp"
-        android:gravity="center_horizontal"
-        android:background="@drawable/gradientsettings">
+        android:gravity="center_horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,7 +34,7 @@
         <Button
             android:onClick="goToChangeInformation"
             style="@style/ButtonStyle"
-            android:text="Change informatioin"
+            android:text="Change information"
             android:layout_marginBottom="20dp"/>
 
         <Button
