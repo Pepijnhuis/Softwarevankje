@@ -42,6 +42,16 @@ public class MainNavigationStudent extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsMainNavigation);
 
+        //tab colour switch
+        TabLayout.Tab tabSettings = tabLayout.getTabAt(0);
+        tabSettings.setIcon(R.drawable.selector_settings);
+
+        TabLayout.Tab tabHome = tabLayout.getTabAt(1);
+        tabHome.setIcon(R.drawable.selector_home);
+
+        TabLayout.Tab tabMessages = tabLayout.getTabAt(2);
+        tabMessages.setIcon(R.drawable.selector_messages);
+
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }

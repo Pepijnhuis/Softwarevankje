@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#4B5169</color>
     <color name="colorEditText">#E9E7E0</color>
     <color name="colorButton">#E6695B</color>
+    <color name="colorTabUnselected">#808080</color>
+    <color name="colorTabSelected">#ffffff</color>
+    <color name="colorGradientSlideLight">#c3d2d9</color>
+    <color name="colorGradientSlideDark">#6598a8</color>
+    <color name="colorSlideCard">#ffeeed</color>
+    <color name="colorGradientMessagesLight">#eaced2</color>
+    <color name="colorGradientMessagesDark">#a06e77</color>
 </resources>
