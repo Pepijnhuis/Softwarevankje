@@ -3,35 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@drawable/matchshape">
+    android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/MatchImage"
-        style="@style/MatchImageStyle"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical"
-        android:padding="20dp">
+        card_view:cardBackgroundColor="@color/colorSlideCard"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/MatchName"
-            android:text="Match's name"
-            android:layout_gravity="center_vertical"
-            style="@style/BasicTextStyle"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:id="@+id/MatchId"
-            android:textSize="0dp"/>
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-    </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/MatchImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/MatchName"
+                    android:text="Match's name"
+                    android:layout_gravity="center_vertical"
+                    style="@style/BasicTextStyle"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:id="@+id/MatchId"
+                    android:textSize="0dp"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

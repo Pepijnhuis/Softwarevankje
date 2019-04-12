@@ -7,35 +7,38 @@
     android:layout_height="match_parent"
     android:padding="20sp"
     tools:context="com.example.tinder.Chat.ChatActivity"
-    android:orientation="vertical">
-
-
+    android:orientation="vertical"
+    android:background="@color/color1">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButton"
             style="@style/ButtonStyle"
-            app:srcCompat="@android:drawable/ic_menu_revert"
-            android:onClick="goToMainNavigation"/>
+            app:srcCompat="@drawable/ic_backbutton"
+            android:onClick="goToMainNavigation"
+            android:padding="10dp"
+            android:layout_width="50dp"
+            />
 
         <TextView
-            style="@style/BasicTextStyle"
-            android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            android:text="Thomas van Muiden"
             android:id="@+id/nameChat"
-            />
+            style="@style/BasicTextStyle"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:text="Name match"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
 
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_marginTop="80sp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/sendLayout">
@@ -53,9 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
+
         <EditText
             android:layout_weight="0.8"
             android:layout_width="0dp"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:hint="message..."
             android:id="@+id/message"
@@ -64,8 +69,10 @@
             android:layout_weight="0.2"
             android:layout_width="0dp"
             style="@style/ButtonStyle"
+            android:layout_marginTop="20dp"
             android:text="Send"
-            android:id="@+id/send"/>
+            android:id="@+id/send"
+            />
     </LinearLayout>
 
 

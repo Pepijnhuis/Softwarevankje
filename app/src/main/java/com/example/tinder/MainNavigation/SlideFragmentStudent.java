@@ -156,8 +156,8 @@ public class SlideFragmentStudent extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
                     Key = dataSnapshot.getKey();
-                    Name = getChildvalue(dataSnapshot,"Name");
-                    Address = getChildvalue(dataSnapshot,"Address");
+                    Name = getChildvalue(dataSnapshot,"Address");
+                    Address = getChildvalue(dataSnapshot,"Name");
                     NumberHouseMates = getChildvalue(dataSnapshot,"NumeberHousemates");
                     Rent = getChildvalue(dataSnapshot,"Rent");
                     Size = getChildvalue(dataSnapshot,"Size");

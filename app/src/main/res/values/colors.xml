@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5EA1A2</color>
+    <color name="colorPrimary">#2e6a7c</color>
     <color name="colorPrimaryDark">#4B5169</color>
-    <color name="colorEditText">#E9E7E0</color>
+    <color name="colorEditText">#88E9E7E0</color>
     <color name="colorButton">#E6695B</color>
     <color name="colorTabUnselected">#808080</color>
     <color name="colorTabSelected">#ffffff</color>
     <color name="colorGradientSlideLight">#c3d2d9</color>
     <color name="colorGradientSlideDark">#6598a8</color>
-    <color name="colorSlideCard">#ffeeed</color>
+    <color name="colorSlideCard">#f2f8f9</color>
     <color name="colorGradientMessagesLight">#eaced2</color>
     <color name="colorGradientMessagesDark">#a06e77</color>
     <color name="colortext">#666666</color>
+    <color name="color1">#c3d2d9</color>
+    <color name="color2">#99b2bc</color>
+    <color name="color3">#5a90a0</color>
+    <color name="color4">#427c93</color>
+    <color name="color5">#2e6a7c</color>
 </resources>
