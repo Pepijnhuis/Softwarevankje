@@ -20,7 +20,8 @@
             style="@style/BasicTextStyleWhite"
             android:layout_gravity="center_horizontal"
             android:textSize="25dp"
-            android:text="Register as:" />
+            android:text="Register as:"
+            android:layout_marginBottom="50dp"/>
 
         <Button
             android:id="@+id/ButtonLookingForHouse"

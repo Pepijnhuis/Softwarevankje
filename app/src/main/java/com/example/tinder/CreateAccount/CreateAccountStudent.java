@@ -65,7 +65,7 @@ public class CreateAccountStudent extends AppCompatActivity implements CA1Studen
 
     }
     //Main navigation button
-    public void goToMainNavigation(View view) {
+    public void goToMainNavigationStudent(View view) {
         Intent intent = new Intent (CreateAccountStudent.this, MainNavigationStudent.class);
         startActivity(intent);
         return;

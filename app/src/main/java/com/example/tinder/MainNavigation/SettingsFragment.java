@@ -63,7 +63,8 @@ public class SettingsFragment extends Fragment {
                    String FotoUrl1 = getChildvalue(dataSnapshot, "ProfileImageUrl");
                    Log.d("DebugSettings", Naam+FotoUrl1);
                    Naambox.setText(Naam);
-                   Glide.with(getContext()).load(FotoUrl1).into(image);}
+                   Glide.with(getContext()).load(FotoUrl1).into(image);
+                   }
 
                } else {
                    Log.d("DebugSettings", "NOOOO Child");

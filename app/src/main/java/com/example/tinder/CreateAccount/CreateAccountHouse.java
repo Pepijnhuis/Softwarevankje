@@ -56,7 +56,7 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFra
         });
     }
     //Main navigation button
-    public void goToMainNavigation(View view) {
+    public void goToMainNavigationHouse(View view) {
         Intent intent = new Intent(CreateAccountHouse.this, MainNavigationHouse.class);
         startActivity(intent);
         return;

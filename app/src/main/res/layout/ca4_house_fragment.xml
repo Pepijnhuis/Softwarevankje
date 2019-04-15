@@ -21,14 +21,14 @@
             app:spb_currentStateDescriptionColor="@color/colorPrimary"
             app:spb_currentStateNumber="three"
             app:spb_maxStateNumber="four"
-            app:spb_stateBackgroundColor="@color/colorEditText"
-            app:spb_stateDescriptionColor="@color/colorEditText"
+            app:spb_stateBackgroundColor="@color/colorProgress"
+            app:spb_stateDescriptionColor="@color/colorProgress"
             app:spb_stateForegroundColor="@color/color3"
             app:spb_stateNumberForegroundColor="@color/common_google_signin_btn_text_dark_default"
             app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
-            style="@style/BasicTextStyle"
+            style="@style/BasicTextStyleWhite"
             android:text="Upload a photo" />
 
         <ImageView
