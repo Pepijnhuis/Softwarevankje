@@ -55,19 +55,23 @@ public class SettingsFragment extends Fragment {
            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                if (dataSnapshot.exists()) {
                    UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                   if(dataSnapshot.getKey().contentEquals(UID)){
-                   Log.d("Debug Settings", "Foto geladen");
-                   ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
-                   TextView Naambox = (TextView)  view.findViewById(R.id.Naamgebruiker);
-                   String Naam = getChildvalue(dataSnapshot, "Name");
-                   String FotoUrl1 = getChildvalue(dataSnapshot, "ProfileImageUrl");
-                   Log.d("DebugSettings", Naam+FotoUrl1);
-                   Naambox.setText(Naam);
-                   //Glide.with(getContext()).load(FotoUrl1).into(image);
-                   }
+                   if (dataSnapshot.getKey().contentEquals(UID)) {
+                       Log.d("Debug Settings", "Foto geladen");
+                       ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
+                       TextView Naambox = (TextView) view.findViewById(R.id.Naamgebruiker);
+                       String Naam = getChildvalue(dataSnapshot, "Name");
+                       String FotoUrl1 = getChildvalue(dataSnapshot, "ProfileImageUrl");
+                       Log.d("DebugSettings", Naam + FotoUrl1);
+                       Naambox.setText(Naam);
+                       if (FotoUrl1.contentEquals("")) {
+                           Log.d("Debug Settings", "Settings glide bug");
+                       } else {
+                           Glide.with(getContext()).load(FotoUrl1).into(image);
+                       }
 
-               } else {
-                   Log.d("DebugSettings", "NOOOO Child");
+                   } else {
+                       Log.d("DebugSettings", "NOOOO Child");
+                   }
                }
            }
            @Override
