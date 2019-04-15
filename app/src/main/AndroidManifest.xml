@@ -37,7 +37,6 @@
             android:name=".Trash.MainNavigation"
             android:label="@string/title_activity_main_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Trash.CreateAccount3Student" />
         <activity android:name=".CreateAccount.CreateAccountHouse"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".CreateAccount.CreateAccountStudent"
