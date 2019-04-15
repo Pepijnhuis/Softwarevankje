@@ -95,11 +95,6 @@ public class SettingsFragment extends Fragment {
            }
        });
 
-
-
-
-
-
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

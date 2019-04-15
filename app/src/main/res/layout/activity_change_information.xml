@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".ChangeInformation"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient_mainactivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/BasicTextStyle"
+                    style="@style/BasicTextStyleWhite"
                     android:text="@string/first_name" />
 
                 <EditText
@@ -45,19 +46,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorButton"
-                        android:text="@string/male" />
+                        android:text="@string/male"
+                        android:textColor="#ffffff"/>
 
                     <RadioButton
                         android:id="@+id/Female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorButton"
-                        android:text="@string/female" />
+                        android:text="@string/female"
+                        android:textColor="#ffffff"/>
 
                 </RadioGroup>
 
                 <TextView
-                    style="@style/BasicTextStyle"
+                    style="@style/BasicTextStyleWhite"
                     android:text="@string/school" />
 
                 <EditText
@@ -67,7 +70,7 @@
                     android:inputType="text" />
 
                 <TextView
-                    style="@style/BasicTextStyle"
+                    style="@style/BasicTextStyleWhite"
                     android:text="@string/study" />
 
                 <EditText
@@ -88,20 +91,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorButton"
-                        android:text="@string/bachelor" />
+                        android:text="@string/bachelor"
+                        android:textColor="#ffffff"/>
 
                     <RadioButton
                         android:id="@+id/Master"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorButton"
-                        android:text="@string/master" />
+                        android:text="@string/master"
+                        android:textColor="#ffffff"/>
 
                 </RadioGroup>
 
 
                 <TextView
-                    style="@style/BasicTextStyle"
+                    style="@style/BasicTextStyleWhite"
                     android:text="@string/hobbies" />
 
                 <EditText
@@ -123,7 +128,7 @@
                     android:inputType="text" />
 
                 <TextView
-                    style="@style/BasicTextStyle"
+                    style="@style/BasicTextStyleWhite"
                     android:text="@string/about_me" />
 
                 <EditText
