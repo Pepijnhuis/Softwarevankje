@@ -35,8 +35,7 @@ public class CA5HouseFragment extends Fragment {
     private EditText mMinAge;
     private EditText mMaxAge;
     private RadioGroup mRadioButtonMale, mRadioGroupBscMsc, mRadioGroupMaleFemale;
-    private CheckBox mCheckboxMale;
-    private String CheckboxMale;
+
 
     private String RadioGroupBscMsc, RadioGroupMaleFemale, MinAge, MaxAge, userId;
     private FirebaseAuth mAuth;
@@ -51,31 +50,15 @@ public class CA5HouseFragment extends Fragment {
         //Attach to root is false
         final View view = inflater.inflate(R.layout.ca5_house_fragment, container, false);
 
-
+        /*
+        //checkbox male
         mCheckboxMale = (CheckBox) view.findViewById(R.id.MaleYes);
-
-        mMinAge = (EditText) view.findViewById(R.id.MaxAge);
-        mMaxAge = (EditText) view.findViewById(R.id.MinAge);
 
         //next button
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA5House);
 
-        //mButtonNext.setOnClickListener(new View.OnClickListener() {
-        //@Override
-        //public void onClick(View v) {
-        //Edittext to String
-        //Email = mEmail.getText().toString();
-        //Password = mPassword.getText().toString();
-        //listener.onInputCA1StudentSent(Email,Password);
-
-        //next button
-        //if (Email != null && Password !=null){
-        //FragmentTransaction fr = getFragmentManager().beginTransaction();
-        //fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
-        //fr.commit();
-        //}
-        //}
-        //});
+        mMinAge = (EditText) view.findViewById(R.id.MaxAge);
+        mMaxAge = (EditText) view.findViewById(R.id.MinAge);
 
         mCheckboxMale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,13 +75,12 @@ public class CA5HouseFragment extends Fragment {
                     //CheckboxMale = "No";
                 }
             }
+
         });
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 MinAge = mMinAge.getText().toString();
                 MaxAge = mMaxAge.getText().toString();
 
@@ -109,12 +91,13 @@ public class CA5HouseFragment extends Fragment {
                 saveUserInformation();
             }
         });
+        */
 
         return view;
     }
+    /*
 
     public void CheckboxMale ()
-
     {
 
         if (mCheckboxMale.isChecked()) {
@@ -139,4 +122,5 @@ public class CA5HouseFragment extends Fragment {
         mStudentAccountDatabase.updateChildren(userInfo);
 
     }
+    */
 }

@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.tinder.MainNavigation.MainNavigationHouse;
@@ -16,11 +20,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFragment.FragmentCA1HouseListener {
     private CA1HouseFragment ca1HouseFragment;
 
     private FirebaseAuth mAuth;
+
+    private Button mButtonNext;
+    private EditText mMinAge;
+    private EditText mMaxAge;
+
+    private String MinAge, MaxAge, userId;
+    private DatabaseReference mStudentAccountDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +51,32 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFra
         mAuth = FirebaseAuth.getInstance();
 
         ca1HouseFragment = new CA1HouseFragment();
+
+        //next button
+        mButtonNext = (Button) findViewById(R.id.ButtonNextCA5House);
+
+        mMinAge = (EditText) findViewById(R.id.MaxAge);
+        mMaxAge = (EditText) findViewById(R.id.MinAge);
+
+        /*mButtonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MinAge = mMinAge.getText().toString();
+                MaxAge = mMaxAge.getText().toString();
+
+                mAuth = FirebaseAuth.getInstance();
+                userId = mAuth.getCurrentUser().getUid();
+                mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+
+                saveUserInformation();
+
+                //next button
+                if (MinAge !=null && MaxAge != null) {
+                    Intent intent = new Intent(CreateAccountHouse.this, MainNavigationHouse.class);
+                    startActivity(intent);
+                }
+            }
+        });*/
     }
 
     @Override
@@ -57,8 +99,30 @@ public class CreateAccountHouse extends AppCompatActivity implements CA1HouseFra
     }
     //Main navigation button
     public void goToMainNavigation(View view) {
-        Intent intent = new Intent(CreateAccountHouse.this, MainNavigationHouse.class);
-        startActivity(intent);
+            MinAge = mMinAge.getText().toString();
+            MaxAge = mMaxAge.getText().toString();
+
+            mAuth = FirebaseAuth.getInstance();
+            userId = mAuth.getCurrentUser().getUid();
+            mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+
+            saveUserInformation();
+
+            //next button
+            if (MinAge !=null && MaxAge != null) {
+                Intent intent = new Intent(CreateAccountHouse.this, MainNavigationHouse.class);
+                startActivity(intent);
+            }
         return;
+    }
+
+
+    private void saveUserInformation() {
+        Map userInfo = new HashMap();
+        userInfo.put("MinAge", MinAge);
+        userInfo.put("MaxAge", MaxAge);
+
+        mStudentAccountDatabase.updateChildren(userInfo);
+
     }
 }
