@@ -56,6 +56,7 @@ public class SlideFragmentHouse extends Fragment {
         usersDB = FirebaseDatabase.getInstance().getReference().child("Users");
         currentUId = mAuth.getCurrentUser().getUid();
 
+
         getOppositeSexUsers();
 
         mAuth = FirebaseAuth.getInstance();
@@ -182,14 +183,16 @@ public class SlideFragmentHouse extends Fragment {
             }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+        }
+    });
 
-    }
+}
+
+
 
     public static String getChildvalue (DataSnapshot dataSnapshot, String key){
         try{

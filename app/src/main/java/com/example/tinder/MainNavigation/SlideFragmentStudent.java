@@ -40,7 +40,8 @@ public class SlideFragmentStudent extends Fragment {
     private ArrayList<String> al;
     private CardsStudent cards_data[];
     private arrayAdapterHouse arrayAdapter;
-    private String Key, Name, Address, Size, Rent, NumberHouseMates, AboutMe, Picture, Year,Maand,Dag;
+    private String Key, Name, Address, Size, Rent, NumberHouseMates, AboutMe, Picture, Year,Maand,Dag, Maxhousemates, MaxRent;
+    private Integer maxrentint, rentint;
 
 
     ListView listView;
@@ -62,7 +63,7 @@ public class SlideFragmentStudent extends Fragment {
         usersDB = FirebaseDatabase.getInstance().getReference().child("Users");
         currentUId = mAuth.getCurrentUser().getUid();
 
-
+        getPrefrences();
         getOppositeSexUsers();
 
         mAuth = FirebaseAuth.getInstance();
@@ -155,19 +156,30 @@ public class SlideFragmentStudent extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
-                    Key = dataSnapshot.getKey();
-                    Name = getChildvalue(dataSnapshot,"Address");
-                    Address = getChildvalue(dataSnapshot,"Name");
-                    NumberHouseMates = getChildvalue(dataSnapshot,"NumeberHousemates");
-                    Rent = getChildvalue(dataSnapshot,"Rent");
-                    Size = getChildvalue(dataSnapshot,"Size");
-                    AboutMe = getChildvalue(dataSnapshot, "AboutUs");
-                    Picture = getChildvalue(dataSnapshot, "ProfileImageUrl");
-                    Log.d("Debug",Key+Name+Address+AboutMe+Size+Rent+NumberHouseMates+Picture);
-                    CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size,NumberHouseMates, AboutMe, Picture);
+                        Rent = getChildvalue(dataSnapshot,"Rent");
+                        Log.d("Debug FragmentStudent", Rent);
+                        if (Rent.contentEquals("")){
+                            Rent = "0";
+                        }
+                        rentint = Integer.parseInt(Rent);
+                        if(rentint > maxrentint){
+                            Log.d("Debug Fragment Student", "Rent is te hoog");
+                        }
+                        else {
+                            Key = dataSnapshot.getKey();
+                            Name = getChildvalue(dataSnapshot, "Address");
+                            Address = getChildvalue(dataSnapshot, "Name");
+                            NumberHouseMates = getChildvalue(dataSnapshot, "NumeberHousemates");
+                            Rent = getChildvalue(dataSnapshot, "Rent");
+                            Size = getChildvalue(dataSnapshot, "Size");
+                            AboutMe = getChildvalue(dataSnapshot, "AboutUs");
+                            Picture = getChildvalue(dataSnapshot, "ProfileImageUrl");
+                            Log.d("Debug", Key + Name + Address + AboutMe + Size + Rent + NumberHouseMates + Picture);
+                            CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size, NumberHouseMates, AboutMe, Picture);
 
-                    rowItems.add(Item);
-                    arrayAdapter.notifyDataSetChanged();
+                            rowItems.add(Item);
+                            arrayAdapter.notifyDataSetChanged();
+                        }
                 }
             }
             @Override
@@ -185,6 +197,41 @@ public class SlideFragmentStudent extends Fragment {
             }
         });
 
+    }
+
+    public void getPrefrences(){
+        DatabaseReference userdb = FirebaseDatabase.getInstance().getReference().child("Users");
+        userdb.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                currentUId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                if(dataSnapshot.getKey().contentEquals(currentUId)){
+                    MaxRent = getChildvalue(dataSnapshot, "MaxRent");
+                    maxrentint = Integer.parseInt(MaxRent);
+                    Maxhousemates = getChildvalue(dataSnapshot, "MsxHouseMates");
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public static String getChildvalue (DataSnapshot dataSnapshot, String key){
