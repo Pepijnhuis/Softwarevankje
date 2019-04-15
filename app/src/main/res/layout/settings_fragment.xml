@@ -38,6 +38,12 @@
             android:layout_marginBottom="20dp"/>
 
         <Button
+            android:onClick="goToChangePreferences"
+            style="@style/ButtonStyle"
+            android:text="Change preferences"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
             android:id="@+id/logoutuser"
             style="@style/ButtonStyle"
             android:text="log out" />
