@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/logofinder_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".First_acitivity"
+        <activity android:name=".ChangePreferences"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".First_acitivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".ChangeInformation"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainNavigation.SlideFragmentStudent" />
         <activity
             android:name=".MainNavigation.MainNavigationStudent"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -31,22 +31,18 @@
         <activity
             android:name=".Chat.ChatActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CreateAccount.StudentHouseActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".Trash.MainNavigation"
-            android:label="@string/title_activity_main_navigation"
+            android:name=".CreateAccount.StudentHouseActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Trash.CreateAccount3Student" />
-        <activity android:name=".CreateAccount.CreateAccountHouse"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".CreateAccount.CreateAccountStudent"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".CreateAccount.CreateAccountHouse"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateAccount.CreateAccountStudent"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

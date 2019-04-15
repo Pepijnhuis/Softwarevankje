@@ -19,7 +19,6 @@ import com.example.tinder.MainNavigation.MainNavigationStudent;
 import com.example.tinder.Matches.MatchesAdapter;
 import com.example.tinder.Matches.MatchesObject;
 import com.example.tinder.R;
-import com.example.tinder.Trash.MainNavigation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;

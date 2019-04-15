@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.tinder.MainNavigation.MainNavigationHouse;
-import com.example.tinder.Trash.MainNavigation;
 import com.example.tinder.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
