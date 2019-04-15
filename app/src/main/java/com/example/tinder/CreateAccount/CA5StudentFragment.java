@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,23 +54,6 @@ public class CA5StudentFragment extends Fragment {
 
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA5Student);
 
-        //mButtonNext.setOnClickListener(new View.OnClickListener() {
-        //@Override
-        //public void onClick(View v) {
-        //Edittext to String
-        //Email = mEmail.getText().toString();
-        //Password = mPassword.getText().toString();
-        //listener.onInputCA1StudentSent(Email,Password);
-
-        //next button
-        //if (Email != null && Password !=null){
-        //FragmentTransaction fr = getFragmentManager().beginTransaction();
-        //fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
-        //fr.commit();
-        //}
-        //}
-        //});
-
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +70,12 @@ public class CA5StudentFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
                 saveUserInformation();
+
+                //next fragment
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountStudent,new CA6StudentFragment());
+                fr.commit();
+
             }
         });
 

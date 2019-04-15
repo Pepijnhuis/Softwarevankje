@@ -19,14 +19,14 @@
             app:spb_currentStateDescriptionColor="@color/colorPrimary"
             app:spb_currentStateNumber="two"
             app:spb_maxStateNumber="four"
-            app:spb_stateBackgroundColor="@color/colorEditText"
-            app:spb_stateDescriptionColor="@color/colorEditText"
+            app:spb_stateBackgroundColor="@color/colorProgress"
+            app:spb_stateDescriptionColor="@color/colorProgress"
             app:spb_stateForegroundColor="@color/color3"
             app:spb_stateNumberForegroundColor="@color/common_google_signin_btn_text_dark_default"
             app:spb_stateTextSize="@dimen/text_size_progress" />
 
         <TextView
-            style="@style/BasicTextStyle"
+            style="@style/BasicTextStyleWhite"
             android:text="@string/name_house" />
 
         <EditText
@@ -36,7 +36,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            style="@style/BasicTextStyle"
+            style="@style/BasicTextStyleWhite"
             android:text="@string/address" />
 
         <EditText
@@ -52,12 +52,12 @@
             android:orientation="horizontal">
 
             <TextView
-                style="@style/BasicTextStyle"
+                style="@style/BasicTextStyleWhite"
                 android:text="@string/rent_per_month"
                 android:layout_alignParentLeft="true" />
 
             <TextView
-                style="@style/BasicTextStyle"
+                style="@style/BasicTextStyleWhite"
                 android:text="@string/size_room"
                 android:layout_alignParentRight="true" />
 
@@ -87,7 +87,7 @@
         </RelativeLayout>
 
         <TextView
-            style="@style/BasicTextStyle"
+            style="@style/BasicTextStyleWhite"
             android:text="@string/number_of_housemates"
             android:layout_alignParentLeft="true" />
 
@@ -102,7 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
-            android:text="@string/about_us" />
+            android:text="@string/about_us"
+            style="@style/BasicTextStyleWhite"/>
 
         <EditText
             android:id="@+id/AboutMe"

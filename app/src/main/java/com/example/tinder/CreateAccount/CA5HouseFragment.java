@@ -60,23 +60,6 @@ public class CA5HouseFragment extends Fragment {
         //next button
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA5House);
 
-        //mButtonNext.setOnClickListener(new View.OnClickListener() {
-        //@Override
-        //public void onClick(View v) {
-        //Edittext to String
-        //Email = mEmail.getText().toString();
-        //Password = mPassword.getText().toString();
-        //listener.onInputCA1StudentSent(Email,Password);
-
-        //next button
-        //if (Email != null && Password !=null){
-        //FragmentTransaction fr = getFragmentManager().beginTransaction();
-        //fr.replace(R.id.containerCreateAccountStudent,new CA3StudentFragment());
-        //fr.commit();
-        //}
-        //}
-        //});
-
         mCheckboxMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,8 +80,6 @@ public class CA5HouseFragment extends Fragment {
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 MinAge = mMinAge.getText().toString();
                 MaxAge = mMaxAge.getText().toString();
 
@@ -107,6 +88,11 @@ public class CA5HouseFragment extends Fragment {
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
 
                 saveUserInformation();
+
+                //next fragment
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.containerCreateAccountHouse,new CA6HouseFragment());
+                fr.commit();
             }
         });
 

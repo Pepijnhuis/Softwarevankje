@@ -103,7 +103,7 @@ public class CA3StudentFragment extends Fragment {
 
                 saveUserInformation();
 
-                //next button
+                //next fragment
                 if (NameStudent != null && Day !=null && Month != null && Year != null
                 && School != null && Study != null && Hobby1 != null && Hobby2 != null
                 && Hobby3 != null && AboutMe != null){

@@ -29,8 +29,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:layout_marginBottom="100dp">
+        tools:layout_editor_absoluteY="0dp">
 
         <com.lorentzos.flingswipe.SwipeFlingAdapterView
             android:id="@+id/frameSlide"
