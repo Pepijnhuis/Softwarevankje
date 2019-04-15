@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangePreferences"
+    android:background="@drawable/gradient_mainactivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20sp">
+
+        <TextView
+            style="@style/BasicTextStyleWhite"
+            android:text="@string/rent_per_month" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/MinRent"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/min"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/MaxRent"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/max"
+                android:layout_alignParentRight="true"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/BasicTextStyleWhite"
+            android:text="@string/size_room" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/MinSize"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/min"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/MaxSize"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/max"
+                android:layout_alignParentRight="true"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/BasicTextStyleWhite"
+            android:text="@string/number_of_housemates" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/MinHousemates"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/min"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/MaxHousemates"
+                android:layout_width="120sp"
+                style="@style/EditTextStyle"
+                android:hint="@string/max"
+                android:layout_alignParentRight="true"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/ButtonBackChangeInformation"
+            style="@style/ButtonStyle"
+            android:text="@string/back"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/space_between_buttons"
+            android:onClick="goToMainNavigationStudent"
+            />
+
+        <Button
+            android:id="@+id/ButtonSafeInformation"
+            style="@style/ButtonStyle"
+            android:text="@string/save"
+            android:layout_weight="1"
+            android:onClick="goToMainNavigationStudentWithSave"
+            />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
