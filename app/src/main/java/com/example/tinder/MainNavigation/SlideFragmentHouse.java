@@ -132,8 +132,8 @@ public class SlideFragmentHouse extends Fragment {
                     String key = FirebaseDatabase.getInstance().getReference().child("Chat").push().getKey();
 
                     //create chat id
-                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).setValue(key);
-                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).setValue(key);
+                    usersDB.child(dataSnapshot.getKey()).child("connections").child("matches").child(currentUId).child("ChatId").setValue(key);
+                    usersDB.child(currentUId).child("connections").child("matches").child(dataSnapshot.getKey()).child("ChatId").setValue(key);
                 }
             }
 
