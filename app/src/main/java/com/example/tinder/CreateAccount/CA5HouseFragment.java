@@ -35,8 +35,8 @@ public class CA5HouseFragment extends Fragment {
     private EditText mMinAge;
     private EditText mMaxAge;
     private RadioGroup mRadioButtonMale, mRadioGroupBscMsc, mRadioGroupMaleFemale;
-    private CheckBox mCheckboxMale;
-    private String CheckboxMale;
+    private CheckBox mCheckboxMale, mCheckboxFemale,mCheckboxBSC,mCheckboxMSC;
+    private String CheckboxMale, CheckboxFemale,CheckboxBsc, CheckboxMsc;
 
     private String RadioGroupBscMsc, RadioGroupMaleFemale, MinAge, MaxAge, userId;
     private FirebaseAuth mAuth;
@@ -52,7 +52,10 @@ public class CA5HouseFragment extends Fragment {
         final View view = inflater.inflate(R.layout.ca5_house_fragment, container, false);
 
 
-        mCheckboxMale = (CheckBox) view.findViewById(R.id.MaleYes);
+        mCheckboxMale = (CheckBox) view.findViewById(R.id.MaleYes2);
+        mCheckboxFemale = (CheckBox) view.findViewById(R.id.FemaleYes);
+        mCheckboxBSC = (CheckBox) view.findViewById(R.id.BscYes);
+        mCheckboxMSC = (CheckBox) view.findViewById(R.id.MscYes);
 
         mMinAge = (EditText) view.findViewById(R.id.MaxAge);
         mMaxAge = (EditText) view.findViewById(R.id.MinAge);
@@ -60,29 +63,30 @@ public class CA5HouseFragment extends Fragment {
         //next button
         mButtonNext = (Button) view.findViewById(R.id.ButtonNextCA5House);
 
-        mCheckboxMale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                CheckboxMale();
-
-                if (mCheckboxMale.isChecked()) {
-                    Toast.makeText(getActivity(),"Male", Toast.LENGTH_SHORT);
-                    //CheckboxMale = "Yes";
-                    //mCheckboxMale.getText().toString();
-                }
-                else {
-                    //CheckboxMale = "No";
-                }
-            }
-        });
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MinAge = mMinAge.getText().toString();
                 MaxAge = mMaxAge.getText().toString();
+                if(mCheckboxFemale.isChecked()){
+                    CheckboxFemale = "Female";
+                    Log.d("Debug", "Female Checked");
+                }
+                if(mCheckboxMale.isChecked()){
+                    CheckboxMale = "Male";
+                    Log.d("Debug", "Male Checked");
+                }
 
+                if(mCheckboxBSC.isChecked()){
+                    CheckboxBsc = "Bsc";
+                    Log.d("Debug", "Bsc Checked");
+                }
+
+                if(mCheckboxMSC.isChecked()){
+                    CheckboxMsc = "Msc";
+                    Log.d("Debug", "Msc Checked");
+                }
                 mAuth = FirebaseAuth.getInstance();
                 userId = mAuth.getCurrentUser().getUid();
                 mStudentAccountDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
@@ -99,29 +103,16 @@ public class CA5HouseFragment extends Fragment {
         return view;
     }
 
-    public void CheckboxMale ()
-
-    {
-
-        if (mCheckboxMale.isChecked()) {
-            Toast.makeText(getActivity(), "Male", Toast.LENGTH_SHORT);
-            //CheckboxMale = "Yes";
-            //mCheckboxMale.getText().toString();
-        } else {
-            //CheckboxMale = "No";
-        }
-
-    }
 
     private void saveUserInformation() {
         Map userInfo = new HashMap();
         userInfo.put("MinAge", MinAge);
         userInfo.put("MaxAge", MaxAge);
         userInfo.put("MaleYes", CheckboxMale);
+        userInfo.put("FemaleYes", CheckboxFemale);
+        userInfo.put("BscYes", CheckboxBsc);
+        userInfo.put("MscYes", CheckboxMsc);
         //Log.d("Debug", CheckboxMale);
-
-
-
         mStudentAccountDatabase.updateChildren(userInfo);
 
     }
