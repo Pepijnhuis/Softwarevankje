@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.tinder.ChangeInformation;
 import com.example.tinder.Chat.ChatActivity;
 import com.example.tinder.Matches.MessagesFragment;
 import com.example.tinder.R;

@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.tinder.ChangeInformation;
+import com.example.tinder.ChangePreferences;
+import com.example.tinder.Changepicture;
 import com.example.tinder.Chat.ChatActivity;
 import com.example.tinder.Matches.MessagesFragment;
 import com.example.tinder.R;
@@ -118,6 +120,12 @@ public class MainNavigationStudent extends AppCompatActivity {
 
     public void goToChangeInformation(View view) {
         Intent intent = new Intent(MainNavigationStudent.this, ChangeInformation.class);
+        startActivity(intent);
+        return;
+    }
+
+    public void goToChangePreferences(View view) {
+        Intent intent = new Intent(MainNavigationStudent.this, ChangePreferences.class);
         startActivity(intent);
         return;
     }

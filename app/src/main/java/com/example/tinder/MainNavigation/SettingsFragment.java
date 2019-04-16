@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.tinder.Changepicture;
 import com.example.tinder.LoginActivity;
 import com.example.tinder.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,6 +46,7 @@ public class SettingsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         Button mbutton = (Button) view.findViewById(R.id.logoutuser);
+        ImageView image = (ImageView) view.findViewById(R.id.Profielfotoacount);
 
         UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Log.d("Debug Settings hoi", UID);
@@ -107,6 +109,8 @@ public class SettingsFragment extends Fragment {
         });
         return view;
     }
+
+
 
     public static String getChildvalue (DataSnapshot dataSnapshot, String key){
         try{
