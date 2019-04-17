@@ -11,11 +11,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.tinder.ChangeInformation;
+import com.example.tinder.ChangePreferences;
 import com.example.tinder.Chat.ChatActivity;
 import com.example.tinder.Matches.MessagesFragment;
 import com.example.tinder.R;
@@ -117,5 +119,12 @@ public class MainNavigationHouse extends AppCompatActivity {
         Intent intent = new Intent(MainNavigationHouse.this, ChatActivity.class);
         startActivity(intent);
         return;
+    }
+    public void goToChangeInformation(View view) {
+        Log.d("Debug", "Bug");
+    }
+
+    public void goToChangePreferences(View view) {
+        Log.d("Debug", "Bug");
     }
 }
