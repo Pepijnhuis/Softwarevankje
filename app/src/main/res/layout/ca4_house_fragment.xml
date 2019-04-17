@@ -57,7 +57,7 @@
             style="@style/ButtonStyle"
             android:text="@string/next"
             android:layout_weight="1"
-            android:layout_marginLeft="200dp"/>
+            android:layout_marginLeft="200dp" android:layout_width="match_parent"/>
     </LinearLayout>
 
 

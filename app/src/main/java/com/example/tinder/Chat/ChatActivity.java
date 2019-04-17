@@ -64,10 +64,7 @@ public class ChatActivity extends AppCompatActivity {
         currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Log.d("Debug, Current User", currentUserId+"  "+ matchId);
 
-
-        //probleem inloggen vanwege house/student in verschillend sub mappen in database??
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserId).child("connections").child("matches").child(matchId).child("ChatId");
-
         mDatabaseChat = FirebaseDatabase.getInstance().getReference().child("Chat");
 
         getChatId();
