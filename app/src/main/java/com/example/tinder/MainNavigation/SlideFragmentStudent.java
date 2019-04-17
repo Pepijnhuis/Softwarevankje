@@ -155,32 +155,44 @@ public class SlideFragmentStudent extends Fragment {
         oppositeSexDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+               /*
                 if (dataSnapshot.exists() && !dataSnapshot.child("connections").child("nope").hasChild(currentUId) && !dataSnapshot.child("connections").child("yeps").hasChild(currentUId) && dataSnapshot.child("Register").getValue().toString().equals(oppositeUserSex)){
                         Rent = getChildvalue(dataSnapshot,"Rent");
                         Log.d("Debug FragmentStudent", Rent);
                         if (Rent.contentEquals("")){
                             Rent = "0";
-                        }
-                        rentint = Integer.parseInt(Rent);
+                        }rentint = Integer.parseInt(Rent);
                         if(rentint > maxrentint){
                             Log.d("Debug Fragment Student", "Rent is te hoog");
                         }
-                        else {
-                            Key = dataSnapshot.getKey();
-                            Name = getChildvalue(dataSnapshot, "Address");
-                            Address = getChildvalue(dataSnapshot, "Name");
-                            NumberHouseMates = getChildvalue(dataSnapshot, "NumeberHousemates");
-                            Rent = getChildvalue(dataSnapshot, "Rent");
-                            Size = getChildvalue(dataSnapshot, "Size");
-                            AboutMe = getChildvalue(dataSnapshot, "AboutUs");
-                            Picture = getChildvalue(dataSnapshot, "ProfileImageUrl");
-                            Log.d("Debug", Key + Name + Address + AboutMe + Size + Rent + NumberHouseMates + Picture);
-                            CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size, NumberHouseMates, AboutMe, Picture);
+                        else{
+                        Key = dataSnapshot.getKey();
+                        Name = getChildvalue(dataSnapshot, "Address");
+                        Address = getChildvalue(dataSnapshot, "Name");
+                        NumberHouseMates = getChildvalue(dataSnapshot, "NumeberHousemates");
+                        Rent = getChildvalue(dataSnapshot, "Rent");
+                        Size = getChildvalue(dataSnapshot, "Size");
+                        AboutMe = getChildvalue(dataSnapshot, "AboutUs");
+                        Picture = getChildvalue(dataSnapshot, "ProfileImageUrl");
+                        Log.d("Debug", Key + Name + Address + AboutMe + Size + Rent + NumberHouseMates + Picture);
+                        CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size, NumberHouseMates, AboutMe, Picture);
 
-                            rowItems.add(Item);
-                            arrayAdapter.notifyDataSetChanged();
-                        }
-                }
+                        rowItems.add(Item);
+                        arrayAdapter.notifyDataSetChanged();
+                } */
+                    Key = dataSnapshot.getKey();
+                    Name = getChildvalue(dataSnapshot, "Address");
+                    Address = getChildvalue(dataSnapshot, "Name");
+                    NumberHouseMates = getChildvalue(dataSnapshot, "NumeberHousemates");
+                    Rent = getChildvalue(dataSnapshot, "Rent");
+                    Size = getChildvalue(dataSnapshot, "Size");
+                    AboutMe = getChildvalue(dataSnapshot, "AboutUs");
+                    Picture = getChildvalue(dataSnapshot, "ProfileImageUrl");
+                    Log.d("Debug", Key + Name + Address + AboutMe + Size + Rent + NumberHouseMates + Picture);
+                    CardsHouse Item = new CardsHouse(Key, Name, Address, Rent, Size, NumberHouseMates, AboutMe, Picture);
+
+                    rowItems.add(Item);
+                    arrayAdapter.notifyDataSetChanged();
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
